@@ -1,0 +1,22 @@
+{
+  "name": "contentually",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Contentually",
+  "author": "Pao Perez",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "gatsby": "^3.1.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
