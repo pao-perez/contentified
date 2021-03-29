@@ -12,11 +12,16 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "firebase-serve": "firebase serve --host ${HOST:-localhost} --project $npm_config_deployment --debug",
+    "clean": "gatsby clean",
+    "deploy": "firebase deploy --project $npm_config_deployment"
   },
   "dependencies": {
     "gatsby": "^3.1.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "firebase-tools": "^9.8.0"
   }
 }
