@@ -1,11 +1,26 @@
-import * as React from "react";
+import React from "react"
 
-const IndexPage = () => <div>Home Page</div>;
+import "./index.scss"
 
-export default IndexPage;
+const IndexPage = () => {
+    return (
+        <div className="container">
+            <div className="columns">
+                <div className="column">
+                    <h2 className="title is-2">Level 2 heading</h2>
+                    <p className="content">Cool content. Using Bulma!</p>
+                </div>
+                <div className="column is-four-fifths">
+                    <h2 className="title is-2">Level 2 heading</h2>
+                    <p className="content">This column is cool too!</p>
+                </div>
+            </div>
+        </div>
+    )
+}
+export default IndexPage
+
 /**
- * 1. Decide on Design
- * 2. Boxify
  * 3. Write all mark up (No styling / logic) in index page
  * 4. Break down Markup
  * 5. Add styling

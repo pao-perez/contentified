@@ -2,5 +2,5 @@ module.exports = {
   siteMetadata: {
     title: "Contentually",
   },
-  plugins: [],
+  plugins: [`gatsby-plugin-sass`],
 };
