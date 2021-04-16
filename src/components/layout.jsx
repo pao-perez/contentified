@@ -31,37 +31,7 @@ const Layout = ({ children }) => (
       </form>
     </header>
 
-    <main>{children}</main>
-
-    <aside aria-label="Sidebar">
-      <section>
-        <h2>Share</h2>
-        <ul>
-          <li>
-            <a href="#">Facebook</a>
-          </li>
-          <li>
-            <a href="#">Twitter</a>
-          </li>
-          <li>
-            <a href="#">Email</a>
-          </li>
-        </ul>
-      </section>
-      <section>
-        <h2>Subscribe</h2>
-        <article>
-          <h3>Get notified every new related content lorem ipsum</h3>
-          <form aria-label="subscribe to newsletter">
-            <label>
-              <span>Subscribe</span>
-              <input type="email" />
-            </label>
-            <button type="submit">Submit</button>
-          </form>
-        </article>
-      </section>
-    </aside>
+    <div>{children}</div>
 
     <footer>
       <ul>
