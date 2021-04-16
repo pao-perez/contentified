@@ -26,8 +26,7 @@
             "error",
             {
                 "endOfLine": "lf",
-                "tabWidth": 2,
-                "semi": false
+                "tabWidth": 2
             }
         ]
     }
