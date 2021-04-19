@@ -1,6 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: "Contentually",
+    title: `Contentually`,
   },
-  plugins: [`gatsby-plugin-sass`],
+  plugins: [
+    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/content/`,
+      },
+    },
+    `gatsby-transformer-remark`,
+  ],
 };

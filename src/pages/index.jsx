@@ -1,46 +1,60 @@
 import React from "react";
 
-import "./index.scss";
+import { graphql, Link } from "gatsby";
+
+import Follow from "../components/follow";
 import Layout from "../components/layout";
-import Share from "../components/share";
 import Subscribe from "../components/subscribe";
 
-const IndexPage = ({ children }) => (
+const IndexPage = ({ data }) => (
   <Layout>
+    <aside aria-label="Follow on Social Media">
+      <Follow />
+    </aside>
+
     <main>
       <article>
         <ul>
-          <li>
-            <article>
-              <h1>
-                <a href="#">Main article heading</a>
-              </h1>
-              <p>Article description</p>
-            </article>
-          </li>
-          <li>
-            <article>
-              <h2>
-                <a href="#">Article secondary heading</a>
-              </h2>
-              <p>Article description</p>
-            </article>
-          </li>
+          {data.allMarkdownRemark.edges.map(({ node }) => (
+            <li>
+              <Link to={node.fields.slug}>
+                <article>
+                  <h1>
+                    {node.frontmatter.title} — {node.frontmatter.date}
+                  </h1>
+                  <p>{node.excerpt}</p>
+                </article>
+              </Link>
+            </li>
+          ))}
         </ul>
       </article>
     </main>
 
-    <aside aria-label="Sidebar">
-      <Share />
+    <aside aria-label="Subscribe to Newsletter">
       <Subscribe />
     </aside>
   </Layout>
 );
 export default IndexPage;
 
-/**
- * 3. Write all mark up (No styling / logic) in index page
- * 4. Break down Markup
- * 5. Add styling
- * 6. Add logic
- */
+export const query = graphql`
+  query {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "DD MMMM, YYYY")
+          }
+          fields {
+            slug
+          }
+          excerpt
+        }
+      }
+    }
+  }
+`;

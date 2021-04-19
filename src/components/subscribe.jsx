@@ -2,7 +2,7 @@ import React from "react";
 
 const Subscribe = () => (
   <section>
-    <h2>Subscribe</h2>
+    <h2>Email NewsLetter</h2>
     <article>
       <h3>Get notified every new related content lorem ipsum</h3>
       <form aria-label="subscribe to newsletter">
