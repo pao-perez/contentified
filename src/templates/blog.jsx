@@ -5,6 +5,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Share from "../components/share";
 import Subscribe from "../components/subscribe";
+import SEO from "../components/seo";
 
 const Blog = ({ data }) => {
   const post = data.markdownRemark;
@@ -17,6 +18,7 @@ const Blog = ({ data }) => {
 
       <main>
         <article>
+          <SEO title={post.frontmatter.title} description={post.excerpt} />
           <h1>{post.frontmatter.title}</h1>
           <p>Article description</p>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -38,6 +40,7 @@ export const query = graphql`
       frontmatter {
         title
       }
+      excerpt
     }
   }
 `;

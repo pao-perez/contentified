@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
     <div className="container">
       <header>
         <a href="/" title="Go to home page">
-          <img src="../images/logo.png" alt="Site logo" />
+          <img src="../images/icon.png" alt="Site logo" />
         </a>
         <nav aria-label="Primary">
           <ul>
