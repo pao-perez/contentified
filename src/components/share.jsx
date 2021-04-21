@@ -1,19 +1,26 @@
-import React from "react";
+import React from 'react';
 
-const Share = () => (
+import Social from './social';
+import socialType from '../types/socialType';
+
+const Share = ({ social }) => (
   <section>
     <h2>Share</h2>
     <ul>
-      <li>
-        <a href="#">Facebook</a>
-      </li>
-      <li>
-        <a href="#">Twitter</a>
-      </li>
-      <li>
-        <a href="#">Email</a>
-      </li>
+      {social.map((entry) => (
+        <Social
+          key={entry.name}
+          title={`Share ${entry.name}`}
+          url={entry.share}
+          classNames={entry.icon}
+        />
+      ))}
     </ul>
   </section>
 );
+
+Share.propTypes = {
+  social: socialType.isRequired,
+};
+
 export default Share;

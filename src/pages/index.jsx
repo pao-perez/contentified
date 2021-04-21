@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import { graphql, Link } from "gatsby";
+import { graphql, Link } from 'gatsby';
 
-import Follow from "../components/follow";
-import Layout from "../components/layout";
-import Subscribe from "../components/subscribe";
+import Follow from '../components/follow';
+import Layout from '../components/layout';
+import EmailNewsletter from '../components/email-newsletter';
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -32,11 +32,10 @@ const IndexPage = ({ data }) => (
     </main>
 
     <aside aria-label="Subscribe to Newsletter">
-      <Subscribe />
+      <EmailNewsletter />
     </aside>
   </Layout>
 );
-export default IndexPage;
 
 export const query = graphql`
   query {
@@ -58,3 +57,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default IndexPage;

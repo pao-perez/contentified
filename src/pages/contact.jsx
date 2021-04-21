@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import Layout from "../components/layout";
+import Layout from '../components/layout';
 
-const Contact = ({ data }) => (
+const ContactPage = ({ data }) => (
   <Layout>
     <article>
       <h1>I'd love to talk! Email me at the address below</h1>
@@ -12,4 +12,5 @@ const Contact = ({ data }) => (
     </article>
   </Layout>
 );
-export default Contact;
+
+export default ContactPage;

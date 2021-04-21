@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-const Subscribe = () => (
+const EmailNewsletter = () => (
   <section>
     <h2>Email NewsLetter</h2>
     <article>
       <h3>Get notified every new related content lorem ipsum</h3>
-      <form aria-label="subscribe to newsletter">
+      <form aria-label="Subscribe to Newsletter">
         <label>
           <span>Subscribe</span>
           <input type="email" />
@@ -15,4 +15,5 @@ const Subscribe = () => (
     </article>
   </section>
 );
-export default Subscribe;
+
+export default EmailNewsletter;

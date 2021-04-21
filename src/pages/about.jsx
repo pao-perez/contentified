@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import { graphql } from "gatsby";
+import { graphql } from 'gatsby';
 
-import Layout from "../components/layout";
+import Layout from '../components/layout';
 
-const About = ({ data }) => (
+const AboutPage = ({ data }) => (
   <Layout>
     <article>
       <h1>About {data.site.siteMetadata.title}</h1>
@@ -13,22 +13,25 @@ const About = ({ data }) => (
         best photos and videos of pandas eating lots of food.
       </p>
       <h2>About the author</h2>
-      {data.site.siteMetadata.author} Lorem ipsum dolor Lorem ipsum dolor Lorem
-      ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem
-      ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem
-      ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
+      {data.site.siteMetadata.author.name} Lorem ipsum dolor Lorem ipsum
+      dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum
+      dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum
+      dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
     </article>
   </Layout>
 );
-export default About;
 
 export const query = graphql`
   query {
     site {
       siteMetadata {
         title
-        author
+        author {
+          name
+        }
       }
     }
   }
 `;
+
+export default AboutPage;

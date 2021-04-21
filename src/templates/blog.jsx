@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import { graphql } from "gatsby";
+import { graphql } from 'gatsby';
 
-import Layout from "../components/layout";
-import Share from "../components/share";
-import Subscribe from "../components/subscribe";
-import SEO from "../components/seo";
+import Layout from '../components/layout';
+import Share from '../components/share';
+import EmailNewsletter from '../components/email-newsletter';
+import SEO from '../components/seo';
 
 const Blog = ({ data }) => {
   const post = data.markdownRemark;
@@ -26,12 +26,11 @@ const Blog = ({ data }) => {
       </main>
 
       <aside aria-label="Subscribe to Newsletter">
-        <Subscribe />
+        <EmailNewsletter />
       </aside>
     </Layout>
   );
 };
-export default Blog;
 
 export const query = graphql`
   query($slug: String!) {
@@ -44,3 +43,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default Blog;

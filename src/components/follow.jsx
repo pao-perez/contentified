@@ -1,19 +1,26 @@
-import React from "react";
+import React from 'react';
 
-const Follow = () => (
+import Social from './social';
+import socialType from '../types/socialType';
+
+const Follow = ({ social }) => (
   <section>
     <h2>Follow</h2>
     <ul>
-      <li>
-        <a href="#">Facebook</a>
-      </li>
-      <li>
-        <a href="#">Twitter</a>
-      </li>
-      <li>
-        <a href="#">Email</a>
-      </li>
+      {social.map((entry) => (
+        <Social
+          key={entry.name}
+          title={`Follow me on ${entry.name}`}
+          url={entry.folow}
+          classNames={entry.icon}
+        />
+      ))}
     </ul>
   </section>
 );
+
+Follow.propTypes = {
+  social: socialType.isRequired,
+};
+
 export default Follow;

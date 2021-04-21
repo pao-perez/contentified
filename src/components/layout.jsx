@@ -1,8 +1,8 @@
-import * as React from "react";
+import React from 'react';
 
-import { graphql, Link, useStaticQuery } from "gatsby";
+import { graphql, Link, useStaticQuery } from 'gatsby';
 
-import "./layout.scss";
+import './layout.scss';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(
@@ -11,21 +11,31 @@ const Layout = ({ children }) => {
         site {
           siteMetadata {
             title
+            description
+            author {
+              social {
+                name
+                follow
+                share
+                icon
+              }
+            }
           }
         }
       }
     `
   );
 
-  console.log(data.site.siteMetadata.title);
+  const { title, description, author } = data.site.siteMetadata;
+  const { social } = author.social;
 
   return (
     <div className="container">
       <header>
         <a href="/" title="Go to home page">
-          <img src="../images/icon.png" alt="Site logo" />
+          <img src="../images/icon.png" alt="Site Logo" />
         </a>
-        <nav aria-label="Primary">
+        <nav>
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -36,12 +46,9 @@ const Layout = ({ children }) => {
             <li>
               <Link to="/contact">Contact</Link>
             </li>
-            <li>
-              <a href="#">Primary nav</a>
-            </li>
           </ul>
         </nav>
-        <form role="search" aria-label="site">
+        <form role="search" aria-label="Site">
           <label>
             <span>Search</span>
             <input type="search" />
@@ -74,4 +81,5 @@ const Layout = ({ children }) => {
     </div>
   );
 };
+
 export default Layout;
