@@ -4,19 +4,19 @@ import Social from './social';
 import socialType from '../types/socialType';
 
 const Follow = ({ social }) => (
-  <section>
+  <article>
     <h2>Follow</h2>
     <ul>
       {social.map((entry) => (
         <Social
           key={entry.name}
           title={`Follow me on ${entry.name}`}
-          url={entry.folow}
+          url={entry.follow}
           classNames={entry.icon}
         />
       ))}
     </ul>
-  </section>
+  </article>
 );
 
 Follow.propTypes = {

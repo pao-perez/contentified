@@ -2,32 +2,39 @@ import React from 'react';
 
 import { graphql } from 'gatsby';
 
+import Follow from '../components/follow';
 import Layout from '../components/layout';
 
-const AboutPage = ({ data }) => (
-  <Layout>
-    <article>
-      <h1>About {data.site.siteMetadata.title}</h1>
-      <p>
-        We're the only site running on your computer dedicated to showing the
-        best photos and videos of pandas eating lots of food.
-      </p>
-      <h2>About the author</h2>
-      {data.site.siteMetadata.author.name} Lorem ipsum dolor Lorem ipsum
-      dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum
-      dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum
-      dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
-    </article>
-  </Layout>
-);
-
+const AboutPage = ({ data }) => {
+  const { title, description, author } = data.site.siteMetadata;
+  return (
+    <Layout>
+      <article>
+        <h1>About {title}</h1>
+        <p>{description}</p>
+        <image />
+        <h2>About the author</h2>
+        <p>{author.name}{author.bio}</p>
+        <Follow social={author.social} />
+      </article>
+    </Layout>
+  );
+};
 export const query = graphql`
   query {
     site {
       siteMetadata {
         title
+        description
         author {
           name
+          bio
+          social {
+            name
+            follow
+            share
+            icon
+          }
         }
       }
     }

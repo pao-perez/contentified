@@ -4,7 +4,8 @@ module.exports = {
     description: `Developer Tutorials`,
     author: {
       name: `Pao Perez`,
-      bio: `Fullstack Developer`,
+      bio: `Helping make the world a better place through crafting software while trying to make the most of this life. I spend most of my days learning and playing with these interests - Java, JavaScript, Linux, Google Cloud`,
+      email: `paoperez@contentually.dev`,
       social: [
         {
           name: `twitter`,

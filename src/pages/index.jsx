@@ -9,7 +9,7 @@ import EmailNewsletter from '../components/email-newsletter';
 const IndexPage = ({ data }) => (
   <Layout>
     <aside aria-label="Follow on Social Media">
-      <Follow />
+      <Follow social={data.site.siteMetadata.author.social} />
     </aside>
 
     <main>
@@ -52,6 +52,18 @@ export const query = graphql`
             slug
           }
           excerpt
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        author {
+          social {
+            name
+            follow
+            share
+            icon
+          }
         }
       }
     }
