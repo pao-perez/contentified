@@ -17,7 +17,6 @@
     "deploy": "firebase deploy --project $npm_config_deployment"
   },
   "dependencies": {
-    "bulma": "^0.9.2",
     "gatsby": "^3.1.2",
     "gatsby-plugin-manifest": "^3.3.0",
     "gatsby-plugin-offline": "^4.3.0",
