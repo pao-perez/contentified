@@ -16,13 +16,47 @@ $grey-dark: $brown;
 $grey-light: $beige-light;
 $primary: $purple;
 $link: $pink;
-$widescreen-enabled: false;
-$fullhd-enabled: false;
 
 // Update some of Bulma's component variables
-$body-background-color: $beige-lighter;
 $control-border-width: 2px;
+$input-background-color: $beige-lighter;
 $input-border-color: transparent;
 $input-shadow: none;
 
-@import "~bulma/bulma.sass";
+.container > * {
+            margin:10px;
+            padding:20px; 
+            background-color:lightgray;
+            border-radius: 10px;
+        }
+        
+
+.container {
+    display: flex;
+    flex-flow: column wrap;
+    min-height: 100vh;
+}
+
+.container > * {
+    flex: 1 1;
+}
+
+.container header,
+.container footer,
+.container main {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.container header {
+    justify-content: space-between;
+}
+
+.container footer {
+    justify-content: center;
+}
+
+.container main {
+    justify-content: space-around;
+}

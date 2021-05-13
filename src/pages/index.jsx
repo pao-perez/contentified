@@ -12,24 +12,22 @@ const IndexPage = ({ data }) => (
       <Follow social={data.site.siteMetadata.author.social} />
     </aside>
 
-    <main>
-      <article>
-        <ul>
-          {data.allMarkdownRemark.edges.map(({ node }) => (
-            <li>
-              <Link to={node.fields.slug}>
-                <article>
-                  <h1>
-                    {node.frontmatter.title} — {node.frontmatter.date}
-                  </h1>
-                  <p>{node.excerpt}</p>
-                </article>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </article>
-    </main>
+    <article>
+      <ul>
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <li>
+            <Link to={node.fields.slug}>
+              <article>
+                <h1>
+                  {node.frontmatter.title} — {node.frontmatter.date}
+                </h1>
+                <p>{node.excerpt}</p>
+              </article>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </article>
 
     <aside aria-label="Subscribe to Newsletter">
       <EmailNewsletter />

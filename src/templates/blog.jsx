@@ -29,15 +29,13 @@ const Blog = ({ data }) => {
         </section>
       </aside>
 
-      <main>
-        <article>
-          <SEO title={post.frontmatter.title} description={post.excerpt} />
-          <h1>{post.frontmatter.title}</h1>
-          <h2>{post.frontmatter.date}</h2>
-          <h2>by {author.name}</h2>
-          <p>whole blog here</p>
-        </article>
-      </main>
+      <article>
+        <SEO title={post.frontmatter.title} description={post.excerpt} />
+        <h1>{post.frontmatter.title}</h1>
+        <h2>{post.frontmatter.date}</h2>
+        <h2>by {author.name}</h2>
+        <p>whole blog here</p>
+      </article>
 
       <aside aria-label="Subscribe to Newsletter">
         <EmailNewsletter />

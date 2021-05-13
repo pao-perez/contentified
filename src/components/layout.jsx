@@ -23,7 +23,7 @@ const Layout = ({ children }) => (
           </li>
         </ul>
       </nav>
-      <form role="search" aria-label="Site">
+      <form role="search" aria-label="Search Site">
         <label>
           <span>Search</span>
           <input type="search" />
@@ -32,7 +32,7 @@ const Layout = ({ children }) => (
       </form>
     </header>
 
-    <div>{children}</div>
+    <main>{children}</main>
 
     <footer>
       <ul>
@@ -55,5 +55,4 @@ const Layout = ({ children }) => (
     </footer>
   </div>
 );
-
 export default Layout;
