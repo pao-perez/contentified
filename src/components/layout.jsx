@@ -10,7 +10,7 @@ const Layout = ({ children }) => (
       <a href="/" title="Go to home page">
         <img src="../images/icon.png" alt="Site Logo" />
       </a>
-      <nav>
+      <nav aria-label="Site Navigation">
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -35,23 +35,25 @@ const Layout = ({ children }) => (
     <main>{children}</main>
 
     <footer>
-      <ul>
-        <li>
-          <a href="#">Footer link</a>
-        </li>
-        <li>
-          <a href="#">Footer link</a>
-        </li>
-        <li>
-          <a href="#">Footer link</a>
-        </li>
-        <li>
-          <a href="#">Footer link</a>
-        </li>
-        <li>
-          <a href="#">Footer link</a>
-        </li>
-      </ul>
+      <nav aria-label="Other Site Information">
+        <ul>
+          <li>
+            <a href="https://www.google.com/">Footer link</a>
+          </li>
+          <li>
+            <a href="https://www.google.com/">Footer link</a>
+          </li>
+          <li>
+            <a href="https://www.google.com/">Footer link</a>
+          </li>
+          <li>
+            <a href="https://www.google.com/">Footer link</a>
+          </li>
+          <li>
+            <a href="https://www.google.com/">Footer link</a>
+          </li>
+        </ul>
+      </nav>
     </footer>
   </div>
 );
