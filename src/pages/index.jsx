@@ -6,6 +6,8 @@ import Follow from '../components/follow';
 import Layout from '../components/layout';
 import EmailNewsletter from '../components/email-newsletter';
 
+import './index.scss';
+
 const IndexPage = ({ data }) => (
   <Layout>
     <aside aria-label="Follow on Social Media">

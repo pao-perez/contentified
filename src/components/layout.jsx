@@ -7,10 +7,10 @@ import './layout.scss';
 const Layout = ({ children }) => (
   <div className="container">
     <header>
-      <a href="/" title="Go to home page">
+      <a className="logo" href="/" title="Go to home page">
         <img src="../images/icon.png" alt="Site Logo" />
       </a>
-      <nav aria-label="Site Navigation">
+      <nav className="nav" aria-label="Site Navigation">
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -23,7 +23,7 @@ const Layout = ({ children }) => (
           </li>
         </ul>
       </nav>
-      <form role="search" aria-label="Search Site">
+      <form className="search" role="search" aria-label="Search Site">
         <label>
           <span>Search</span>
           <input type="search" />
