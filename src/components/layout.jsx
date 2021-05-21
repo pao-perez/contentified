@@ -24,11 +24,8 @@ const Layout = ({ children }) => (
         </ul>
       </nav>
       <form className="search" role="search" aria-label="Search Site">
-        <label>
-          <span>Search</span>
-          <input type="search" />
-        </label>
-        <button type="submit">Submit</button>
+        <input type="search" />
+        <button type="submit">Search</button>
       </form>
     </header>
 
