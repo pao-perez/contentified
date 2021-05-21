@@ -1,7 +1,12 @@
 main {
     display: grid;
-    gap: 1em;
+    gap: 1rem;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: auto;
+    align-items: center;
+    justify-items: center;
 }
 
+article > ul {
+    list-style: none;
+}
