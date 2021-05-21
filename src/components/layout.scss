@@ -30,25 +30,11 @@ $input-shadow: none;
 header {
     grid-area: header;
     display: grid;
+    gap: 1rem;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: auto;
     align-items: center;
-    justify-items: center;
-    // grid-template-areas:
-    // "logo nav search";
 }
-
-// header > a {
-//     grid-area: logo;
-// }
-
-// header > nav {
-//     grid-area: nav;
-// }
-
-// header > form {
-//     grid-area: search;
-// }
 
 footer {
     grid-area: footer;
@@ -62,7 +48,7 @@ main {
     width: 100%;
     height: 100vh;
     display: grid;
-    gap: 1em;
+    gap: 1rem;
     grid-template-rows: 1fr 2fr 1fr;
     grid-template-columns: auto;
     grid-template-areas:
@@ -76,11 +62,15 @@ main {
 header > nav > ul,
 footer > nav > ul {
     list-style: none;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
     margin: 0px;
     padding: 0px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+footer > nav > ul> li {
+    margin: 1rem;
 }
 
 header > nav > ul > li > a,
