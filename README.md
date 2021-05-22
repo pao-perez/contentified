@@ -38,5 +38,5 @@ npm run deploy --deployment={ENV}
 ```
 Your site is now running at [https://{ENV}-contentually.web.app](https://{ENV}-contentually.web.app)
 
-**Built Using Gatsby Minimal Starter**
+### Built with Gatsby
 - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)

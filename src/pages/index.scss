@@ -1,0 +1,19 @@
+main {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-items: center;
+}
+
+@media only screen and (max-width: 600px)  {
+    main {
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+    }
+}
+
+article > ul {
+    list-style: none;
+}
