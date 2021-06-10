@@ -1,29 +1,24 @@
 @charset "utf-8";
 @use '../styles/base';
 
-* {
-    // border: 1px solid blue;
+.debug * {
+    border: 1px solid blue;
 }
 
-body {
-    font-family: base.$primary-font-family;
-}
-
-header {
-    grid-area: header;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: auto;
+.center {
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-footer {
-    grid-area: footer;
+body {
+    margin: 0px;
+    font-family: base.$primary-font-family;
+    background-color: base.$background-color;
 }
 
-main {
-    grid-area: main;
+body * {    
+    padding: 0px;
 }
 
 .container {
@@ -31,31 +26,52 @@ main {
     height: 100vh;
     display: grid;
     gap: 1rem;
-    grid-template-rows: 1fr 2fr 1fr;
-    grid-template-columns: auto;
+    grid-template-rows: 1fr 5fr 1fr;
     grid-template-areas:
     "header"
     "main"
     "footer";
-    align-items: center;
-    justify-items: center;
+}
+
+header {
+    grid-area: header;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+main {
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
 }
 
 @media (max-width: 768px)  {
     header {
-        grid-template-rows: repeat(3, 1fr);
         grid-template-columns: auto;
     }
+}
+
+header, footer {
+    background-color: base.$primary-color;
 }
 
 header > nav > ul,
 footer > nav > ul {
     list-style: none;
-    margin: 0px;
-    padding: 0px;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row;
+}
+
+footer > nav > ul {
     justify-content: space-evenly;
+}
+
+header > nav > ul > li {
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 footer > nav > ul> li {
