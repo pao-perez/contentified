@@ -11,9 +11,9 @@ const Layout = ({ children }) => (
     <Font />
     <div className="container">
       <header>
-        <a className="logo center" href="/" title="Go to home page">
-          <img src="../images/icon.png" alt="Site Logo" />
-        </a>
+        <div className="logo center">
+          <p>Contentually</p>
+        </div>
         <nav className="primary-nav center" aria-label="Site Navigation">
           <ul>
             <li>
