@@ -56,29 +56,33 @@ footer {
 
 header, footer {
     background-color: base.$primary-color;
-}
+    color: base.$primary-font-color;
 
-header > nav > ul,
-footer > nav > ul {
-    list-style: none;
-    display: flex;
-    flex-flow: row;
+    nav > ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+
+        li > a {
+            text-decoration: none;
+            color: base.$primary-font-color;
+        }
+
+        li > a:hover {
+            color: base.$secondary-font-color;
+        }
+    }
 }
 
 footer > nav > ul {
     justify-content: space-evenly;
+
+    li {
+        margin: 1rem;
+    }
 }
 
 header > nav > ul > li {
     padding-left: 2rem;
     padding-right: 2rem;
-}
-
-footer > nav > ul> li {
-    margin: 1rem;
-}
-
-header > nav > ul > li > a,
-footer > nav > ul > li > a {
-    text-decoration: none;
 }
