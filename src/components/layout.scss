@@ -1,47 +1,24 @@
 @charset "utf-8";
+@use '../styles/base';
 
-// Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
-
-// Set your brand colors
-$purple: #8A4D76;
-$pink: #FA7C91;
-$brown: #757763;
-$beige-light: #D0D1CD;
-$beige-lighter: #EFF0EB;
-
-// Update Bulma's global variables
-$family-sans-serif: "Nunito", sans-serif;
-$grey-dark: $brown;
-$grey-light: $beige-light;
-$primary: $purple;
-$link: $pink;
-
-// Update some of Bulma's component variables
-$control-border-width: 2px;
-$input-background-color: $beige-lighter;
-$input-border-color: transparent;
-$input-shadow: none;
-
-* {
+.debug * {
     border: 1px solid blue;
 }
 
-header {
-    grid-area: header;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: auto;
+.center {
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-footer {
-    grid-area: footer;
+body {
+    margin: 0px;
+    font-family: base.$primary-font-family;
+    background-color: base.$background-color;
 }
 
-main {
-    grid-area: main;
+body * {    
+    padding: 0px;
 }
 
 .container {
@@ -49,38 +26,63 @@ main {
     height: 100vh;
     display: grid;
     gap: 1rem;
-    grid-template-rows: 1fr 2fr 1fr;
-    grid-template-columns: auto;
+    grid-template-rows: 1fr 5fr 1fr;
     grid-template-areas:
     "header"
     "main"
     "footer";
-    align-items: center;
-    justify-items: center;
 }
 
-@media only screen and (max-width: 850px)  {
+header {
+    grid-area: header;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+main {
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
+}
+
+@media (max-width: 768px)  {
     header {
-        grid-template-rows: repeat(3, 1fr);
         grid-template-columns: auto;
     }
 }
 
-header > nav > ul,
+header, footer {
+    background-color: base.$primary-color;
+    color: base.$primary-font-color;
+
+    nav > ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+
+        li > a {
+            text-decoration: none;
+            color: base.$primary-font-color;
+        }
+
+        li > a:hover {
+            color: base.$secondary-font-color;
+        }
+    }
+}
+
 footer > nav > ul {
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-    display: flex;
-    flex-flow: row wrap;
     justify-content: space-evenly;
+
+    li {
+        margin: 1rem;
+    }
 }
 
-footer > nav > ul> li {
-    margin: 1rem;
-}
-
-header > nav > ul > li > a,
-footer > nav > ul > li > a {
-    text-decoration: none;
+header > nav > ul > li {
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
