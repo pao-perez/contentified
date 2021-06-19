@@ -1,9 +1,6 @@
-import React from 'react';
-
 import { Link } from 'gatsby';
-
+import React from 'react';
 import Font from './font';
-
 import './layout.scss';
 
 const Layout = ({ children }) => (
@@ -11,10 +8,10 @@ const Layout = ({ children }) => (
     <Font />
     <div className="container">
       <header>
-        <div className="logo center">
+        <div className="center">
           <p>Contentually</p>
         </div>
-        <nav className="primary-nav center" aria-label="Site Navigation">
+        <nav className="center" aria-label="Site Navigation">
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -27,9 +24,8 @@ const Layout = ({ children }) => (
             </li>
           </ul>
         </nav>
-        <form className="search center" role="search" aria-label="Search Site">
-          <input type="search" />
-          <button type="submit">Search</button>
+        <form className="center" role="search" aria-label="Search Site">
+          <input type="search" placeholder="Search Articles..." />
         </form>
       </header>
 

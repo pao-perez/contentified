@@ -66,11 +66,26 @@ header, footer {
         li > a {
             text-decoration: none;
             color: base.$primary-font-color;
+            padding: 1.5rem;
+            font-weight: bolder;
+            font-size: larger;
         }
 
         li > a:hover {
-            color: base.$secondary-font-color;
+            border-radius: 1rem;
+            background: rgba(200, 200, 200, 0.5);
         }
+    }
+
+    form > input {
+        outline: none;
+        padding: 1.5rem;
+        font-weight: bolder;
+        font-size: larger;
+        border-radius: 1.5rem;
+        border: none;
+        /* offset-x | offset-y | blur-radius | spread-radius | color */
+        box-shadow: 0.5rem 0.5rem 0.5rem 0.2rem rgba(0, 0, 0, 0.2);
     }
 }
 
