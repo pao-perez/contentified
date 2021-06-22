@@ -2,8 +2,8 @@
 title: "Sweet Pandas Eating Sweets"
 date: "2017-08-10"
 tags: ["tutorial", "how to"]
-featuredImage: ../../images/800x400.jpeg
 ---
+![Featured Image](../../images/800x400.jpeg)
 
 Pandas are really sweet.
 
