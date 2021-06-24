@@ -35,9 +35,16 @@ body * {
 
 header {
     grid-area: header;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr 2fr 1fr;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+@media (max-width: 768px)  {
+    header {
+        flex-direction: column;
+    }
 }
 
 main {
@@ -48,12 +55,6 @@ footer {
     grid-area: footer;
 }
 
-@media (max-width: 768px)  {
-    header {
-        grid-template-columns: auto;
-    }
-}
-
 header, footer {
     background-color: base.$primary-color;
     color: base.$primary-font-color;
@@ -62,11 +63,13 @@ header, footer {
         list-style: none;
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
 
         li > a {
             text-decoration: none;
             color: base.$primary-font-color;
-            padding: 1.5rem;
+            padding: 1rem;
             font-weight: bolder;
             font-size: larger;
         }
@@ -79,25 +82,17 @@ header, footer {
 
     form > input {
         outline: none;
-        padding: 1.5rem;
+        padding: 1rem;
         font-weight: bolder;
         font-size: larger;
-        border-radius: 1.5rem;
+        border-radius: 1rem;
         border: none;
         /* offset-x | offset-y | blur-radius | spread-radius | color */
         box-shadow: 0.5rem 0.5rem 0.5rem 0.2rem rgba(0, 0, 0, 0.2);
     }
 }
 
-footer > nav > ul {
-    justify-content: space-evenly;
-
-    li {
-        margin: 1rem;
-    }
-}
-
-header > nav > ul > li {
-    padding-left: 2rem;
-    padding-right: 2rem;
+header > *,
+footer > nav > ul > li {
+    margin: 1rem;
 }
