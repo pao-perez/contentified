@@ -5,6 +5,9 @@ import EmailNewsletter from '../components/email-newsletter';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Social from '../components/social';
+import Tag from '../components/tag';
+import './blog.scss';
+
 
 const Blog = ({ data }) => {
   const post = data.markdownRemark;
@@ -32,7 +35,13 @@ const Blog = ({ data }) => {
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         <Avatar />
         <h1>{post.frontmatter.title}</h1>
-        <h3>{post.frontmatter.date} in {post.frontmatter.tags.join(', ')}</h3>
+        <h2>{post.frontmatter.date} in
+          <ul>
+            {post.frontmatter.tags.map((tag) => (
+              <Tag url={tag} title={tag} />
+            ))}
+          </ul>
+        </h2>
         <h3>by {author.name}</h3>
         <p dangerouslySetInnerHTML={{ __html: post.html }} />
       </article>

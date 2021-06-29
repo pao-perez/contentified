@@ -11,3 +11,17 @@ $primary-font-color: $whitesmoke;
 $secondary-font-color: $black;
 $primary-color: $red-light;
 $background-color: $whitesmoke;
+
+ul {
+    list-style: none;
+    
+    li > a {
+        text-decoration: none;
+    }
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

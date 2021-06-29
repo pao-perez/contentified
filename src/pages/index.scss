@@ -1,3 +1,6 @@
+@charset "utf-8";
+@use '../styles/base';
+
 main {
     display: grid;
     gap: 1rem;
@@ -14,6 +17,3 @@ main {
     }
 }
 
-article > ul {
-    list-style: none;
-}

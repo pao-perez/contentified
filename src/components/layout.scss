@@ -5,12 +5,6 @@
     border: 1px solid blue;
 }
 
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 body {
     margin: 0px;
     font-family: base.$primary-font-family;
@@ -60,14 +54,12 @@ header, footer {
     color: base.$primary-font-color;
 
     nav > ul {
-        list-style: none;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        // justify-content: space-evenly;
 
         li > a {
-            text-decoration: none;
             color: base.$primary-font-color;
             padding: 1rem;
             font-weight: bolder;

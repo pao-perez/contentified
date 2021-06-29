@@ -31,7 +31,7 @@ const Layout = ({ children }) => (
 
       <main>{children}</main>
 
-      <footer>
+      <footer className="center">
         <nav aria-label="Other Site Information">
           <ul>
             <li>
