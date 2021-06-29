@@ -5,7 +5,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 
 const ContactPage = ({ data }) => {
-  const email = data.site.siteMetadata.author.email;
+  const email = data.site.siteMetadata.founder.email;
   return (
     <Layout>
       <article>
@@ -29,7 +29,7 @@ export const query = graphql`
   query {
     site {
       siteMetadata {
-        author {
+        founder {
           email
         }
       }

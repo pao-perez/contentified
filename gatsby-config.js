@@ -2,11 +2,10 @@ module.exports = {
   siteMetadata: {
     title: `Contentually`,
     description: `Developer Tutorials`,
-    author: {
+    founder: {
       name: `Pao Perez`,
       bio: `Helping make the world a better place through crafting software while trying to make the most of this life. I spend most of my days learning and playing with these interests - Java, JavaScript, Linux, Google Cloud`,
       email: `paoperez@contentually.dev`,
-      avatar: `./images/96x96.png`,
       social: [
         {
           name: `twitter`,

@@ -6,16 +6,16 @@ import Follow from '../components/follow';
 import Layout from '../components/layout';
 
 const AboutPage = ({ data }) => {
-  const { title, description, author } = data.site.siteMetadata;
+  const { title, description, founder } = data.site.siteMetadata;
   return (
     <Layout>
       <article>
         <h1>About {title}</h1>
         <p>{description}</p>
         <image />
-        <h2>About the author</h2>
-        <p>{author.name}{author.bio}</p>
-        <Follow social={author.social} />
+        <h2>About the founder</h2>
+        <p>{founder.name}{founder.bio}</p>
+        <Follow social={founder.social} />
       </article>
     </Layout>
   );
@@ -26,7 +26,7 @@ export const query = graphql`
       siteMetadata {
         title
         description
-        author {
+        founder {
           name
           bio
           social {

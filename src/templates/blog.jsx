@@ -8,7 +8,7 @@ import Social from '../components/social';
 
 const Blog = ({ data }) => {
   const post = data.markdownRemark;
-  const { author } = data.site.siteMetadata;
+  const { founder } = data.site.siteMetadata;
 
   return (
     <Layout>
@@ -16,7 +16,7 @@ const Blog = ({ data }) => {
         <section>
           <h2>Share</h2>
           <ul>
-            {author.social.map((entry) => (
+            {founder.social.map((entry) => (
               <Social
                 key={entry.name}
                 title={`Share ${entry.name}`}
@@ -29,11 +29,12 @@ const Blog = ({ data }) => {
       </aside>
 
       <article>
-        <SEO title={post.frontmatter.title} description={post.excerpt} />
-        <h1>{post.frontmatter.title}</h1>
-        <h2>by {author.name}</h2><Avatar />
-        <h2>on <time>{post.frontmatter.date}</time></h2>
-        <h2>in {post.frontmatter.tags.join(', ')}</h2>
+        <SEO title={post.frontmatter.title} description={post.excerpt} author={post.frontmatter.author}/>
+        <div>
+          <h1>{post.frontmatter.title}</h1>
+          <Avatar avatar={post.frontmatter.avatar} author={post.frontmatter.author} />
+          <span>on <time datetime>{post.frontmatter.date}</time> in {post.frontmatter.tags.join(', ')}</span>
+        </div>
         <p dangerouslySetInnerHTML={{ __html: post.html }} />
       </article>
 
@@ -52,12 +53,22 @@ export const query = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         tags
+        avatar {
+          childImageSharp {
+            gatsbyImageData(
+              width: 96
+              blurredOptions: { width: 96 }
+              placeholder: BLURRED
+            )
+          }
+        }
+        author
       }
       excerpt
     }
     site {
       siteMetadata {
-        author {
+        founder {
           name
           social {
             name

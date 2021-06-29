@@ -5,13 +5,10 @@ import Follow from '../components/follow';
 import Layout from '../components/layout';
 import './index.scss';
 
-
-
-
 const IndexPage = ({ data }) => (
   <Layout>
     <aside aria-label="Follow on Social Media">
-      <Follow social={data.site.siteMetadata.author.social} />
+      <Follow social={data.site.siteMetadata.founder.social} />
     </aside>
 
     <article>
@@ -57,7 +54,7 @@ export const query = graphql`
     }
     site {
       siteMetadata {
-        author {
+        founder {
           social {
             name
             follow

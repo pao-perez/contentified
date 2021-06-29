@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 
 import { useStaticQuery, graphql } from 'gatsby';
 
-const SEO = ({ description, lang, meta, title }) => {
+const SEO = ({ description, lang, meta, title, author }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -13,7 +13,7 @@ const SEO = ({ description, lang, meta, title }) => {
           siteMetadata {
             title
             description
-            author {
+            founder {
               name
             }
           }
@@ -23,6 +23,7 @@ const SEO = ({ description, lang, meta, title }) => {
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  const creator = author || site.siteMetadata.founder.name;
 
   return (
     <>
@@ -55,7 +56,7 @@ const SEO = ({ description, lang, meta, title }) => {
           },
           {
             name: `twitter:creator`,
-            content: site.siteMetadata.author.name,
+            content: creator,
           },
           {
             name: `twitter:title`,
@@ -75,6 +76,7 @@ SEO.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
+  author: ``,
 };
 
 SEO.propTypes = {
@@ -82,6 +84,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  author: PropTypes.string,
 };
 
 export default SEO;

@@ -12,6 +12,10 @@ $secondary-font-color: $black;
 $primary-color: $red-light;
 $background-color: $whitesmoke;
 
+.debug * {
+    border: 1px solid blue;
+}
+
 ul {
     list-style: none;
     
