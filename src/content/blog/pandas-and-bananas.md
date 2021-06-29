@@ -3,7 +3,7 @@ title: "How to: Emulate Amazon Simple Queue Service (SQS) for Testing Purposes"
 date: "2017-08-21"
 tags: ["tutorial", "how to"]
 ---
-![Featured Image](../../images/800x400.jpeg)
+![Featured Image](../../images/1000x500.jpeg)
 
 Do Pandas eat bananas? Check out this short video that shows that yes! pandas do seem to really enjoy bananas!
 
