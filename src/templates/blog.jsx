@@ -5,9 +5,6 @@ import EmailNewsletter from '../components/email-newsletter';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Social from '../components/social';
-import Tag from '../components/tag';
-import './blog.scss';
-
 
 const Blog = ({ data }) => {
   const post = data.markdownRemark;
@@ -33,16 +30,10 @@ const Blog = ({ data }) => {
 
       <article>
         <SEO title={post.frontmatter.title} description={post.excerpt} />
-        <Avatar />
         <h1>{post.frontmatter.title}</h1>
-        <h2>{post.frontmatter.date} in
-          <ul>
-            {post.frontmatter.tags.map((tag) => (
-              <Tag url={tag} title={tag} />
-            ))}
-          </ul>
-        </h2>
-        <h3>by {author.name}</h3>
+        <h2>by {author.name}</h2><Avatar />
+        <h2>on <time>{post.frontmatter.date}</time></h2>
+        <h2>in {post.frontmatter.tags.join(', ')}</h2>
         <p dangerouslySetInnerHTML={{ __html: post.html }} />
       </article>
 
@@ -59,7 +50,7 @@ export const query = graphql`
       html
       frontmatter {
         title
-        date
+        date(formatString: "MMMM DD, YYYY")
         tags
       }
       excerpt

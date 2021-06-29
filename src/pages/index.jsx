@@ -1,12 +1,12 @@
-import React from 'react';
-
 import { graphql, Link } from 'gatsby';
-
+import React from 'react';
+import EmailNewsletter from '../components/email-newsletter';
 import Follow from '../components/follow';
 import Layout from '../components/layout';
-import EmailNewsletter from '../components/email-newsletter';
-
 import './index.scss';
+
+
+
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -46,7 +46,7 @@ export const query = graphql`
           id
           frontmatter {
             title
-            date(formatString: "DD MMMM, YYYY")
+            date(formatString: "MMMM DD, YYYY")
           }
           fields {
             slug
