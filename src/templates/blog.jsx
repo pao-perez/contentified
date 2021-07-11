@@ -30,7 +30,7 @@ const Blog = ({ data }) => {
         </section>
       </aside>
 
-      <article>
+      <article className="blog-article">
         <SEO title={post.frontmatter.title} description={post.excerpt} author={post.frontmatter.author}/>
         <div className="heading">
           <Avatar avatar={post.frontmatter.avatar} author={post.frontmatter.author} />

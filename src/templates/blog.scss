@@ -1,25 +1,29 @@
 @charset "utf-8";
 @use '../styles/base';
 
-.heading {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr 10fr;
-    grid-template-areas:
-    "avatar title"
-    "avatar meta";
+.blog-article {
+    padding-top: 5rem;
 
-    * {
-        padding: 0px;
-        margin: 0px;
+    .heading {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr 10fr;
+        grid-template-areas:
+        "avatar title"
+        "avatar meta";
+
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .title {
+            grid-area: title;
+            align-self: end;
+        }
+
+        .meta {
+            grid-area: meta;
+        }
     }
-}
-
-.title {
-    grid-area: title;
-    align-self: end;
-}
-
-.meta {
-    grid-area: meta;
 }
