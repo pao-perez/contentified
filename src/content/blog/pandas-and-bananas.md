@@ -1,5 +1,5 @@
 ---
-title: "How to: Emulate Amazon Simple Queue Service (SQS) for Testing Purposes"
+title: "How to: Emulate Amazon Simple Queue Service (SQS) for Testing Purposes blah etc blah"
 date: "2017-08-21"
 tags: ["tutorial", "how to"]
 avatar: ../../images/96x96.jpeg
