@@ -6,6 +6,8 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Social from '../components/social';
 
+import './blog.scss';
+
 const Blog = ({ data }) => {
   const post = data.markdownRemark;
   const { founder } = data.site.siteMetadata;
@@ -30,10 +32,10 @@ const Blog = ({ data }) => {
 
       <article>
         <SEO title={post.frontmatter.title} description={post.excerpt} author={post.frontmatter.author}/>
-        <div>
-          <h1>{post.frontmatter.title}</h1>
+        <div className="heading">
           <Avatar avatar={post.frontmatter.avatar} author={post.frontmatter.author} />
-          <span>on <time datetime>{post.frontmatter.date}</time> in {post.frontmatter.tags.join(', ')}</span>
+          <h1 className="title">{post.frontmatter.title}</h1>
+          <span className="meta">on <time datetime>{post.frontmatter.date}</time> in {post.frontmatter.tags.join(', ')}</span>
         </div>
         <p dangerouslySetInnerHTML={{ __html: post.html }} />
       </article>
