@@ -5,34 +5,38 @@ import Follow from '../components/follow';
 import Layout from '../components/layout';
 import './index.scss';
 
-const IndexPage = ({ data }) => (
-  <Layout>
-    <aside aria-label="Follow on Social Media">
-      <Follow social={data.site.siteMetadata.founder.social} />
-    </aside>
+const IndexPage = (props) => {
+  const { data } = props;
 
-    <article>
-      <ul>
-        {data.allMarkdownRemark.edges.map(({ node }) => (
-          <li>
-            <Link to={node.fields.slug}>
-              <article>
-                <h1>
-                  {node.frontmatter.title} — {node.frontmatter.date}
-                </h1>
-                <p>{node.excerpt}</p>
-              </article>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </article>
+  return (
+    <Layout>
+      <aside aria-label="Follow on Social Media">
+        <Follow />
+      </aside>
 
-    <aside aria-label="Subscribe to Newsletter">
-      <EmailNewsletter />
-    </aside>
-  </Layout>
-);
+      <article>
+        <ul>
+          {data.allMarkdownRemark.edges.map(({ node }) => (
+            <li>
+              <Link to={node.fields.slug}>
+                <article>
+                  <h1>
+                    {node.frontmatter.title} — {node.frontmatter.date}
+                  </h1>
+                  <p>{node.excerpt}</p>
+                </article>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </article>
+
+      <aside aria-label="Subscribe to Newsletter">
+        <EmailNewsletter />
+      </aside>
+    </Layout>
+  );
+};
 
 export const query = graphql`
   query {
@@ -49,18 +53,6 @@ export const query = graphql`
             slug
           }
           excerpt
-        }
-      }
-    }
-    site {
-      siteMetadata {
-        founder {
-          social {
-            name
-            follow
-            share
-            icon
-          }
         }
       }
     }

@@ -1,26 +1,37 @@
 import React from 'react';
 
-import Social from './social';
-import socialType from '../types/socialType';
+import { useStaticQuery, graphql } from 'gatsby';
 
-const Follow = ({ social }) => (
-  <article>
-    <h2>Follow</h2>
-    <ul>
-      {social.map((entry) => (
-        <Social
-          key={entry.name}
-          title={`Follow me on ${entry.name}`}
-          url={entry.follow}
-          classNames={entry.icon}
-        />
-      ))}
-    </ul>
-  </article>
-);
+import { TwitterIcon } from 'react-share';
 
-Follow.propTypes = {
-  social: socialType.isRequired,
+const Follow = ( props ) => {
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+            description
+            founder {
+              twitter
+            }
+          }
+        }
+      }
+    `
+  );
+
+  return (
+    <article>
+      <ul>
+        <li>
+          <a href={`https://twitter.com/@${site.siteMetadata.founder.twitter}`} target="_blank" rel="noreferrer">
+            <TwitterIcon size={40} round={true} />
+          </a>
+        </li>
+      </ul>
+    </article>
+  );
 };
 
 export default Follow;

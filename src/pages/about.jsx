@@ -15,7 +15,7 @@ const AboutPage = ({ data }) => {
         <image />
         <h2>About the founder</h2>
         <p>{founder.name}{founder.bio}</p>
-        <Follow social={founder.social} />
+        <Follow />
       </article>
     </Layout>
   );
@@ -29,12 +29,6 @@ export const query = graphql`
         founder {
           name
           bio
-          social {
-            name
-            follow
-            share
-            icon
-          }
         }
       }
     }

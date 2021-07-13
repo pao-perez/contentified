@@ -6,56 +6,8 @@ module.exports = {
       name: `Pao Perez`,
       bio: `Helping make the world a better place through crafting software while trying to make the most of this life. I spend most of my days learning and playing with these interests - Java, JavaScript, Linux, Google Cloud`,
       email: `paoperez@contentually.dev`,
-      social: [
-        {
-          name: `twitter`,
-          follow: `twitter follow`,
-          share: `on twitter share`,
-          icon: `fab fa-twitter`,
-        },
-        {
-          name: `medium`,
-          follow: `medium follow`,
-          share: `on medium share`,
-          icon: `fab fa-medium-m`,
-        },
-        {
-          name: `linkedin`,
-          follow: `linkedin follow`,
-          share: `on linkedin share`,
-          icon: `fab fa-linkedin-in`,
-        },
-        {
-          name: `github`,
-          follow: `github follow`,
-          share: `on github share`,
-          icon: `fab fa-github-alt`,
-        },
-        {
-          name: `stackoverflow`,
-          follow: `stackoverflow follow`,
-          share: `on stackoverflow share`,
-          icon: `fab fa-stack-overflow`,
-        },
-        {
-          name: `reddit`,
-          follow: `reddit follow`,
-          share: `on reddit share`,
-          icon: `fab fa-reddit-alien`,
-        },
-        {
-          name: `slack`,
-          follow: `slack follow`,
-          share: `on slack share`,
-          icon: `fab fa-slack`,
-        },
-        {
-          name: `email`,
-          follow: `email follow`,
-          share: `via email share`,
-          icon: `fas fa-envelope`,
-        },
-      ],
+      twitter: `pawieperez`,
+      github: `pao-perez`,
     },
   },
   plugins: [

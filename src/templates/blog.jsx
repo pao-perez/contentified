@@ -4,11 +4,12 @@ import Avatar from '../components/avatar';
 import EmailNewsletter from '../components/email-newsletter';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import Social from '../components/social';
+import Share from '../components/share';
 
 import './blog.scss';
 
-const Blog = ({ data }) => {
+const Blog = props => {
+  const { data } = props;
   const post = data.markdownRemark;
   const { founder } = data.site.siteMetadata;
 
@@ -16,17 +17,7 @@ const Blog = ({ data }) => {
     <Layout>
       <aside aria-label="Share on Social Media">
         <section>
-          <h2>Share</h2>
-          <ul>
-            {founder.social.map((entry) => (
-              <Social
-                key={entry.name}
-                title={`Share ${entry.name}`}
-                url={entry.share}
-                classNames={entry.icon}
-              />
-            ))}
-          </ul>
+          <Share title={post.frontmatter.title} url={props.location.href} twitterHandle={founder.twitter} tags={post.frontmatter.tags}/>
         </section>
       </aside>
 
@@ -72,12 +63,7 @@ export const query = graphql`
       siteMetadata {
         founder {
           name
-          social {
-            name
-            follow
-            share
-            icon
-          }
+          twitter
         }
       }
     }
