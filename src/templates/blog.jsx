@@ -8,8 +8,7 @@ import Share from '../components/share';
 
 import './blog.scss';
 
-const Blog = (props) => {
-  const { data } = props;
+const Blog = ({ data, location }) => {
   const post = data.markdownRemark;
   const { founder } = data.site.siteMetadata;
 
@@ -20,7 +19,7 @@ const Blog = (props) => {
           <section>
             <Share
               title={post.frontmatter.title}
-              url={props.location.href}
+              url={location.href}
               twitterHandle={founder.twitter}
               tags={post.frontmatter.tags}
             />

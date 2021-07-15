@@ -5,36 +5,32 @@ import Layout from '../components/layout';
 
 import './index.scss';
 
-const IndexPage = (props) => {
-  const { data } = props;
+const IndexPage = ({ data }) => (
+  <Layout>
+    <div className="home">
+      <article className="blog-list">
+        <ul>
+          {data.allMarkdownRemark.edges.map(({ node }) => (
+            <li>
+              <Link to={node.fields.slug}>
+                <article>
+                  <h1>
+                    {node.frontmatter.title} — {node.frontmatter.date}
+                  </h1>
+                  <p>{node.excerpt}</p>
+                </article>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </article>
 
-  return (
-    <Layout>
-      <div className="home">
-        <article className="blog-list">
-          <ul>
-            {data.allMarkdownRemark.edges.map(({ node }) => (
-              <li>
-                <Link to={node.fields.slug}>
-                  <article>
-                    <h1>
-                      {node.frontmatter.title} — {node.frontmatter.date}
-                    </h1>
-                    <p>{node.excerpt}</p>
-                  </article>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </article>
-
-        <aside aria-label="Subscribe to Newsletter" className="newsletter">
-          <EmailNewsletter />
-        </aside>
-      </div>
-    </Layout>
-  );
-};
+      <aside aria-label="Subscribe to Newsletter" className="newsletter">
+        <EmailNewsletter />
+      </aside>
+    </div>
+  </Layout>
+);
 
 export const query = graphql`
   query {
