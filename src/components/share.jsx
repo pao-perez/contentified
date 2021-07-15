@@ -11,6 +11,8 @@ import {
   TwitterIcon,
   RedditShareButton,
   RedditIcon,
+  EmailShareButton,
+  EmailIcon,
 } from 'react-share';
 
 const Share = ({ title, url, twitterHandle, tags }) => (
@@ -35,6 +37,10 @@ const Share = ({ title, url, twitterHandle, tags }) => (
     <RedditShareButton url={url} title={title}>
       <RedditIcon size={40} round />
     </RedditShareButton>
+
+    <EmailShareButton url={url} title={title}>
+      <EmailIcon size={40} round />
+    </EmailShareButton>
   </article>
 );
 export default Share;
