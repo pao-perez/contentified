@@ -1,4 +1,9 @@
 .avatar {
     grid-area: avatar;
     align-self: center;
+
+    figcaption {
+        font-weight: lighter;
+        font-size: small;
+    }
 }

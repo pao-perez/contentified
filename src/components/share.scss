@@ -1,0 +1,9 @@
+@charset "utf-8";
+@use '../styles/base';
+
+.share {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}

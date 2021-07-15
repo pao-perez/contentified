@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './share.scss';
+
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -12,9 +14,9 @@ import {
 } from 'react-share';
 
 const Share = ({ title, url, twitterHandle, tags }) => (
-  <div>
+  <article className="share">
     <FacebookShareButton url={url}>
-      <FacebookIcon size={40} round={true} />
+      <FacebookIcon size={40} round />
     </FacebookShareButton>
 
     <TwitterShareButton
@@ -23,16 +25,16 @@ const Share = ({ title, url, twitterHandle, tags }) => (
       via={twitterHandle}
       hashtags={tags}
     >
-      <TwitterIcon size={40} round={true} />
+      <TwitterIcon size={40} round />
     </TwitterShareButton>
 
     <LinkedinShareButton url={url}>
-      <LinkedinIcon size={40} round={true} />
+      <LinkedinIcon size={40} round />
     </LinkedinShareButton>
 
     <RedditShareButton url={url} title={title}>
-      <RedditIcon size={40} round={true} />
+      <RedditIcon size={40} round />
     </RedditShareButton>
-  </div>
+  </article>
 );
 export default Share;

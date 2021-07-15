@@ -1,19 +1,19 @@
 @charset "utf-8";
 @use '../styles/base';
 
-main {
+.home {
     display: grid;
     gap: 1rem;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: auto;
-    align-items: center;
-    justify-items: center;
-}
+    grid-template-areas:
+    "blog-list blog-list newsletter";
 
-@media (max-width: 768px) {
-    main {
-        grid-template-rows: 1fr 5fr 1fr;
-        grid-template-columns: auto;
+    .blog-list {
+        grid-area: blog-list;
+    }
+
+    .newsletter {
+        grid-area: newsletter;
     }
 }
-

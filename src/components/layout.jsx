@@ -1,6 +1,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import Font from './font';
+
 import './layout.scss';
 
 const Layout = ({ children }) => (

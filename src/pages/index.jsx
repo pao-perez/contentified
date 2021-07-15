@@ -1,8 +1,8 @@
 import { graphql, Link } from 'gatsby';
 import React from 'react';
 import EmailNewsletter from '../components/email-newsletter';
-import Follow from '../components/follow';
 import Layout from '../components/layout';
+
 import './index.scss';
 
 const IndexPage = (props) => {
@@ -10,30 +10,28 @@ const IndexPage = (props) => {
 
   return (
     <Layout>
-      <aside aria-label="Follow on Social Media">
-        <Follow />
-      </aside>
+      <div className="home">
+        <article className="blog-list">
+          <ul>
+            {data.allMarkdownRemark.edges.map(({ node }) => (
+              <li>
+                <Link to={node.fields.slug}>
+                  <article>
+                    <h1>
+                      {node.frontmatter.title} — {node.frontmatter.date}
+                    </h1>
+                    <p>{node.excerpt}</p>
+                  </article>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </article>
 
-      <article>
-        <ul>
-          {data.allMarkdownRemark.edges.map(({ node }) => (
-            <li>
-              <Link to={node.fields.slug}>
-                <article>
-                  <h1>
-                    {node.frontmatter.title} — {node.frontmatter.date}
-                  </h1>
-                  <p>{node.excerpt}</p>
-                </article>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </article>
-
-      <aside aria-label="Subscribe to Newsletter">
-        <EmailNewsletter />
-      </aside>
+        <aside aria-label="Subscribe to Newsletter" className="newsletter">
+          <EmailNewsletter />
+        </aside>
+      </div>
     </Layout>
   );
 };
