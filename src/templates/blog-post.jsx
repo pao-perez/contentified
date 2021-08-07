@@ -6,9 +6,9 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Share from '../components/share';
 
-import './blog.scss';
+import './blog-post.scss';
 
-const Blog = ({ data, location }) => {
+const BlogPost = ({ data, location }) => {
   const post = data.markdownRemark;
   const { founder } = data.site.siteMetadata;
 
@@ -33,15 +33,13 @@ const Blog = ({ data, location }) => {
             author={post.frontmatter.author}
           />
           <div className="heading">
-            <Avatar
-              avatar={post.frontmatter.avatar}
-              author={post.frontmatter.author}
-            />
+            <Avatar avatar={post.frontmatter.avatar} />
             <h1 className="title">{post.frontmatter.title}</h1>
-            <span className="meta">
-              on <time datetime>{post.frontmatter.date}</time> in{' '}
-              {post.frontmatter.tags.join(', ')}
-            </span>
+            <div className="meta">
+              <span>by {post.frontmatter.author}</span>
+              <span> on <time datetime>{post.frontmatter.date}</time></span>
+              <span> in {post.frontmatter.tags.join(', ')}</span>
+            </div>
           </div>
           <p dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
@@ -65,8 +63,8 @@ export const query = graphql`
         avatar {
           childImageSharp {
             gatsbyImageData(
-              width: 96
-              blurredOptions: { width: 96 }
+              width: 128
+              blurredOptions: { width: 128 }
               placeholder: BLURRED
             )
           }
@@ -86,4 +84,4 @@ export const query = graphql`
   }
 `;
 
-export default Blog;
+export default BlogPost;

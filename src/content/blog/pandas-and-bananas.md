@@ -2,7 +2,7 @@
 title: "How to: Emulate Amazon Simple Queue Service (SQS) for Testing Purposes blah etc blah"
 date: "2017-08-21"
 tags: ["tutorial", "how to"]
-avatar: ../../images/96x96.jpeg
+avatar: ../../images/128x128.jpeg
 author: "Pao Pogi"
 ---
 ![Featured Image](../../images/1000x500.jpeg)

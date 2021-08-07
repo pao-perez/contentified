@@ -2,7 +2,7 @@
 title: "Sweet Pandas Eating Sweets"
 date: "2017-08-10"
 tags: ["tutorial", "how to"]
-avatar: ../../images/96x96.jpeg
+avatar: ../../images/128x128.jpeg
 author: "Pao Pogi"
 ---
 ![Featured Image](../../images/1200x600.jpeg)
