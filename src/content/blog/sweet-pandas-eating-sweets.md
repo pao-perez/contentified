@@ -2,10 +2,11 @@
 title: "Sweet Pandas Eating Sweets"
 date: "2017-08-10"
 tags: ["tutorial", "how to"]
-avatar: ../../images/128x128.jpeg
+avatar: ../../images/avatar/128x128.jpeg
 author: "Pao Pogi"
+thumbnail: ../../images/thumbnail/500x500.jpeg
 ---
-![Featured Image](../../images/1200x600.jpeg)
+![Featured Image](../../images/featured/1200x600.jpeg)
 
 Pandas are really sweet.
 

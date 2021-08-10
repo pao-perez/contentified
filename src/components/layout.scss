@@ -24,7 +24,7 @@ body * {
     "footer";
 }
 
-header {
+header.layout-header {
     grid-area: header;
     display: flex;
     flex-direction: row;
@@ -33,23 +33,23 @@ header {
 }
 
 @media (max-width: 768px)  {
-    header {
+    header.layout-header {
         flex-direction: column;
     }
 }
 
-main {
+main.layout-main {
     grid-area: main;
     padding-top: 5rem;
     display: flex;
     justify-content: center;
 }
 
-footer {
+footer.layout-footer {
     grid-area: footer;
 }
 
-header, footer {
+header.layout-header, footer.layout-footer {
     background-color: base.$primary-color;
     color: base.$primary-font-color;
 
@@ -84,7 +84,7 @@ header, footer {
     }
 }
 
-header > *,
-footer > nav > ul > li {
+header.layout-header > *,
+footer.layout-footer > nav > ul > li {
     margin: 1rem;
 }

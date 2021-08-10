@@ -21,7 +21,7 @@
     .blog-post {
         grid-area: blog-post;
 
-        .heading {
+        .post-header {
             display: grid;
             gap: 1rem;
             grid-template-columns: 1fr 10fr;
@@ -43,6 +43,11 @@
                 grid-area: meta;
                 font-weight: normal;
                 font-size: small;
+            }
+
+            .avatar {
+                grid-area: avatar;
+                align-self: center;
             }
         }
     }

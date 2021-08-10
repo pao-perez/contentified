@@ -8,7 +8,7 @@ const Layout = ({ children }) => (
   <>
     <Font />
     <div className="container">
-      <header>
+      <header className="layout-header">
         <div className="center">
           <p>Contentually</p>
         </div>
@@ -30,9 +30,9 @@ const Layout = ({ children }) => (
         </form>
       </header>
 
-      <main>{children}</main>
+      <main className="layout-main">{children}</main>
 
-      <footer className="center">
+      <footer className="layout-footer center">
         <nav aria-label="Other Site Information">
           <ul>
             <li>

@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import Avatar from '../components/avatar';
+import Image from '../components/image';
 import EmailNewsletter from '../components/email-newsletter';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -32,14 +32,12 @@ const BlogPost = ({ data, location }) => {
             description={post.excerpt}
             author={post.frontmatter.author}
           />
-          <div className="heading">
-            <Avatar avatar={post.frontmatter.avatar} />
+          <div className="post-header">
+            <Image image={post.frontmatter.avatar} alt="Avatar" className="avatar" />
             <h1 className="title">{post.frontmatter.title}</h1>
-            <div className="meta">
-              <span>by {post.frontmatter.author}</span>
-              <span> on <time datetime>{post.frontmatter.date}</time></span>
-              <span> in {post.frontmatter.tags.join(', ')}</span>
-            </div>
+            <h2 className="meta">
+              by <span>{post.frontmatter.author}</span> on <time dateTime="true">{post.frontmatter.date}</time> in {post.frontmatter.tags.join(', ')}
+            </h2>
           </div>
           <p dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
@@ -63,9 +61,10 @@ export const query = graphql`
         avatar {
           childImageSharp {
             gatsbyImageData(
-              width: 128
-              blurredOptions: { width: 128 }
+              width: 500
               placeholder: BLURRED
+              blurredOptions: { width: 100 }
+              aspectRatio: 0.7
             )
           }
         }
