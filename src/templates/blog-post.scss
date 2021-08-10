@@ -34,6 +34,11 @@
                 margin: 0px;
             }
 
+            .avatar {
+                grid-area: avatar;
+                align-self: center;
+            }
+
             .title {
                 grid-area: title;
                 align-self: end;
@@ -43,11 +48,6 @@
                 grid-area: meta;
                 font-weight: normal;
                 font-size: small;
-            }
-
-            .avatar {
-                grid-area: avatar;
-                align-self: center;
             }
         }
     }

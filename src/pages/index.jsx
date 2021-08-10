@@ -1,5 +1,6 @@
 import { graphql, Link } from 'gatsby';
 import React from 'react';
+import Image from '../components/image';
 import EmailNewsletter from '../components/email-newsletter';
 import Layout from '../components/layout';
 
@@ -13,11 +14,27 @@ const IndexPage = ({ data }) => (
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <li>
               <Link to={node.fields.slug}>
-                <article>
-                  <h1>
-                    {node.frontmatter.title} — {node.frontmatter.date}
-                  </h1>
-                  <p>{node.excerpt}</p>
+                <article className="blog-item">
+                  <header className="item-header">
+                    <h1 className="title">{node.frontmatter.title}</h1>
+                    <h2 className="meta">
+                      <span className="author">{node.frontmatter.author}</span>
+                      <span className="date">
+                        <time dateTime="true">{node.frontmatter.date}</time>
+                      </span>
+                      <span className="tags">{node.frontmatter.tags.join(', ')}</span>
+                    </h2>
+                  </header>
+                  <main className="item-main">
+                    <p>{node.excerpt}</p>
+                  </main>
+                  <footer className="item-footer">
+                    <Image
+                      image={node.frontmatter.thumbnail}
+                      alt="Featured Image Thumbnail"
+                      className="thumbnail"
+                    />
+                  </footer>
                 </article>
               </Link>
             </li>
@@ -42,6 +59,18 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "MMMM DD, YYYY")
+            tags
+            author
+            thumbnail {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 400
+                  placeholder: BLURRED
+                  blurredOptions: { width: 50 }
+                  aspectRatio: 1.75
+                )
+              }
+            }
           }
           fields {
             slug

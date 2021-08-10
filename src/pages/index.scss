@@ -4,13 +4,62 @@
 .home {
     display: grid;
     gap: 1rem;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 4fr 1fr;
     grid-template-rows: auto;
     grid-template-areas:
-    "blog-list blog-list newsletter";
+    ". blog-list newsletter";
 
     .blog-list {
         grid-area: blog-list;
+
+        .blog-item {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas:
+            "item-header item-main item-footer";
+
+            .item-header {
+                grid-area: item-header;
+
+                .title {
+                    font-size: larger;
+                    color: black;
+
+                }
+
+                .meta {
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: nowrap;
+                    font-weight: normal;
+
+                    .author {
+                        font-size: medium;
+                        color: black;
+                    }
+
+                    .date {
+                        font-size: large;
+                        color: gray;
+                    }
+
+                    .tags {
+                        font-size: small;
+                        color: gray;
+                    }
+                }
+            }
+
+            .item-main {
+                grid-area: item-main;
+                color: black;
+            }
+
+            .item-footer {
+                grid-area: item-footer;
+            }
+        }
     }
 
     .newsletter {

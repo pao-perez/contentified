@@ -4,7 +4,7 @@ date: "2017-08-21"
 tags: ["tutorial", "how to"]
 avatar: ../../images/avatar/128x128.jpeg
 author: "Pao Pogi"
-thumbnail: ../../images/thumbnail/300x300.jpeg
+thumbnail: ../../images/featured/1000x500.jpeg
 ---
 ![Featured Image](../../images/featured/1000x500.jpeg)
 

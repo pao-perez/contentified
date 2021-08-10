@@ -77,10 +77,10 @@ header.layout-header, footer.layout-footer {
         padding: 1rem;
         font-weight: bolder;
         font-size: larger;
-        border-radius: 1rem;
         border: none;
         /* offset-x | offset-y | blur-radius | spread-radius | color */
-        box-shadow: 0.5rem 0.5rem 0.5rem 0.2rem rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0.2rem 0.5rem 0.2rem rgba(0, 0, 0, 0.1);
+        border-radius: 1rem;
     }
 }
 

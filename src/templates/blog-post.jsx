@@ -33,16 +33,27 @@ const BlogPost = ({ data, location }) => {
             author={post.frontmatter.author}
           />
           <div className="post-header">
-            <Image image={post.frontmatter.avatar} alt="Avatar" className="avatar" />
+            <Image
+              image={post.frontmatter.avatar}
+              alt="Avatar"
+              className="avatar"
+            />
             <h1 className="title">{post.frontmatter.title}</h1>
             <h2 className="meta">
-              by <span>{post.frontmatter.author}</span> on <time dateTime="true">{post.frontmatter.date}</time> in {post.frontmatter.tags.join(', ')}
+              <span>
+                by {post.frontmatter.author} on{' '}
+                <time dateTime="true">{post.frontmatter.date}</time> in{' '}
+                {post.frontmatter.tags.join(', ')}
+              </span>
             </h2>
           </div>
           <p dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
 
-        <aside aria-label="Subscribe to Newsletter" className="newsletter center">
+        <aside
+          aria-label="Subscribe to Newsletter"
+          className="newsletter center"
+        >
           <EmailNewsletter />
         </aside>
       </div>
