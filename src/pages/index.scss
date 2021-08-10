@@ -12,6 +12,14 @@
     .blog-list {
         grid-area: blog-list;
 
+        li {
+            border-bottom: 0.1rem solid lightgray;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
         .blog-item {
             display: grid;
             gap: 1rem;
@@ -58,6 +66,11 @@
 
             .item-footer {
                 grid-area: item-footer;
+                justify-self: end;
+            }
+
+            .item-footer > * {
+                margin-right: 0px;
             }
         }
     }

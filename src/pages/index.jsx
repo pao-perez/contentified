@@ -22,7 +22,9 @@ const IndexPage = ({ data }) => (
                       <span className="date">
                         <time dateTime="true">{node.frontmatter.date}</time>
                       </span>
-                      <span className="tags">{node.frontmatter.tags.join(', ')}</span>
+                      <span className="tags">
+                        {node.frontmatter.tags.join(', ')}
+                      </span>
                     </h2>
                   </header>
                   <main className="item-main">
@@ -41,7 +43,6 @@ const IndexPage = ({ data }) => (
           ))}
         </ul>
       </article>
-
       <aside aria-label="Subscribe to Newsletter" className="newsletter">
         <EmailNewsletter />
       </aside>
