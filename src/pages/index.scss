@@ -29,6 +29,7 @@
 
             .item-header {
                 grid-area: item-header;
+                overflow: hidden;
 
                 .title {
                     font-size: larger;
@@ -62,6 +63,7 @@
             .item-main {
                 grid-area: item-main;
                 color: black;
+                overflow: hidden;
             }
 
             .item-footer {
