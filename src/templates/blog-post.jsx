@@ -47,7 +47,9 @@ const BlogPost = ({ data, location }) => {
               </span>
             </h2>
           </div>
-          <p dangerouslySetInnerHTML={{ __html: post.html }} />
+          <div className="post-body">
+            <p dangerouslySetInnerHTML={{ __html: post.html }} />
+          </div>
         </article>
 
         <aside

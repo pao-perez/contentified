@@ -1,16 +1,6 @@
 @charset "utf-8";
 @use '../styles/base';
 
-body {
-    margin: 0px;
-    font-family: base.$primary-font-family;
-    background-color: base.$background-color;
-}
-
-body * {    
-    padding: 0px;
-}
-
 .container {
     width: 100%;
     height: 100vh;
@@ -30,6 +20,12 @@ header.layout-header {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+
+    .brand-name {
+        font-size: xx-large;
+        color: base.$brand-name-color;
+        font-family: base.$brand-name-font;
+    }
 }
 
 @media (max-width: 768px)  {
@@ -50,17 +46,15 @@ footer.layout-footer {
 }
 
 header.layout-header, footer.layout-footer {
-    background-color: base.$primary-color;
-    color: base.$primary-font-color;
+    background-color: base.$dark-charcoal;
 
     nav > ul {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        // justify-content: space-evenly;
 
         li > a {
-            color: base.$primary-font-color;
+            color: base.$whitesmoke;
             padding: 1rem;
             font-weight: bolder;
             font-size: larger;

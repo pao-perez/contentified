@@ -1,27 +1,27 @@
 @charset "utf-8";
 
-// Set your brand colors
-$red: #FF0000;
-$red-light: #FF3333;
+$dark-charcoal: #333333;
 $whitesmoke: #F5F5F5;
 $black: #000000;
+$mustard: #FFDE59;
+$pastel-orange: #FFB347;
+$pastel-red: #FF6961;
+$pastel-yellow: #FDFD96;
+$open-sans: 'Open Sans', sans-serif;
+$source-sans-pro: 'Source Sans Pro', sans-serif;
+$roboto: 'Roboto', sans-serif;
+$roboto-slab: 'Roboto Slab', serif;
 
-$primary-font-family: 'Roboto Slab', serif;
-$primary-font-color: $whitesmoke;
-$secondary-font-color: $black;
-$primary-color: $red-light;
-$background-color: $whitesmoke;
+// Set your brand colors and fonts
+$brand-logo-color: $mustard;
+$brand-name-color: $whitesmoke;
+$brand-name-font: 'Architects Daughter', cursive;
+
+$primary-font-family: $open-sans;
+$secondary-font-family: $source-sans-pro;
 
 .debug * {
     border: 1px solid blue;
-}
-
-ul {
-    list-style: none;
-    
-    li > a {
-        text-decoration: none;
-    }
 }
 
 .center {
@@ -30,4 +30,25 @@ ul {
     align-items: center;
     flex-direction: row;
     flex-wrap: nowrap;
+}
+
+body {
+    margin: 0px;
+    background-color: $whitesmoke;
+    font-family: $secondary-font-family;
+    font-weight: normal;
+    font-size: medium;
+    color: $dark-charcoal;
+
+    ul {
+        list-style: none;
+    
+        li > a {
+            text-decoration: none;
+        }
+    }
+}
+
+body * {    
+    padding: 0px;
 }

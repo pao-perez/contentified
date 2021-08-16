@@ -9,7 +9,7 @@ const Layout = ({ children }) => (
     <Font />
     <div className="container">
       <header className="layout-header">
-        <div className="center">
+        <div className="brand-name center">
           <p>Contentually</p>
         </div>
         <nav className="center" aria-label="Site Navigation">

@@ -33,8 +33,7 @@
 
                 .title {
                     font-size: larger;
-                    color: black;
-
+                    color: base.$dark-charcoal;
                 }
 
                 .meta {
@@ -45,7 +44,7 @@
 
                     .author {
                         font-size: medium;
-                        color: black;
+                        color: base.$dark-charcoal;
                     }
 
                     .date {
@@ -62,7 +61,7 @@
 
             .item-main {
                 grid-area: item-main;
-                color: black;
+                color: base.$dark-charcoal;
                 overflow: hidden;
             }
 
