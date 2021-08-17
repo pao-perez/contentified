@@ -28,6 +28,7 @@
             grid-template-areas:
             "avatar title"
             "avatar meta";
+            font-family: base.$primary-font-family;
 
             * {
                 padding: 0px;
@@ -54,6 +55,7 @@
 
         .post-body {
             font-size: large;
+            font-family: base.$secondary-font-family;
         }
     }
 

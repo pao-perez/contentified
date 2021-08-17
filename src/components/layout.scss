@@ -54,10 +54,11 @@ header.layout-header, footer.layout-footer {
         flex-wrap: wrap;
 
         li > a {
-            color: base.$whitesmoke;
             padding: 1rem;
-            font-weight: bolder;
-            font-size: larger;
+            font-weight: bold;
+            font-size: large;
+            font-family: base.$primary-font-family;
+            color: base.$whitesmoke;
         }
 
         li > a:hover {
@@ -69,12 +70,14 @@ header.layout-header, footer.layout-footer {
     form > input {
         outline: none;
         padding: 1rem;
-        font-weight: bolder;
-        font-size: larger;
         border: none;
         /* offset-x | offset-y | blur-radius | spread-radius | color */
         box-shadow: 0 0.2rem 0.5rem 0.2rem rgba(0, 0, 0, 0.1);
         border-radius: 1rem;
+        background-color: base.$whitesmoke;
+        font-family: base.$primary-font-family;
+        font-weight: bold;
+        font-size: large;
     }
 }
 

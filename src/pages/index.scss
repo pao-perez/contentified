@@ -30,10 +30,11 @@
             .item-header {
                 grid-area: item-header;
                 overflow: hidden;
+                font-family: base.$primary-font-family;
 
                 .title {
-                    font-size: larger;
                     color: base.$dark-charcoal;
+                    font-size: x-large;
                 }
 
                 .meta {
@@ -43,26 +44,27 @@
                     font-weight: normal;
 
                     .author {
-                        font-size: medium;
                         color: base.$dark-charcoal;
+                        font-size: medium;
                     }
 
                     .date {
-                        font-size: large;
                         color: gray;
+                        font-size: medium;
                     }
 
                     .tags {
-                        font-size: small;
                         color: gray;
+                        font-size: small;
                     }
                 }
             }
 
             .item-main {
                 grid-area: item-main;
-                color: base.$dark-charcoal;
                 overflow: hidden;
+                color: base.$dark-charcoal;
+                font-family: base.$secondary-font-family;
             }
 
             .item-footer {
