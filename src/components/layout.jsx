@@ -1,5 +1,6 @@
 import { Link } from 'gatsby';
 import React from 'react';
+import { StaticImage } from 'gatsby-plugin-image';
 import Font from './font';
 
 import './layout.scss';
@@ -10,7 +11,16 @@ const Layout = ({ children }) => (
     <div className="container">
       <header className="layout-header">
         <div className="brand-name center">
-          <p>Contentually</p>
+          <figure>
+            <StaticImage
+              src="../images/brand.png"
+              alt="Contentually"
+              placeholder="blurred"
+              layout="fixed"
+              width={256}
+            />
+          </figure>
+          {/* <p>Contentually</p> */}
         </div>
         <nav className="center" aria-label="Site Navigation">
           <ul>
