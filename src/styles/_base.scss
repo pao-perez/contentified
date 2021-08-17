@@ -2,21 +2,17 @@
 
 $dark-charcoal: #333333;
 $whitesmoke: #F5F5F5;
-$black: #000000;
-$mustard: #FFDE59;
-$pastel-orange: #FFB347;
-$pastel-red: #FF6961;
-$pastel-yellow: #FDFD96;
+$yellow-orange: #FFAE42;
+$red-orange: #FF5349;
+
 $roboto: 'Roboto', sans-serif;
 $roboto-slab: 'Roboto Slab', serif;
 
-// Set your brand colors and fonts
-$brand-logo-color: $mustard;
-$brand-name-color: $whitesmoke;
-$brand-name-font: 'Architects Daughter', cursive;
-
 $primary-font-family: $roboto-slab;
 $secondary-font-family: $roboto;
+
+$brand-name-color: $whitesmoke;
+$brand-name-font: 'Architects Daughter', cursive;
 
 .debug * {
     border: 1px solid blue;
