@@ -10,7 +10,7 @@ const Layout = ({ children }) => (
     <Font />
     <div className="container">
       <header className="layout-header">
-        <div className="brand-name center">
+        <div className="brand center">
           <figure>
             <StaticImage
               src="../images/brand.png"
