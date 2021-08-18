@@ -47,6 +47,13 @@ footer.layout-footer {
 
 header.layout-header, footer.layout-footer {
     background-color: base.$dark-charcoal;
+    font-family: base.$primary-font-family;
+    font-weight: bolder;
+    font-size: larger;
+
+    p {
+        color: base.$whitesmoke;
+    }
 
     nav > ul {
         display: flex;
@@ -55,9 +62,6 @@ header.layout-header, footer.layout-footer {
 
         li > a {
             padding: 1rem;
-            font-weight: bold;
-            font-size: larger;
-            font-family: base.$primary-font-family;
             color: base.$whitesmoke;
         }
 

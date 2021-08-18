@@ -20,7 +20,6 @@ const Layout = ({ children }) => (
               width={256}
             />
           </figure>
-          {/* <p>Contentually</p> */}
         </div>
         <nav className="center" aria-label="Site Navigation">
           <ul>
@@ -61,6 +60,7 @@ const Layout = ({ children }) => (
               <a href="https://www.google.com/">Footer link</a>
             </li>
           </ul>
+          <p className="center">© 2021. All rights reserved. Contentually</p>
         </nav>
       </footer>
     </div>
