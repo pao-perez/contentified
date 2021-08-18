@@ -9,7 +9,7 @@ import './index.scss';
 const IndexPage = ({ data }) => (
   <Layout>
     <div className="home">
-      <article className="blog-list">
+      <section className="blog-list">
         <ul>
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <li>
@@ -42,7 +42,7 @@ const IndexPage = ({ data }) => (
             </li>
           ))}
         </ul>
-      </article>
+      </section>
       <aside aria-label="Subscribe to Newsletter" className="newsletter">
         <EmailNewsletter />
       </aside>

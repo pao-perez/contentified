@@ -32,7 +32,7 @@ const BlogPost = ({ data, location }) => {
             description={post.excerpt}
             author={post.frontmatter.author}
           />
-          <div className="post-header">
+          <section className="post-header">
             <Image
               image={post.frontmatter.avatar}
               alt="Avatar"
@@ -46,10 +46,10 @@ const BlogPost = ({ data, location }) => {
                 {post.frontmatter.tags.join(', ')}
               </span>
             </h2>
-          </div>
-          <div className="post-body">
+          </section>
+          <section className="post-body">
             <p dangerouslySetInnerHTML={{ __html: post.html }} />
-          </div>
+          </section>
         </article>
 
         <aside
