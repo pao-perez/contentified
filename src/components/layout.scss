@@ -26,6 +26,10 @@ header.layout-header {
         color: base.$brand-name-color;
         font-family: base.$brand-name-font;
     }
+
+    nav > ul > li > a {
+        color: base.$dark-charcoal;
+    }
 }
 
 @media (max-width: 768px)  {
@@ -43,10 +47,20 @@ main.layout-main {
 
 footer.layout-footer {
     grid-area: footer;
+    background-color: base.$dark-charcoal;
+    padding: 3rem;
+
+    nav > ul > li {
+        margin: 1rem;
+        padding: 1rem;
+
+        a {
+            color: base.$whitesmoke;
+        }
+    }
 }
 
 header.layout-header, footer.layout-footer {
-    background-color: base.$dark-charcoal;
     font-family: base.$primary-font-family;
     font-weight: bolder;
     font-size: larger;
@@ -62,7 +76,6 @@ header.layout-header, footer.layout-footer {
 
         li > a {
             padding: 1rem;
-            color: base.$whitesmoke;
         }
 
         li > a:hover {
@@ -85,8 +98,3 @@ header.layout-header, footer.layout-footer {
     }
 }
 
-header.layout-header > *,
-footer.layout-footer > nav > ul > li {
-    // margin: 1rem;
-    // padding: 1rem;
-}
