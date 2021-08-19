@@ -7,8 +7,14 @@
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-rows: auto;
     grid-template-areas:
+    "blog-feature blog-feature blog-feature"
     ". blog-list newsletter";
 
+    .blog-feature {
+        grid-area: blog-feature;
+        background-color: base.$yellow-orange;
+        color: base.$whitesmoke;
+    }
     .blog-list {
         grid-area: blog-list;
 
@@ -18,6 +24,72 @@
 
         li:last-child {
             border-bottom: none;
+        }
+
+        .blog-feature {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+            "item-header item-main"
+            "item-header item-footer"
+            "item-header item-footer";
+
+            .item-header {
+                grid-area: item-header;
+
+                > * {
+                    margin-left: 0px;
+                }
+            }
+
+            .item-main {
+                grid-area: item-main;
+                overflow: hidden;
+                font-family: base.$primary-font-family;
+
+                .title {
+                    color: base.$dark-charcoal;
+                    font-size: x-large;
+                }
+
+                .meta {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    font-weight: normal;
+
+                    .author {
+                        flex: 1 1 auto;
+                        color: base.$dark-charcoal;
+                        font-size: medium;
+                    }
+
+                    .date {
+                        flex: 1 1 auto;
+                        color: gray;
+                        font-size: medium;
+                    }
+
+                    .tags {
+                        flex: 1 1 auto;
+                        color: gray;
+                        font-size: small;
+                    }
+                }
+            }
+
+            .item-footer {
+                grid-area: item-footer;
+                overflow: hidden;
+                color: base.$dark-charcoal;
+                font-family: base.$secondary-font-family;
+                font-size: larger;
+
+                * {
+                    margin: 0px;
+                }
+            }
         }
 
         .blog-item {
@@ -70,11 +142,10 @@
 
             .item-footer {
                 grid-area: item-footer;
-                justify-self: end;
-            }
 
-            .item-footer > * {
-                margin-right: 0px;
+                > * {
+                    margin-right: 0px;
+                }
             }
         }
     }
