@@ -25,6 +25,7 @@
             display: grid;
             gap: 1rem;
             grid-template-columns: 1fr 10fr;
+            grid-template-rows: auto;
             grid-template-areas:
             "avatar title"
             "avatar meta";

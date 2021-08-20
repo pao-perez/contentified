@@ -7,83 +7,83 @@ import Layout from '../components/layout';
 import './index.scss';
 
 const IndexPage = ({ data }) => {
-  // sort by multiple fields doesn't work with graphql for some reason, so doing the sort by priority here instead
-  const sortedByPriority = data.allMarkdownRemark.edges.sort((edgeA, edgeB) => {
-    if (edgeA.node.frontmatter.priority < edgeB.node.frontmatter.priority) {
-      return 1;
-    }
-    if (edgeA.node.frontmatter.priority > edgeB.node.frontmatter.priority) {
-      return -1;
-    }
-    return 0;
-  });
+  const featuredBlogs = data.allMarkdownRemark.edges.filter(
+    (edge) => edge.node.frontmatter.priority > -1
+  );
+  const nonFeaturedBlogs = data.allMarkdownRemark.edges.filter(
+    (edge) => edge.node.frontmatter.priority < 0
+  );
+
   return (
     <Layout>
       <div className="home">
         <section className="blog-feature">
-test
+          <ul>
+            {featuredBlogs.map(({ node }) => (
+              <li key={node.id}>
+                <Link to={node.fields.slug}>
+                  <article className="blog-item">
+                    <header className="item-header">
+                      <Image
+                        image={node.frontmatter.thumbnail}
+                        alt="Featured Image Thumbnail"
+                        className="thumbnail"
+                      />
+                    </header>
+                    <main className="item-main">
+                      <h1 className="title">{node.frontmatter.title}</h1>
+                      <h2 className="meta">
+                        <span className="author">
+                          {node.frontmatter.author}
+                        </span>
+                        <span className="date">
+                          <time dateTime="true">{node.frontmatter.date}</time>
+                        </span>
+                        <span className="tags">
+                          {node.frontmatter.tags.join(', ')}
+                        </span>
+                      </h2>
+                    </main>
+                    <footer className="item-footer">
+                      <p>{node.excerpt}</p>
+                    </footer>
+                  </article>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </section>
         <section className="blog-list">
           <ul>
-            {sortedByPriority.map(({ node }) => (
+            {nonFeaturedBlogs.map(({ node }) => (
               <li key={node.id}>
                 <Link to={node.fields.slug}>
-                  {node.frontmatter.priority >= 0 && (
-                    <article className="blog-feature">
-                      <header className="item-header">
-                        <Image
-                          image={node.frontmatter.thumbnail}
-                          alt="Featured Image Thumbnail"
-                          className="thumbnail"
-                        />
-                      </header>
-                      <main className="item-main">
-                        <h1 className="title">{node.frontmatter.title}</h1>
-                        <h2 className="meta">
-                          <span className="author">
-                            {node.frontmatter.author}
-                          </span>
-                          <span className="date">
-                            <time dateTime="true">{node.frontmatter.date}</time>
-                          </span>
-                          <span className="tags">
-                            {node.frontmatter.tags.join(', ')}
-                          </span>
-                        </h2>
-                      </main>
-                      <footer className="item-footer">
-                        <p>{node.excerpt}</p>
-                      </footer>
-                    </article>
-                  )}
-                  {node.frontmatter.priority < 0 && (
-                    <article className="blog-item">
-                      <header className="item-header">
-                        <h1 className="title">{node.frontmatter.title}</h1>
-                        <h2 className="meta">
-                          <span className="author">
-                            {node.frontmatter.author}
-                          </span>
-                          <span className="date">
-                            <time dateTime="true">{node.frontmatter.date}</time>
-                          </span>
-                          <span className="tags">
-                            {node.frontmatter.tags.join(', ')}
-                          </span>
-                        </h2>
-                      </header>
-                      <main className="item-main">
-                        <p>{node.excerpt}</p>
-                      </main>
-                      <footer className="item-footer">
-                        <Image
-                          image={node.frontmatter.thumbnail}
-                          alt="Featured Image Thumbnail"
-                          className="thumbnail"
-                        />
-                      </footer>
-                    </article>
-                  )}
+                  <article className="blog-item">
+                    <header className="item-header">
+                      <h1 className="title">{node.frontmatter.title}</h1>
+                      <h2 className="meta">
+                        <span className="author">
+                          {node.frontmatter.author}
+                        </span>
+                        <span className="date">
+                          <time dateTime="true">{node.frontmatter.date}</time>
+                        </span>
+                        <span className="tags">
+                          {node.frontmatter.tags.join(', ')}
+                        </span>
+                      </h2>
+                    </header>
+                    <main className="item-main">
+                      <p>{node.excerpt}</p>
+                    </main>
+                    <footer className="item-footer">
+                      <Image
+                        image={node.frontmatter.thumbnail}
+                        alt="Featured Image Thumbnail"
+                        className="thumbnail"
+                      />
+                    </footer>
+                  </article>
                 </Link>
               </li>
             ))}
@@ -116,7 +116,7 @@ export const query = graphql`
             thumbnail {
               childImageSharp {
                 gatsbyImageData(
-                  width: 1000
+                  width: 500
                   placeholder: BLURRED
                   blurredOptions: { width: 100 }
                   aspectRatio: 1.5
