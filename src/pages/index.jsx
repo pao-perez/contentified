@@ -22,31 +22,45 @@ const IndexPage = ({ data }) => {
             {featuredBlogs.map(({ node }) => (
               <li key={node.id}>
                 <Link to={node.fields.slug}>
-                  <article className="blog-item">
-                    <header className="item-header">
+                  <article
+                    className="feature-item"
+                    aria-label="Feature Article"
+                  >
+                    <section
+                      className="feature-image"
+                      aria-label="Feature Article Image"
+                    >
                       <Image
                         image={node.frontmatter.thumbnail}
                         alt="Featured Image Thumbnail"
                         className="thumbnail"
                       />
-                    </header>
-                    <main className="item-main">
-                      <h1 className="title">{node.frontmatter.title}</h1>
-                      <h2 className="meta">
-                        <span className="author">
-                          {node.frontmatter.author}
-                        </span>
-                        <span className="date">
-                          <time dateTime="true">{node.frontmatter.date}</time>
-                        </span>
-                        <span className="tags">
-                          {node.frontmatter.tags.join(', ')}
-                        </span>
-                      </h2>
-                    </main>
-                    <footer className="item-footer">
-                      <p>{node.excerpt}</p>
-                    </footer>
+                    </section>
+                    <article className="feature-text">
+                      <section
+                        className="feature-header"
+                        aria-label="Feature Article Header"
+                      >
+                        <h1 className="title">{node.frontmatter.title}</h1>
+                        <h2 className="meta">
+                          <span className="author">
+                            {node.frontmatter.author}
+                          </span>
+                          <span className="date">
+                            <time dateTime="true">{node.frontmatter.date}</time>
+                          </span>
+                          <span className="tags">
+                            {node.frontmatter.tags.join(', ')}
+                          </span>
+                        </h2>
+                      </section>
+                      <section
+                        className="feature-content"
+                        aria-label="Feature Article Excerpt"
+                      >
+                        <p>{node.excerpt}</p>
+                      </section>
+                    </article>
                   </article>
                 </Link>
               </li>
