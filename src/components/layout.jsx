@@ -11,15 +11,17 @@ const Layout = ({ children }) => (
     <div className="container">
       <header className="layout-header">
         <div className="center brand">
-          <figure>
-            <StaticImage
-              src="../images/brand.png"
-              alt="Contentually"
-              placeholder="blurred"
-              layout="fixed"
-              width={256}
-            />
-          </figure>
+          <Link to="/">
+            <figure>
+              <StaticImage
+                src="../images/brand.png"
+                alt="Contentually"
+                placeholder="blurred"
+                layout="fixed"
+                width={256}
+              />
+            </figure>
+          </Link>
         </div>
         <nav className="center nav" aria-label="Site Navigation">
           <ul>
