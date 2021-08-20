@@ -1,7 +1,6 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import Image from '../components/image';
-import EmailNewsletter from '../components/email-newsletter';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Share from '../components/share';
@@ -51,13 +50,6 @@ const BlogPost = ({ data, location }) => {
             <p dangerouslySetInnerHTML={{ __html: post.html }} />
           </section>
         </article>
-
-        <aside
-          aria-label="Subscribe to Newsletter"
-          className="newsletter center"
-        >
-          <EmailNewsletter />
-        </aside>
       </div>
     </Layout>
   );

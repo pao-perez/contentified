@@ -1,7 +1,6 @@
 import { graphql, Link } from 'gatsby';
 import React from 'react';
 import Image from '../components/image';
-import EmailNewsletter from '../components/email-newsletter';
 import Layout from '../components/layout';
 
 import './index.scss';
@@ -103,9 +102,6 @@ const IndexPage = ({ data }) => {
             ))}
           </ul>
         </section>
-        <aside aria-label="Subscribe to Newsletter" className="newsletter">
-          <EmailNewsletter />
-        </aside>
       </div>
     </Layout>
   );
