@@ -32,19 +32,23 @@ const BlogPost = ({ data, location }) => {
             author={post.frontmatter.author}
           />
           <section className="post-header">
-            <Image
-              image={post.frontmatter.avatar}
-              alt="Avatar"
-              className="avatar"
-            />
-            <h1 className="title">{post.frontmatter.title}</h1>
-            <h2 className="meta">
-              <span>
-                by {post.frontmatter.author} on{' '}
-                <time dateTime="true">{post.frontmatter.date}</time> in{' '}
-                {post.frontmatter.tags.join(', ')}
-              </span>
-            </h2>
+            <section className="avatar">
+              <Image
+                image={post.frontmatter.avatar}
+                alt="Avatar"
+                className="is-round"
+              />
+            </section>
+            <section className="text">
+              <h1 className="title">{post.frontmatter.title}</h1>
+              <h2 className="meta">
+                <span>
+                  by {post.frontmatter.author} on{' '}
+                  <time dateTime="true">{post.frontmatter.date}</time> in{' '}
+                  {post.frontmatter.tags.join(', ')}
+                </span>
+              </h2>
+            </section>
           </section>
           <section className="post-body">
             <p dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -70,6 +74,7 @@ export const query = graphql`
               placeholder: BLURRED
               blurredOptions: { width: 100 }
               aspectRatio: 0.7
+              height: 500
             )
           }
         }

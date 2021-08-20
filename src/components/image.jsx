@@ -5,8 +5,8 @@ const Image = ({ image, alt, className }) => {
   const dynamicImage = getImage(image);
   return (
     <>
-      <figure className={className}>
-        <GatsbyImage image={dynamicImage} alt={alt} />
+      <figure>
+        <GatsbyImage image={dynamicImage} alt={alt} className={className} />
       </figure>
     </>
   );

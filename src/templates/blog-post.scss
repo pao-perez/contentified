@@ -27,8 +27,7 @@
             grid-template-columns: 1fr 10fr;
             grid-template-rows: auto;
             grid-template-areas:
-            "avatar title"
-            "avatar meta";
+            "avatar text";
             font-family: base.$primary-font-family;
 
             * {
@@ -38,19 +37,20 @@
 
             .avatar {
                 grid-area: avatar;
+            }
+
+            .text {
+                grid-area: text;
                 align-self: center;
-            }
 
-            .title {
-                grid-area: title;
-                align-self: end;
-                font-size: x-large;
-            }
+                .title {
+                    font-size: x-large;
+                }
 
-            .meta {
-                grid-area: meta;
-                font-weight: lighter;
-                font-size: medium;
+                .meta {
+                    font-weight: lighter;
+                    font-size: medium;
+                }
             }
         }
 
