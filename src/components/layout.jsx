@@ -63,7 +63,7 @@ const Layout = ({ children }) => (
             </li>
           </ul>
         </nav>
-        <p className="center">© 2021. All rights reserved. Contentually</p>
+        <p className="center">© 2021 Contentually | All Rights Reserved</p>
       </footer>
     </div>
   </>
