@@ -1,6 +1,6 @@
 import { Link } from 'gatsby';
-import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
+import React from 'react';
 import Font from './font';
 
 import './layout.scss';

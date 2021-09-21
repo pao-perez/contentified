@@ -117,12 +117,13 @@ export const query = graphql`
       edges {
         node {
           id
+          excerpt
           frontmatter {
             title
-            date(formatString: "MMMM DD, YYYY")
             tags
             author
             priority
+            date(formatString: "MMMM DD, YYYY")
             thumbnail {
               childImageSharp {
                 gatsbyImageData(
@@ -137,7 +138,6 @@ export const query = graphql`
           fields {
             slug
           }
-          excerpt
         }
       }
     }

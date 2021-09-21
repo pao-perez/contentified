@@ -8,8 +8,9 @@ import Share from '../components/share';
 import './blog-post.scss';
 
 const BlogPost = ({ data, location }) => {
-  const post = data.markdownRemark;
-  const { founder } = data.site.siteMetadata;
+  const { title, tags, author, avatar, date } = data.markdownRemark.frontmatter;
+  const { html, excerpt } = data.markdownRemark;
+  const { twitter } = data.site.siteMetadata.founder;
 
   return (
     <Layout>
@@ -17,41 +18,32 @@ const BlogPost = ({ data, location }) => {
         <aside aria-label="Share on Social Media" className="share">
           <section>
             <Share
-              title={post.frontmatter.title}
+              title={title}
               url={location.href}
-              twitterHandle={founder.twitter}
-              tags={post.frontmatter.tags}
+              twitterHandle={twitter}
+              tags={tags}
             />
           </section>
         </aside>
 
         <article className="blog-post">
-          <SEO
-            title={post.frontmatter.title}
-            description={post.excerpt}
-            author={post.frontmatter.author}
-          />
+          <SEO title={title} description={excerpt} author={author} />
           <section className="post-header">
             <section className="avatar">
-              <Image
-                image={post.frontmatter.avatar}
-                alt="Avatar"
-                className="is-round"
-              />
+              <Image image={avatar} alt="Avatar" className="is-round" />
             </section>
             <section className="text">
-              <h1 className="title">{post.frontmatter.title}</h1>
+              <h1 className="title">{title}</h1>
               <h2 className="meta">
                 <span>
-                  by {post.frontmatter.author} on{' '}
-                  <time dateTime="true">{post.frontmatter.date}</time> in{' '}
-                  {post.frontmatter.tags.join(', ')}
+                  by {author} on <time dateTime="true">{date}</time> in{' '}
+                  {tags.join(', ')}
                 </span>
               </h2>
             </section>
           </section>
           <section className="post-body">
-            <p dangerouslySetInnerHTML={{ __html: post.html }} />
+            <p dangerouslySetInnerHTML={{ __html: html }} />
           </section>
         </article>
       </div>
@@ -63,10 +55,12 @@ export const query = graphql`
   query ($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      excerpt
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
         tags
+        author
         avatar {
           childImageSharp {
             gatsbyImageData(
@@ -78,9 +72,7 @@ export const query = graphql`
             )
           }
         }
-        author
       }
-      excerpt
     }
     site {
       siteMetadata {
