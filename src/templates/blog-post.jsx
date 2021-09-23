@@ -5,12 +5,14 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Share from '../components/share';
 
+import useSiteMetadata from '../hooks/use-site-metadata';
+
 import './blog-post.scss';
 
 const BlogPost = ({ data, location }) => {
   const { title, tags, author, avatar, date } = data.markdownRemark.frontmatter;
   const { html, excerpt } = data.markdownRemark;
-  const { twitter } = data.site.siteMetadata.founder;
+  const { twitter } = useSiteMetadata();
 
   return (
     <Layout>
@@ -71,14 +73,6 @@ export const query = graphql`
               height: 500
             )
           }
-        }
-      }
-    }
-    site {
-      siteMetadata {
-        founder {
-          name
-          twitter
         }
       }
     }

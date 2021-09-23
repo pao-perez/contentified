@@ -1,29 +1,15 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
-import { useStaticQuery, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
 
-const SEO = ({ description, lang, meta, title, author }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            founder {
-              name
-            }
-          }
-        }
-      }
-    `
-  );
+import useSiteMetadata from '../hooks/use-site-metadata';
 
-  const metaDescription = description || site.siteMetadata.description;
-  const creator = author || site.siteMetadata.founder.name;
+const SEO = ({ siteDescription, lang, meta, siteTitle, author }) => {
+  const { title, description, founder } = useSiteMetadata();
+  const metaDescription = siteDescription || description;
+  const creator = author || founder.name;
 
   return (
     <>
@@ -31,8 +17,8 @@ const SEO = ({ description, lang, meta, title, author }) => {
         htmlAttributes={{
           lang,
         }}
-        title={title}
-        titleTemplate={`%s | ${site.siteMetadata.title}`}
+        title={siteTitle}
+        titleTemplate={`%s | ${title}`}
         meta={[
           {
             name: `description`,
@@ -40,7 +26,7 @@ const SEO = ({ description, lang, meta, title, author }) => {
           },
           {
             property: `og:title`,
-            content: title,
+            content: siteTitle,
           },
           {
             property: `og:description`,
@@ -60,7 +46,7 @@ const SEO = ({ description, lang, meta, title, author }) => {
           },
           {
             name: `twitter:title`,
-            content: title,
+            content: siteTitle,
           },
           {
             name: `twitter:description`,
@@ -75,15 +61,15 @@ const SEO = ({ description, lang, meta, title, author }) => {
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
-  description: ``,
+  siteDescription: ``,
   author: ``,
 };
 
 SEO.propTypes = {
-  description: PropTypes.string,
+  siteDescription: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+  siteTitle: PropTypes.string.isRequired,
   author: PropTypes.string,
 };
 
