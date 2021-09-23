@@ -1,15 +1,18 @@
-import { graphql, Link } from 'gatsby';
 import React from 'react';
+
+import { Link } from 'gatsby';
+
 import Image from '../components/image';
 import Layout from '../components/layout';
-
+import useBlogList from '../hooks/use-blog-list';
 import './index.scss';
 
-const IndexPage = ({ data }) => {
-  const featuredBlogs = data.allMarkdownRemark.edges.filter(
+const IndexPage = () => {
+  const edges = useBlogList();
+  const featuredBlogs = edges.filter(
     (edge) => edge.node.frontmatter.priority > -1
   );
-  const nonFeaturedBlogs = data.allMarkdownRemark.edges.filter(
+  const nonFeaturedBlogs = edges.filter(
     (edge) => edge.node.frontmatter.priority < 0
   );
 
@@ -106,42 +109,5 @@ const IndexPage = ({ data }) => {
     </Layout>
   );
 };
-
-export const query = graphql`
-  query {
-    allMarkdownRemark(
-      limit: 10
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      totalCount
-      edges {
-        node {
-          id
-          excerpt
-          frontmatter {
-            title
-            tags
-            author
-            priority
-            date(formatString: "MMMM DD, YYYY")
-            thumbnail {
-              childImageSharp {
-                gatsbyImageData(
-                  width: 500
-                  placeholder: BLURRED
-                  blurredOptions: { width: 100 }
-                  aspectRatio: 1.5
-                )
-              }
-            }
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  }
-`;
 
 export default IndexPage;
