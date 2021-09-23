@@ -23,19 +23,6 @@ const Layout = ({ children }) => (
             </figure>
           </Link>
         </div>
-        <nav className="center nav" aria-label="Site Navigation">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-          </ul>
-        </nav>
         <form className="center search" role="search" aria-label="Search Site">
           <input type="search" placeholder="Search Articles..." />
         </form>
