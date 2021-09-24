@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './share.scss';
-
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -14,6 +12,8 @@ import {
   EmailShareButton,
   EmailIcon,
 } from 'react-share';
+
+import './share.scss';
 
 const Share = ({ title, url, twitterHandle, tags }) => (
   <article className="share">

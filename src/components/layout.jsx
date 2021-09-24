@@ -1,8 +1,9 @@
+import React from 'react';
+
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import React from 'react';
-import Font from './font';
 
+import Font from './font';
 import './layout.scss';
 
 const Layout = ({ children }) => (
@@ -55,4 +56,5 @@ const Layout = ({ children }) => (
     </div>
   </>
 );
+
 export default Layout;

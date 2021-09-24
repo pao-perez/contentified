@@ -1,8 +1,10 @@
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
+
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const Image = ({ image, alt, className }) => {
   const dynamicImage = getImage(image);
+
   return (
     <>
       <figure>
@@ -11,4 +13,5 @@ const Image = ({ image, alt, className }) => {
     </>
   );
 };
+
 export default Image;

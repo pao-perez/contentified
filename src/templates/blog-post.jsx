@@ -1,12 +1,12 @@
-import { graphql } from 'gatsby';
 import React from 'react';
+
+import { graphql } from 'gatsby';
+
 import Image from '../components/image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Share from '../components/share';
-
 import useSiteMetadata from '../hooks/use-site-metadata';
-
 import './blog-post.scss';
 
 const BlogPost = ({ data, location }) => {
