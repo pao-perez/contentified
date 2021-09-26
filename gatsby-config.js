@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Contentually`,
+    title: `Contentified`,
     description: `Developer Tutorials`,
     founder: {
       name: `Pao Perez`,
       bio: `Helping make the world a better place through crafting software while trying to make the most of this life. I spend most of my days learning and playing with these interests - Java, JavaScript, Linux, Google Cloud`,
-      email: `paoperez@contentually.dev`,
+      email: `paoperez@contentified.dev`,
       twitter: `pawieperez`,
       github: `pao-perez`,
     },
@@ -14,8 +14,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Contentually`,
-        short_name: `Contentually`,
+        name: `Contentified`,
+        short_name: `Contentified`,
         start_url: `/`,
         background_color: `#FFAE42`,
         theme_color: `#FF5349`,
@@ -32,7 +32,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `content`,
-        path: `${__dirname}/src/content/`,
+        path: `${__dirname}/src/content/`, // Source root dir, any subdir will be part of the filepath
       },
     },
     {

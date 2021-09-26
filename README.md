@@ -1,5 +1,5 @@
 <h1 align="center">
-  Contentually
+  Contentified
 </h1>
 
 ## Quick start
@@ -36,7 +36,7 @@ Your site is now running at http://localhost:5000
 ```shell
 npm run deploy --deployment={ENV}
 ```
-Your site is now running at [https://{ENV}-contentually.web.app](https://{ENV}-contentually.web.app)
+Your site is now running at [https://{ENV}-contentified.web.app](https://{ENV}-contentified.web.app)
 
 ### Built with Gatsby
 - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)

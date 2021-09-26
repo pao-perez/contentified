@@ -16,7 +16,7 @@ const Layout = ({ children }) => (
             <figure>
               <StaticImage
                 src="../images/brand.png"
-                alt="Contentually"
+                alt="Contentified"
                 placeholder="blurred"
                 layout="fixed"
                 width={256}
@@ -51,7 +51,7 @@ const Layout = ({ children }) => (
             </li>
           </ul>
         </nav>
-        <p className="center">© 2021 Contentually | All Rights Reserved</p>
+        <p className="center">© 2021 Contentified | All Rights Reserved</p>
       </footer>
     </div>
   </>
