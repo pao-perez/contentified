@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from 'gatsby';
 
-const useBlogList = () => {
+const useBlogList = (isFeatured = false) => {
   const { allMarkdownRemark } = useStaticQuery(
     graphql`
       query {
@@ -39,7 +39,13 @@ const useBlogList = () => {
       }
     `
   );
-  return allMarkdownRemark.edges;
+  return isFeatured
+    ? allMarkdownRemark.edges.filter(
+        (edge) => edge.node.frontmatter.priority >= 0
+      )
+    : allMarkdownRemark.edges.filter(
+        (edge) => edge.node.frontmatter.priority < 0
+      );
 };
 
 export default useBlogList;

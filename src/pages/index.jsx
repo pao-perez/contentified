@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 
 import Image from '../components/image';
 import Layout from '../components/layout';
@@ -8,13 +8,8 @@ import useBlogList from '../hooks/use-blog-list';
 import './index.scss';
 
 const IndexPage = () => {
-  const edges = useBlogList();
-  const featuredBlogs = edges.filter(
-    (edge) => edge.node.frontmatter.priority > -1
-  );
-  const nonFeaturedBlogs = edges.filter(
-    (edge) => edge.node.frontmatter.priority < 0
-  );
+  const featuredBlogs = useBlogList(true);
+  const nonFeaturedBlogs = useBlogList(false);
 
   return (
     <Layout>
