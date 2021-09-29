@@ -9,7 +9,7 @@ const rinseTerm = (term = '') => {
       chars.push(term.charAt(c));
     }
   }
-  return chars.join('');
+  return chars.length > 0 ? chars.join('') : null;
 };
 
 export default rinseTerm;
