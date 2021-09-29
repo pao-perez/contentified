@@ -3,7 +3,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Image from '../components/image';
-import Layout from '../components/layout';
+import Layout from '../layouts/layout';
 import SEO from '../components/seo';
 import Share from '../components/share';
 import useSiteMetadata from '../hooks/use-site-metadata';

@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
-import Font from './font';
+import Font from '../components/font';
 import './layout.scss';
 
 const Layout = ({ children }) => (
