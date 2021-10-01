@@ -4,7 +4,7 @@ const flush = (out = [], term = []) => {
   }
 };
 
-const splitTerm = (term = '') => {
+const splitTermByWhitespace = (term = '') => {
   const terms = [];
   let chars = [];
   [...term].forEach((char) => {
@@ -21,4 +21,4 @@ const splitTerm = (term = '') => {
   return terms;
 };
 
-export default splitTerm;
+export default splitTermByWhitespace;
