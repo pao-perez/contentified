@@ -1,7 +1,8 @@
-import { useQuery, gql } from '@apollo/client';
+import { useEffect, useState } from 'react';
+import { useApolloClient, gql } from '@apollo/client';
 
 import rinseTerm from '../utils/rinse-term';
-import splitTerm from '../utils/split-term';
+import splitTermByWhitespace from '../utils/split-term';
 
 const QUERY = gql`
   query ($query: String!) {
@@ -42,22 +43,32 @@ const QUERY = gql`
 `;
 
 const useSearchResults = (term = '') => {
-  const terms = [];
-  splitTerm(term).forEach((t) => {
-    const rinsedTerm = rinseTerm(t);
-    if (rinsedTerm != null) {
-      terms.push(rinsedTerm);
-    }
-  });
+  const [data, setData] = useState([]);
+  const client = useApolloClient();
 
-  const regex = `/(?:\\b${terms.join('|')}\\b)/gi`;
-  const queryParams = {
-    query: regex,
-  };
-  const { data } = useQuery(QUERY, {
-    variables: queryParams,
-  }); // Implement and pass onCompleted and onError callback fn?
-  return data?.allMarkdownRemark.edges;
+  useEffect(() => {
+    console.log('useeffect');
+    const terms = [];
+    splitTermByWhitespace(term).forEach((t) => {
+      const rinsedTerm = rinseTerm(t);
+      if (rinsedTerm != null) {
+        terms.push(rinsedTerm);
+      }
+    });
+
+    const queryTerm = async (queryTerms = []) => {
+      const regex = `/(?:\\b${queryTerms.join('|')}\\b)/gi`;
+      const result = await client.query({
+        query: QUERY,
+        variables: { query: regex },
+      });
+      setData([result?.data.allMarkdownRemark.edges]);
+    };
+
+    queryTerm(terms);
+  }, [term]);
+
+  return data;
 };
 
 export default useSearchResults;
