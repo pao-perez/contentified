@@ -1,6 +1,5 @@
+import { gql, useApolloClient } from '@apollo/client';
 import { useEffect, useState } from 'react';
-import { useApolloClient, gql } from '@apollo/client';
-
 import rinseTerm from '../utils/rinse-term';
 import splitTermByWhitespace from '../utils/split-term';
 
@@ -61,7 +60,7 @@ const useSearchResults = (term = '') => {
         query: QUERY,
         variables: { query: regex },
       });
-      setData([result?.data.allMarkdownRemark.edges]);
+      setData(result?.data.allMarkdownRemark.edges);
     };
 
     queryTerm(terms);
