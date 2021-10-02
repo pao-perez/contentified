@@ -47,7 +47,6 @@ const useSearchResults = (term = '') => {
   const client = useApolloClient();
 
   useEffect(() => {
-    console.log('useeffect');
     const terms = [];
     splitTermByWhitespace(term).forEach((t) => {
       const rinsedTerm = rinseTerm(t);
