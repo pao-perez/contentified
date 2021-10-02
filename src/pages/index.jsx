@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Link, graphql } from 'gatsby';
+import { Link } from 'gatsby';
 
-import Image from '../components/image';
-import Layout from '../components/layout';
+import Layout from '../layouts/layout';
 import useBlogList from '../hooks/use-blog-list';
+import Image from '../components/image';
 import './index.scss';
 
 const IndexPage = () => {
