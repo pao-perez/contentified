@@ -1,9 +1,6 @@
-import React from 'react';
-
 import { graphql } from 'gatsby';
-
+import React from 'react';
 import Image from '../components/image';
-import Layout from '../layouts/layout';
 import SEO from '../components/seo';
 import Share from '../components/share';
 import useSiteMetadata from '../hooks/use-site-metadata';
@@ -15,7 +12,7 @@ const BlogPost = ({ data, location }) => {
   const { twitter } = useSiteMetadata();
 
   return (
-    <Layout>
+    <>
       <div className="blog">
         <aside aria-label="Share on Social Media" className="share">
           <section>
@@ -49,7 +46,7 @@ const BlogPost = ({ data, location }) => {
           </section>
         </article>
       </div>
-    </Layout>
+    </>
   );
 };
 

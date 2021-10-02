@@ -3,7 +3,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import Font from '../components/font';
 import { SearchContext } from '../providers/provider';
-import './layout.scss';
+import './index.scss';
 
 const Layout = ({ children }) => (
   <SearchContext.Consumer>
