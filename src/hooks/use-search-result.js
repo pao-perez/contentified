@@ -41,7 +41,7 @@ const QUERY = gql`
   }
 `;
 
-const useSearchResults = (term = '') => {
+const useSearchResult = (term = '') => {
   const [data, setData] = useState([]);
   const client = useApolloClient();
 
@@ -69,4 +69,4 @@ const useSearchResults = (term = '') => {
   return data;
 };
 
-export default useSearchResults;
+export default useSearchResult;
