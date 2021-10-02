@@ -7,7 +7,7 @@ import './index.scss';
 
 const Layout = ({ children }) => (
   <SearchContext.Consumer>
-    {context => (
+    {({ search, setSearch }) => (
       <>
         <Font />
         <div className="container">
@@ -29,8 +29,8 @@ const Layout = ({ children }) => (
               <input
                 type="search"
                 placeholder="Search Articles..."
-                value={context.search}
-                onChange={(event) => context.setSearch(event.target.value)}
+                value={search}
+                onChange={(event) => setSearch(event.target.value)}
               />
             </form>
           </header>
