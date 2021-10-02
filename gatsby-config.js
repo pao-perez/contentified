@@ -1,72 +1,26 @@
+// Gatsby files can't use es6 unless esm module is used
+// https://github.com/gatsbyjs/gatsby/issues/7810
 module.exports = {
   siteMetadata: {
-    title: `Contentually`,
+    title: `Contentified`,
     description: `Developer Tutorials`,
-    author: {
+    founder: {
       name: `Pao Perez`,
       bio: `Helping make the world a better place through crafting software while trying to make the most of this life. I spend most of my days learning and playing with these interests - Java, JavaScript, Linux, Google Cloud`,
-      email: `paoperez@contentually.dev`,
-      social: [
-        {
-          name: `twitter`,
-          follow: `twitter follow`,
-          share: `on twitter share`,
-          icon: `fab fa-twitter`,
-        },
-        {
-          name: `medium`,
-          follow: `medium follow`,
-          share: `on medium share`,
-          icon: `fab fa-medium-m`,
-        },
-        {
-          name: `linkedin`,
-          follow: `linkedin follow`,
-          share: `on linkedin share`,
-          icon: `fab fa-linkedin-in`,
-        },
-        {
-          name: `github`,
-          follow: `github follow`,
-          share: `on github share`,
-          icon: `fab fa-github-alt`,
-        },
-        {
-          name: `stackoverflow`,
-          follow: `stackoverflow follow`,
-          share: `on stackoverflow share`,
-          icon: `fab fa-stack-overflow`,
-        },
-        {
-          name: `reddit`,
-          follow: `reddit follow`,
-          share: `on reddit share`,
-          icon: `fab fa-reddit-alien`,
-        },
-        {
-          name: `slack`,
-          follow: `slack follow`,
-          share: `on slack share`,
-          icon: `fab fa-slack`,
-        },
-        {
-          name: `email`,
-          follow: `email follow`,
-          share: `via email share`,
-          icon: `fas fa-envelope`,
-        },
-      ],
+      email: `paoperez@contentified.dev`,
+      twitter: `pawieperez`,
+      github: `pao-perez`,
     },
   },
   plugins: [
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Contentually`,
-        short_name: `Contentually`,
+        name: `Contentified`,
+        short_name: `Contentified`,
         start_url: `/`,
-        background_color: `#6b37bf`,
-        theme_color: `#6b37bf`,
+        background_color: `#FFAE42`,
+        theme_color: `#FF5349`,
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: `standalone`,
@@ -79,10 +33,38 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `src`,
-        path: `${__dirname}/content/`,
+        name: `content`,
+        path: `${__dirname}/src/content/`, // Source root dir, any subdir will be part of the filepath
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images/`,
+      },
+    },
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 1000,
+              linkImagesToOriginal: false,
+              withWebp: true,
+              quality: 50,
+            },
+          },
+        ],
+      },
+    },
   ],
 };

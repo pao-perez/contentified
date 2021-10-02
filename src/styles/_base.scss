@@ -1,13 +1,52 @@
 @charset "utf-8";
 
-// Set your brand colors
-$red: #FF0000;
-$red-light: #FF3333;
+$dark-charcoal: #333333;
 $whitesmoke: #F5F5F5;
-$black: #000000;
+$yellow-orange: #FFAE42;
+$red-orange: #FF5349;
 
-$primary-font-family: 'Roboto Slab', serif;
-$primary-font-color: $whitesmoke;
-$secondary-font-color: $black;
-$primary-color: $red-light;
-$background-color: $whitesmoke;
+$roboto: 'Roboto', sans-serif;
+$roboto-slab: 'Roboto Slab', serif;
+
+$primary-font-family: $roboto-slab;
+$secondary-font-family: $roboto;
+
+$brand-name-color: $whitesmoke;
+$brand-name-font: 'Architects Daughter', cursive;
+
+.debug * {
+    border: 1px solid blue;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.is-round {
+    border-radius: 50%;
+}
+
+body {
+    margin: 0px;
+    background-color: $whitesmoke;
+    font-family: $secondary-font-family;
+    font-weight: normal;
+    font-size: medium;
+    color: $dark-charcoal;
+
+    ul {
+        list-style: none;
+    
+        li > a {
+            text-decoration: none;
+        }
+    }
+}
+
+body * {
+    padding: 0px;
+}

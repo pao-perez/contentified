@@ -1,41 +1,37 @@
 import React from 'react';
 
 import { Link } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
 
-import Font from './font';
-
+import Font from '../components/font';
 import './layout.scss';
 
 const Layout = ({ children }) => (
   <>
     <Font />
     <div className="container">
-      <header>
-        <div className="logo center">
-          <p>Contentually</p>
+      <header className="layout-header">
+        <div className="center brand">
+          <Link to="/">
+            <figure>
+              <StaticImage
+                src="../images/brand.png"
+                alt="Contentified"
+                placeholder="blurred"
+                layout="fixed"
+                width={256}
+              />
+            </figure>
+          </Link>
         </div>
-        <nav className="primary-nav center" aria-label="Site Navigation">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-          </ul>
-        </nav>
-        <form className="search center" role="search" aria-label="Search Site">
-          <input type="search" />
-          <button type="submit">Search</button>
+        <form className="center search" role="search" aria-label="Search Site">
+          <input type="search" placeholder="Search Articles..." />
         </form>
       </header>
 
-      <main>{children}</main>
+      <main className="layout-main">{children}</main>
 
-      <footer>
+      <footer className="layout-footer">
         <nav aria-label="Other Site Information">
           <ul>
             <li>
@@ -55,8 +51,10 @@ const Layout = ({ children }) => (
             </li>
           </ul>
         </nav>
+        <p className="center">© 2021 Contentified | All Rights Reserved</p>
       </footer>
     </div>
   </>
 );
+
 export default Layout;
