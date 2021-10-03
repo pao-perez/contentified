@@ -30,6 +30,7 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-layout`, // plugin will try to use Layout component located in src/layouts/index.js by default
     {
       resolve: `gatsby-source-filesystem`,
       options: {
