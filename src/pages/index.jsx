@@ -1,11 +1,16 @@
 import { Link } from 'gatsby';
-import React from 'react';
-import Image from '../components/image';
+import React, { useContext } from 'react';
+import { SearchContext } from '../providers/provider';
 import useBlogList from '../hooks/use-blog-list';
+import useSearchResult from '../hooks/use-search-result';
+import Image from '../components/image';
 import './index.scss';
 
 const IndexPage = () => {
-  const blogList = useBlogList();
+  const defaultList = useBlogList();
+  const { search } = useContext(SearchContext);
+  const searchResults = useSearchResult(search);
+  const blogList = search.trim() === '' ? defaultList : searchResults;
 
   return (
     <div className="home">

@@ -5,7 +5,7 @@ import Font from '../components/font';
 import SearchBar from '../components/search-bar';
 import './index.scss';
 
-const Layout = ({ children }) => (
+const Layout = ({ children, location }) => (
   <>
     <Font />
     <div className="container">
@@ -23,7 +23,7 @@ const Layout = ({ children }) => (
             </figure>
           </Link>
         </div>
-        <SearchBar />
+        <SearchBar isHidden={location.pathname !== '/'} />
       </header>
 
       <main className="layout-main">{children}</main>
