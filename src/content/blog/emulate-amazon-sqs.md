@@ -5,7 +5,6 @@ tags: ["tutorial", "how to"]
 avatar: ../../images/avatar/128x128.jpeg
 author: "Pao Pogi"
 thumbnail: ../../images/featured/1000x500.jpeg
-priority: 3
 ---
 ![Featured Image](../../images/featured/1000x500.jpeg)
 

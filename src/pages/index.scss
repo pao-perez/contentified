@@ -7,74 +7,8 @@
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-rows: auto;
     grid-template-areas:
-    "blog-feature blog-feature blog-feature"
     ". blog-list .";
 
-    .blog-feature {
-        grid-area: blog-feature;
-        background-color: lightgray;
-
-        .feature-item {
-            display: grid;
-            gap: 1rem;
-            grid-template-columns: 1fr 2fr 2fr 1fr;
-            grid-template-rows: auto;
-            grid-template-areas:
-            ". feature-image feature-text ."
-            ". feature-image feature-text .";
-
-            .feature-image {
-                grid-area: feature-image;
-                display: flex;
-            }
-
-            .feature-text {
-                 grid-area: feature-text;
-                 display: flex;
-                 flex-direction: column;
-                 flex-wrap: nowrap;
-
-                .feature-header {
-                    font-family: base.$primary-font-family;
-
-                    .title {
-                        font-size: x-large;
-                        color: base.$dark-charcoal;
-                        margin-bottom: 0px;
-                    }
-
-                    .meta {
-                        display: flex;
-                        flex-direction: column;
-                        flex-wrap: nowrap;
-                        font-weight: normal;
-
-                        .author {
-                            font-size: medium;
-                            color: base.$dark-charcoal;
-                        }
-
-                        .date {
-                            font-size: medium;
-                            color: gray;
-                        }
-
-                        .tags {
-                            font-size: small;
-                            color: gray;
-                        }
-                    }
-                }
-
-                .feature-content {
-                    flex: 1 1 auto;
-                    font-family: base.$secondary-font-family;
-                    font-size: larger;
-                    color: base.$dark-charcoal;
-                }
-            }
-        }
-    }
     .blog-list {
         grid-area: blog-list;
 

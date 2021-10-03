@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from 'gatsby';
 
-const useBlogList = (isFeatured = false) => {
+const useBlogList = () => {
   const { allMarkdownRemark } = useStaticQuery(
     graphql`
       query {
@@ -17,7 +17,6 @@ const useBlogList = (isFeatured = false) => {
                 title
                 tags
                 author
-                priority
                 date(formatString: "MMMM DD, YYYY")
                 thumbnail {
                   childImageSharp {
@@ -39,13 +38,7 @@ const useBlogList = (isFeatured = false) => {
       }
     `
   );
-  return isFeatured
-    ? allMarkdownRemark.edges.filter(
-        (edge) => edge.node.frontmatter.priority >= 0
-      )
-    : allMarkdownRemark.edges.filter(
-        (edge) => edge.node.frontmatter.priority < 0
-      );
+  return allMarkdownRemark.edges;
 };
 
 export default useBlogList;

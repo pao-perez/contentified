@@ -19,7 +19,6 @@ const QUERY = gql`
             title
             tags
             author
-            priority
             date(formatString: "MMMM DD, YYYY")
             thumbnail {
               childImageSharp {
