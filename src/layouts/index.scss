@@ -42,10 +42,10 @@ header.layout-header {
             outline: none;
             padding: 1rem;
             border: none;
-            /* offset-x | offset-y | blur-radius | spread-radius | color */
-            box-shadow: 0 0.2rem 0.5rem 0.2rem rgba(0, 0, 0, 0.1);
-            border-radius: 1rem;
-            background-color: base.$whitesmoke;
+            box-shadow: none;
+            border-radius: .3rem;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: base.$whitesmoke;
             font-family: base.$primary-font-family;
             font-weight: bold;
             font-size: large;
