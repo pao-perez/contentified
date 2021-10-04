@@ -39,7 +39,6 @@ const IndexPage = () => {
                     <Image
                       image={node.frontmatter.thumbnail}
                       alt="Featured Image Thumbnail"
-                      className="thumbnail"
                     />
                   </footer>
                 </article>

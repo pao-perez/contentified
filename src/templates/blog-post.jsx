@@ -29,7 +29,7 @@ const BlogPost = ({ data, location }) => {
           <SEO siteTitle={title} siteDescription={excerpt} author={author} />
           <section className="post-header">
             <section className="avatar">
-              <Image image={avatar} alt="Avatar" className="is-round" />
+              <Image image={avatar} alt="Avatar" className="avatar" />
             </section>
             <section className="text">
               <h1 className="title">{title}</h1>
