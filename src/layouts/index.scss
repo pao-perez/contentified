@@ -16,21 +16,6 @@
 header.layout-header, footer.layout-footer {
     font-family: base.$primary-font-family;
     background-color: base.$dark-charcoal;
-
-    nav > ul {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-
-        li > a {
-            padding: 1rem;
-        }
-
-        li > a:hover {
-            border-radius: 1rem;
-            background: rgba(200, 200, 200, 0.5);
-        }
-    }
 }
 
 header.layout-header {
@@ -43,16 +28,6 @@ header.layout-header {
 
     .brand {
         flex: 1 1 auto;
-    }
-
-    .nav {
-        flex: 1 1 auto;
-
-        ul > li > a {
-            color: base.$dark-charcoal;
-            font-weight: bolder;
-            font-size: larger;
-        }
     }
 
     .search {
@@ -90,12 +65,24 @@ footer.layout-footer {
     font-size: large;
     font-weight: normal;
 
-    nav > ul > li {
-        margin: 1rem;
-        padding: 1rem;
+    nav > ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
 
-        a {
-            color: base.$whitesmoke;
+        li {
+            margin: 1rem;
+            padding: 1rem;
+
+            a {
+                color: base.$whitesmoke;
+                padding: 1rem;
+            }
+
+            a:hover {
+                border-radius: 1rem;
+                background: rgba(200, 200, 200, 0.5);
+            }
         }
     }
 
