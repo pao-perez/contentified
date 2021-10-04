@@ -1,5 +1,4 @@
 import { Link } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import Font from '../components/font';
 import SearchBar from '../components/search-bar';
@@ -10,19 +9,9 @@ const Layout = ({ children, location }) => (
     <Font />
     <div className="container">
       <header className="layout-header">
-        <div className="center brand">
-          <Link to="/">
-            <figure>
-              <StaticImage
-                src="../images/brand.png"
-                alt="Contentified"
-                placeholder="blurred"
-                layout="fixed"
-                width={256}
-              />
-            </figure>
-          </Link>
-        </div>
+        <Link to="/" style={{ textDecoration: 'none' }} className="center">
+          <h1 className="brand center">Contentified</h1>
+        </Link>
         <SearchBar isHidden={location.pathname !== '/'} />
       </header>
 

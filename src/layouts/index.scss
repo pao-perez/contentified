@@ -32,6 +32,8 @@ header.layout-header {
     .brand {
         flex: 1 1 auto;
         justify-content: flex-start;
+        color: base.$whitesmoke;
+        font-family: base.$brand-name-font;
     }
 
     .search {
