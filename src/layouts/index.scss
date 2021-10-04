@@ -23,15 +23,20 @@ header.layout-header {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-evenly;
     align-items: center;
+
+    > * { 
+        margin: 0px 1rem;
+    }
 
     .brand {
         flex: 1 1 auto;
+        justify-content: flex-start;
     }
 
     .search {
         flex: 1 1 auto;
+        justify-content: flex-end;
 
         input {
             outline: none;
