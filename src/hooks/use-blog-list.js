@@ -1,4 +1,4 @@
-import { useStaticQuery, graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const useBlogList = () => {
   const { allMarkdownRemark } = useStaticQuery(
@@ -21,10 +21,9 @@ const useBlogList = () => {
                 thumbnail {
                   childImageSharp {
                     gatsbyImageData(
-                      width: 500
+                      width: 512
                       placeholder: BLURRED
-                      blurredOptions: { width: 100 }
-                      aspectRatio: 1.5
+                      aspectRatio: 1
                     )
                   }
                 }
