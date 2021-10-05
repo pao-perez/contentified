@@ -12,41 +12,39 @@ const BlogPost = ({ data, location }) => {
   const { twitter } = useSiteMetadata();
 
   return (
-    <>
-      <div className="blog">
-        <aside aria-label="Share on Social Media" className="share">
-          <section>
-            <Share
-              title={title}
-              url={location.href}
-              twitterHandle={twitter}
-              tags={tags}
-            />
-          </section>
-        </aside>
+    <div className="blog">
+      <aside aria-label="Share on Social Media" className="share">
+        <section>
+          <Share
+            title={title}
+            url={location.href}
+            twitterHandle={twitter}
+            tags={tags}
+          />
+        </section>
+      </aside>
 
-        <article className="blog-post">
-          <SEO siteTitle={title} siteDescription={excerpt} author={author} />
-          <section className="post-header">
-            <section className="avatar">
-              <Image image={avatar} alt="Avatar" className="avatar" />
-            </section>
-            <section className="text">
-              <h1 className="title">{title}</h1>
-              <h2 className="meta">
-                <span>
-                  by {author} on <time dateTime="true">{date}</time> in{' '}
-                  {tags.join(', ')}
-                </span>
-              </h2>
-            </section>
+      <article className="blog-post">
+        <SEO siteTitle={title} siteDescription={excerpt} author={author} />
+        <section className="post-header">
+          <section className="avatar">
+            <Image image={avatar} alt="Avatar" className="avatar" />
           </section>
-          <section className="post-body">
-            <p dangerouslySetInnerHTML={{ __html: html }} />
+          <section className="text">
+            <h1 className="title">{title}</h1>
+            <h2 className="meta">
+              <span>
+                by {author} on <time dateTime="true">{date}</time> in{' '}
+                {tags.join(', ')}
+              </span>
+            </h2>
           </section>
-        </article>
-      </div>
-    </>
+        </section>
+        <section className="post-body">
+          <p dangerouslySetInnerHTML={{ __html: html }} />
+        </section>
+      </article>
+    </div>
   );
 };
 
