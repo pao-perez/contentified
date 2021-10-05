@@ -23,10 +23,9 @@ const QUERY = gql`
             thumbnail {
               childImageSharp {
                 gatsbyImageData(
-                  width: 500
+                  width: 512
                   placeholder: BLURRED
-                  blurredOptions: { width: 100 }
-                  aspectRatio: 1.5
+                  aspectRatio: 1
                 )
               }
             }
