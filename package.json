@@ -10,7 +10,7 @@
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
-    "build": "gatsby build",
+    "build": "env-cmd -f .env.${npm_config_deployment} -x gatsby build",
     "serve": "gatsby serve",
     "firebase-serve": "firebase serve --host ${HOST:-localhost} --project $npm_config_deployment --debug",
     "clean": "gatsby clean",
@@ -39,6 +39,7 @@
     "sass": "^1.32.8"
   },
   "devDependencies": {
+    "env-cmd": "^10.1.0",
     "eslint": "^7.23.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.1.0",
