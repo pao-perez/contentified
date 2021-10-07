@@ -27,7 +27,7 @@ Your site is now running at http://localhost:9000
 **Local Firebase Deploy**
 
 ```shell
-npm run firebase-serve --deployment={ENV}
+npm run local-deploy --deployment={ENV}
 ```
 Your site is now running at http://localhost:5000
 

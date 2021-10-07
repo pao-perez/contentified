@@ -12,8 +12,8 @@
     "start": "gatsby develop",
     "build": "env-cmd -f .env.${npm_config_deployment} -x gatsby build",
     "serve": "gatsby serve",
-    "firebase-serve": "firebase serve --host ${HOST:-localhost} --project $npm_config_deployment --debug",
     "clean": "gatsby clean",
+    "local-deploy": "firebase serve --host ${HOST:-localhost} --project $npm_config_deployment --debug",
     "deploy": "firebase deploy --project $npm_config_deployment"
   },
   "dependencies": {
