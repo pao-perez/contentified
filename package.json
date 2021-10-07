@@ -9,11 +9,12 @@
   ],
   "scripts": {
     "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "env-cmd -f .env.${npm_config_deployment} -x gatsby build",
-    "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "prebuild": "npm run clean",
+    "build": "env-cmd -f .env.${npm_config_deployment} -x gatsby build",
+    "prelocal-deploy": "npm run build",
     "local-deploy": "firebase serve --host ${HOST:-localhost} --project $npm_config_deployment --debug",
+    "predeploy": "npm run build",
     "deploy": "firebase deploy --project $npm_config_deployment"
   },
   "dependencies": {
