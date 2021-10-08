@@ -14,27 +14,20 @@ Your site is now running at http://localhost:8000
 **Build**
 
 ```shell
-npm run build
+npm run build --environment={ENV}
 ```
-
-**Local Gatsby Deploy**
-
-```shell
-npm run serve
-```
-Your site is now running at http://localhost:9000
 
 **Local Firebase Deploy**
 
 ```shell
-npm run local-deploy --deployment={ENV}
+npm run local-deploy --environment={ENV}
 ```
 Your site is now running at http://localhost:5000
 
 **Firebase Deploy**
 
 ```shell
-npm run deploy --deployment={ENV}
+npm run deploy --environment={ENV}
 ```
 Your site is now running at [https://{ENV}-contentified.web.app](https://{ENV}-contentified.web.app)
 

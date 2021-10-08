@@ -11,11 +11,11 @@
     "develop": "gatsby develop",
     "clean": "gatsby clean",
     "prebuild": "npm run clean",
-    "build": "env-cmd -f .env.${npm_config_deployment} -x gatsby build",
+    "build": "env-cmd -f .env.${npm_config_environment} -x gatsby build",
     "prelocal-deploy": "npm run build",
-    "local-deploy": "firebase serve --host ${HOST:-localhost} --project $npm_config_deployment --debug",
+    "local-deploy": "firebase serve --host ${HOST:-localhost} --project $npm_config_environment --debug",
     "predeploy": "npm run build",
-    "deploy": "firebase deploy --project $npm_config_deployment"
+    "deploy": "firebase deploy --project $npm_config_environment"
   },
   "dependencies": {
     "@apollo/client": "^3.4.13",
