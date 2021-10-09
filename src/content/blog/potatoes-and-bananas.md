@@ -2,7 +2,7 @@
 title: "Potatoes, bananas, and friends at Lorem ipsum!"
 date: "2017-08-10"
 tags: ["tutorial", "how to"]
-avatar: ../../images/avatar/128x128.jpeg
+avatar: ../../images/avatar.png
 author: "Pao Pogi"
 thumbnail: ../../images/featured/1200x600.jpeg
 ---
