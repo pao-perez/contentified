@@ -2,7 +2,8 @@
   "projects": {
     "default": "development-contentified",
     "development": "development-contentified",
-    "testing": "testing-contentified",
-    "production": "contentified"
-  }
+    "test": "test-contentified",
+    "production": "production-contentified"
+  },
+  "targets": {}
 }

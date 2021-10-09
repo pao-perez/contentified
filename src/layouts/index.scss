@@ -15,21 +15,7 @@
 
 header.layout-header, footer.layout-footer {
     font-family: base.$primary-font-family;
-
-    nav > ul {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-
-        li > a {
-            padding: 1rem;
-        }
-
-        li > a:hover {
-            border-radius: 1rem;
-            background: rgba(200, 200, 200, 0.5);
-        }
-    }
+    background-color: base.$dark-charcoal;
 }
 
 header.layout-header {
@@ -37,34 +23,31 @@ header.layout-header {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-evenly;
     align-items: center;
+
+    > * { 
+        margin: 0px 5rem;
+    }
 
     .brand {
         flex: 1 1 auto;
-    }
-
-    .nav {
-        flex: 1 1 auto;
-
-        ul > li > a {
-            color: base.$dark-charcoal;
-            font-weight: bolder;
-            font-size: larger;
-        }
+        justify-content: flex-start;
+        color: base.$whitesmoke;
+        font-family: base.$brand-name-font;
     }
 
     .search {
         flex: 1 1 auto;
+        justify-content: flex-end;
 
         input {
             outline: none;
             padding: 1rem;
             border: none;
-            /* offset-x | offset-y | blur-radius | spread-radius | color */
-            box-shadow: 0 0.2rem 0.5rem 0.2rem rgba(0, 0, 0, 0.1);
-            border-radius: 1rem;
-            background-color: base.$whitesmoke;
+            box-shadow: none;
+            border-radius: .3rem;
+            color: base.$whitesmoke;
+            background-color: rgba(255, 255, 255, 0.1);
             font-family: base.$primary-font-family;
             font-weight: bold;
             font-size: large;
@@ -85,17 +68,28 @@ footer.layout-footer {
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    background-color: base.$dark-charcoal;
     padding: 3rem;
     font-size: large;
     font-weight: normal;
 
-    nav > ul > li {
-        margin: 1rem;
-        padding: 1rem;
+    nav > ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
 
-        a {
-            color: base.$whitesmoke;
+        li {
+            margin: 1rem;
+            padding: 1rem;
+
+            a {
+                color: base.$whitesmoke;
+                padding: 1rem;
+            }
+
+            a:hover {
+                border-radius: 1rem;
+                background: rgba(200, 200, 200, 0.5);
+            }
         }
     }
 
@@ -106,4 +100,5 @@ footer.layout-footer {
 
 main.layout-main {
     grid-area: main;
+    margin: 5rem 0px;
 }

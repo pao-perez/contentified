@@ -5,7 +5,7 @@ const Font = () => (
   <>
     <Helmet>
       <link
-        href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
         rel="stylesheet"
       />
       <link

@@ -37,6 +37,10 @@
 
             .avatar {
                 grid-area: avatar;
+
+                img {
+                    border-radius: 50%;
+                }
             }
 
             .text {

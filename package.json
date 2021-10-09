@@ -9,12 +9,13 @@
   ],
   "scripts": {
     "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "firebase-serve": "firebase serve --host ${HOST:-localhost} --project $npm_config_deployment --debug",
     "clean": "gatsby clean",
-    "deploy": "firebase deploy --project $npm_config_deployment"
+    "prebuild": "npm run clean",
+    "build": "env-cmd -f .env.${npm_config_environment} -x gatsby build",
+    "prelocal-deploy": "npm run build",
+    "local-deploy": "firebase serve --host ${HOST:-localhost} --project $npm_config_environment --debug",
+    "predeploy": "npm run build",
+    "deploy": "firebase deploy --project $npm_config_environment"
   },
   "dependencies": {
     "@apollo/client": "^3.4.13",
@@ -39,6 +40,7 @@
     "sass": "^1.32.8"
   },
   "devDependencies": {
+    "env-cmd": "^10.1.0",
     "eslint": "^7.23.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.1.0",
