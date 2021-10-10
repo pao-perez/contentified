@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 
 import useSiteMetadata from '../hooks/use-site-metadata';
 
-const SEO = ({ siteDescription, lang, meta, siteTitle, author }) => {
-  const { title, description, founder } = useSiteMetadata();
+const SEO = ({ siteDescription, lang, meta, siteTitle, siteAuthor }) => {
+  const { title, description, author } = useSiteMetadata();
   const metaDescription = siteDescription || description;
-  const creator = author || founder.name;
+  const creator = siteAuthor || author.name;
 
   return (
     <>
@@ -61,7 +61,7 @@ SEO.defaultProps = {
   lang: `en`,
   meta: [],
   siteDescription: ``,
-  author: ``,
+  siteAuthor: ``,
 };
 
 SEO.propTypes = {
@@ -69,7 +69,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   siteTitle: PropTypes.string.isRequired,
-  author: PropTypes.string,
+  siteAuthor: PropTypes.string,
 };
 
 export default SEO;

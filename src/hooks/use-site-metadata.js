@@ -8,7 +8,7 @@ const useSiteMetadata = () => {
           siteMetadata {
             title
             description
-            founder {
+            author {
               name
               bio
               email
