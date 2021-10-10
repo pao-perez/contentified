@@ -1,5 +1,6 @@
-import { graphql } from 'gatsby';
 import React from 'react';
+import { graphql } from 'gatsby';
+
 import Image from '../components/image';
 import SEO from '../components/seo';
 import Share from '../components/share';
