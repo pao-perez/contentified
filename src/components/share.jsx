@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   FacebookShareButton,
@@ -38,9 +39,23 @@ const Share = ({ title, url, twitterHandle, tags }) => (
       <RedditIcon size={40} round />
     </RedditShareButton>
 
-    <EmailShareButton url={url} title={title}>
+    <EmailShareButton url={url} subject={title}>
       <EmailIcon size={40} round />
     </EmailShareButton>
   </article>
 );
+
+Share.defaultProps = {
+  title: ``,
+  twitterHandle: ``,
+  tags: [],
+};
+
+Share.propTypes = {
+  title: PropTypes.string,
+  url: PropTypes.string.isRequired,
+  twitterHandle: PropTypes.string,
+  tags: PropTypes.arrayOf(PropTypes.object),
+};
+
 export default Share;

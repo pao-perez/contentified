@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+
 import { SearchContext } from '../providers/provider';
 
 const SearchBar = ({ isHidden }) => {
@@ -17,6 +19,10 @@ const SearchBar = ({ isHidden }) => {
       />
     </form>
   );
+};
+
+SearchBar.propTypes = {
+  isHidden: PropTypes.bool.isRequired,
 };
 
 export default SearchBar;
