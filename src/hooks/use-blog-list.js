@@ -1,36 +1,37 @@
 import { useStaticQuery, graphql } from 'gatsby';
 
 const useBlogList = () => {
-  const { allMarkdownRemark } = useStaticQuery(
+  const { localSearchPages, allMarkdownRemark } = useStaticQuery(
     graphql`
       query {
+        localSearchPages {
+          index
+          store
+        }
         allMarkdownRemark(
           limit: 10
           sort: { fields: [frontmatter___date], order: DESC }
         ) {
-          totalCount
-          edges {
-            node {
-              id
-              excerpt
-              frontmatter {
-                title
-                tags
-                author
-                date(formatString: "MMMM DD, YYYY")
-                thumbnail {
-                  childImageSharp {
-                    gatsbyImageData(
-                      width: 500
-                      placeholder: BLURRED
-                      blurredOptions: { width: 100 }
-                      aspectRatio: 1.5
-                    )
-                  }
+          nodes {
+            id
+            excerpt
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              tags
+              author
+              date(formatString: "MMMM DD, YYYY")
+              thumbnail {
+                childImageSharp {
+                  gatsbyImageData(
+                    width: 500
+                    placeholder: BLURRED
+                    blurredOptions: { width: 100 }
+                    aspectRatio: 1.5
+                  )
                 }
-              }
-              fields {
-                slug
               }
             }
           }
@@ -38,7 +39,11 @@ const useBlogList = () => {
       }
     `
   );
-  return allMarkdownRemark.edges;
+  return {
+    index: localSearchPages.index,
+    store: localSearchPages.store,
+    nodes: allMarkdownRemark.nodes,
+  };
 };
 
 export default useBlogList;

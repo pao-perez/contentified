@@ -67,5 +67,91 @@ module.exports = {
         ],
       },
     },
+    // You can have multiple instances of this plugin to create indexes with
+    // different names or engines. For example, multi-lingual sites could create
+    // an index for each language.
+    {
+      resolve: 'gatsby-plugin-local-search',
+      options: {
+        // A unique name for the search index. This should be descriptive of
+        // what the index contains. This is required.
+        name: 'pages',
+
+        engine: 'flexsearch',
+
+        // engineOptions: 'speed',
+
+        // GraphQL query used to fetch all data for the search index. This is
+        // required.
+        query: `
+          {
+            allMarkdownRemark {
+              nodes {
+                id
+                excerpt
+                fields {
+                  slug
+                }
+                frontmatter {
+                  title
+                  tags
+                  author
+                  date(formatString: "MMMM DD, YYYY")
+                  thumbnail {
+                    childImageSharp {
+                      gatsbyImageData(
+                        width: 500
+                        placeholder: BLURRED
+                        blurredOptions: { width: 100 }
+                        aspectRatio: 1.5
+                      )
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `,
+
+        // Field used as the reference value for each document.
+        // Default: 'id'.
+        ref: 'id',
+
+        // List of keys to index. The values of the keys are taken from the
+        // normalizer function below.
+        // Default: all fields
+        index: ['title', 'tags', 'excerpt'],
+
+        // List of keys to store and make available in your UI. The values of
+        // the keys are taken from the normalizer function below.
+        // Default: all fields
+        store: [
+          'id',
+          'excerpt',
+          'slug',
+          'title',
+          'tags',
+          'author',
+          'date',
+          'thumbnail',
+        ],
+
+        // Function used to map the result from the GraphQL query. This should
+        // return an array of items to index in the form of flat objects
+        // containing properties to index. The objects must contain the `ref`
+        // field above (default: 'id'). This is required.
+        normalizer: ({ data }) =>
+          data.allMarkdownRemark.nodes.map((node) => ({
+            id: node.id,
+            excerpt: node.excerpt,
+            slug: node.fields.slug,
+            title: node.frontmatter.title,
+            tags: node.frontmatter.tags,
+            author: node.frontmatter.author,
+            date: node.frontmatter.date,
+            thumbnail: node.frontmatter.thumbnail,
+          })),
+      },
+    },
   ],
 };
