@@ -25,7 +25,7 @@ const BlogPost = ({ data, location }) => {
       </aside>
 
       <article className="blog-post">
-        <SEO siteTitle={title} siteDescription={excerpt} author={author} />
+        <SEO postTitle={title} postDescription={excerpt} postAuthor={author} />
         <section className="post-header">
           <section className="avatar">
             <Image image={avatar} alt="Avatar" className="avatar" />

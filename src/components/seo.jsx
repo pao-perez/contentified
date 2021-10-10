@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 
 import useSiteMetadata from '../hooks/use-site-metadata';
 
-const SEO = ({ siteDescription, lang, meta, siteTitle, siteAuthor }) => {
+const SEO = ({ postTitle, postDescription, postAuthor, lang, meta }) => {
   const { title, description, author } = useSiteMetadata();
-  const metaDescription = siteDescription || description;
-  const creator = siteAuthor || author.name;
+  const metaDescription = postDescription || description;
+  const creator = postAuthor || author.name;
 
   return (
     <>
@@ -16,7 +16,7 @@ const SEO = ({ siteDescription, lang, meta, siteTitle, siteAuthor }) => {
         htmlAttributes={{
           lang,
         }}
-        title={siteTitle}
+        title={postTitle}
         titleTemplate={`%s | ${title}`}
         meta={[
           {
@@ -25,7 +25,7 @@ const SEO = ({ siteDescription, lang, meta, siteTitle, siteAuthor }) => {
           },
           {
             property: `og:title`,
-            content: siteTitle,
+            content: postTitle,
           },
           {
             property: `og:description`,
@@ -45,7 +45,7 @@ const SEO = ({ siteDescription, lang, meta, siteTitle, siteAuthor }) => {
           },
           {
             name: `twitter:title`,
-            content: siteTitle,
+            content: postTitle,
           },
           {
             name: `twitter:description`,
@@ -60,16 +60,14 @@ const SEO = ({ siteDescription, lang, meta, siteTitle, siteAuthor }) => {
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
-  siteDescription: ``,
-  siteAuthor: ``,
 };
 
 SEO.propTypes = {
-  siteDescription: PropTypes.string,
+  postDescription: PropTypes.string.isRequired,
+  postTitle: PropTypes.string.isRequired,
+  postAuthor: PropTypes.string.isRequired,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  siteTitle: PropTypes.string.isRequired,
-  siteAuthor: PropTypes.string,
 };
 
 export default SEO;
