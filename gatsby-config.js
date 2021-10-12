@@ -79,8 +79,6 @@ module.exports = {
 
         engine: 'flexsearch',
 
-        // engineOptions: 'speed',
-
         // GraphQL query used to fetch all data for the search index. This is
         // required.
         query: `
