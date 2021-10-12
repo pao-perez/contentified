@@ -3,14 +3,17 @@ import React, { useContext } from 'react';
 import { useFlexSearch } from 'react-use-flexsearch';
 
 import { SearchContext } from '../providers/provider';
+import useLocalSearchObject from '../hooks/use-local-search-object';
 import useBlogList from '../hooks/use-blog-list';
+
 import unflattenNodes from '../utils/unflatten-nodes';
 import Image from '../components/image';
 import './index.scss';
 
 const IndexPage = () => {
-  const { index, store, nodes } = useBlogList();
   const { search } = useContext(SearchContext);
+  const { publicIndexURL, publicStoreURL, nodes } = useBlogList();
+  const { store, index } = useLocalSearchObject(publicStoreURL, publicIndexURL);
   const searchResults = useFlexSearch(search, index, store);
   const searchResultsNodes = unflattenNodes(searchResults);
   const blogList = search.trim() === '' ? nodes : searchResultsNodes;

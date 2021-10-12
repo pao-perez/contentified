@@ -5,8 +5,8 @@ const useBlogList = () => {
     graphql`
       query {
         localSearchPages {
-          index
-          store
+          publicIndexURL
+          publicStoreURL
         }
         allMarkdownRemark(
           limit: 10
@@ -40,8 +40,8 @@ const useBlogList = () => {
     `
   );
   return {
-    index: localSearchPages.index,
-    store: localSearchPages.store,
+    publicIndexURL: localSearchPages.publicIndexURL,
+    publicStoreURL: localSearchPages.publicStoreURL,
     nodes: allMarkdownRemark.nodes,
   };
 };
