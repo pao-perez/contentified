@@ -61,7 +61,6 @@ export const query = graphql`
               width: 500
               placeholder: BLURRED
               blurredOptions: { width: 100 }
-              aspectRatio: 0.7
               height: 500
             )
           }
