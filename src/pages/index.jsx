@@ -9,8 +9,8 @@ import Image from '../components/image';
 import './index.scss';
 
 const IndexPage = () => {
-  const { index, store, nodes } = useBlogList();
   const { search } = useContext(SearchContext);
+  const { index, store, nodes } = useBlogList();
   const searchResults = useFlexSearch(search, index, store);
   const searchResultsNodes = unflattenNodes(searchResults);
   const blogList = search.trim() === '' ? nodes : searchResultsNodes;
