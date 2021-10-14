@@ -55,7 +55,7 @@ Share.propTypes = {
   title: PropTypes.string,
   url: PropTypes.string.isRequired,
   twitterHandle: PropTypes.string,
-  tags: PropTypes.arrayOf(PropTypes.object),
+  tags: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default Share;
