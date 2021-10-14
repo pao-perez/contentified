@@ -2,15 +2,17 @@
 // https://github.com/gatsbyjs/gatsby/issues/7810
 module.exports = {
   siteMetadata: {
-    title: `Contentified`,
-    description: `Developer Tutorials`,
-    author: {
+    siteTitle: `Contentified`,
+    siteDescription: `Developer Tutorials`,
+    siteUrl: `https://www.contentified.dev`,
+    siteAuthor: {
       name: `Pao Perez`,
       bio: `Helping make the world a better place through crafting software while trying to make the most of this life. I spend most of my days learning and playing with these interests - Java, JavaScript, Linux, Google Cloud`,
       email: `paoperez@contentified.dev`,
       twitter: `pawieperez`,
       github: `pao-perez`,
     },
+    siteLang: `en`,
   },
   plugins: [
     {
@@ -27,6 +29,7 @@ module.exports = {
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
     },
+    // uses Workbox Build to create a service worker. should be listed after gatsby-plugin-manifest (if plugin is used too) so the manifest file can be included in the service worker
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,

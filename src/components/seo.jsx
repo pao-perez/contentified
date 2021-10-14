@@ -4,69 +4,36 @@ import PropTypes from 'prop-types';
 
 import useSiteMetadata from '../hooks/use-site-metadata';
 
-const SEO = ({ postTitle, postDescription, postAuthor, lang, meta }) => {
-  const { title, description, author } = useSiteMetadata();
-  const metaDescription = postDescription || description;
-  const creator = postAuthor || author.name;
+const SEO = ({ postTitle, postDescription, postUrl }) => {
+  const { siteTitle, siteDescription, siteUrl, siteLang } = useSiteMetadata();
+  const title = postTitle || siteTitle;
+  const description = postDescription || siteDescription;
+  const url = postUrl || siteUrl;
+  const type = `blog`;
 
   return (
     <>
       <Helmet
-        htmlAttributes={{
-          lang,
-        }}
-        title={postTitle}
-        titleTemplate={`%s | ${title}`}
-        meta={[
-          {
-            name: `description`,
-            content: metaDescription,
-          },
-          {
-            property: `og:title`,
-            content: postTitle,
-          },
-          {
-            property: `og:description`,
-            content: metaDescription,
-          },
-          {
-            property: `og:type`,
-            content: `website`,
-          },
-          {
-            name: `twitter:card`,
-            content: `summary`,
-          },
-          {
-            name: `twitter:creator`,
-            content: creator,
-          },
-          {
-            name: `twitter:title`,
-            content: postTitle,
-          },
-          {
-            name: `twitter:description`,
-            content: metaDescription,
-          },
-        ].concat(meta)}
-      />
+        defer={false} // workaround for when the title doesn’t appear in the tab bar until switching to that tab https://github.com/nfl/react-helmet/issues/315
+        title={title}
+        titleTemplate={`${siteTitle} - %s`}
+      >
+        <html lang={siteLang} />
+        <meta name="description" content={description} />
+
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={url} />
+        <meta property="og:type" content={type} />
+      </Helmet>
     </>
   );
 };
 
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-};
-
 SEO.propTypes = {
-  postDescription: PropTypes.string.isRequired,
   postTitle: PropTypes.string.isRequired,
-  postAuthor: PropTypes.string.isRequired,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
+  postDescription: PropTypes.string.isRequired,
+  postUrl: PropTypes.string.isRequired,
 };
 
 export default SEO;

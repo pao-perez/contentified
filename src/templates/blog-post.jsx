@@ -8,25 +8,21 @@ import useSiteMetadata from '../hooks/use-site-metadata';
 import './blog-post.scss';
 
 const BlogPost = ({ data, location }) => {
-  const { title, tags, author, avatar, date } = data.markdownRemark.frontmatter;
+  const { title, tags, author, date, avatar } = data.markdownRemark.frontmatter;
   const { html, excerpt } = data.markdownRemark;
   const { twitter } = useSiteMetadata();
+  const url = location.href;
 
   return (
     <div className="blog">
       <aside aria-label="Share on Social Media" className="share">
         <section>
-          <Share
-            title={title}
-            url={location.href}
-            twitterHandle={twitter}
-            tags={tags}
-          />
+          <Share title={title} url={url} twitterHandle={twitter} tags={tags} />
         </section>
       </aside>
 
       <article className="blog-post">
-        <SEO postTitle={title} postDescription={excerpt} postAuthor={author} />
+        <SEO postTitle={title} postDescription={excerpt} postUrl={url} />
         <section className="post-header">
           <section className="avatar">
             <Image image={avatar} alt="Avatar" className="avatar" />
@@ -56,9 +52,9 @@ export const query = graphql`
       excerpt
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
         tags
         author
+        date(formatString: "MMMM DD, YYYY")
         avatar {
           childImageSharp {
             gatsbyImageData(
