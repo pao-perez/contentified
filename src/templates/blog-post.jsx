@@ -22,7 +22,13 @@ const BlogPost = ({ data, location }) => {
       </aside>
 
       <article className="blog-post">
-        <SEO postTitle={title} postDescription={excerpt} postUrl={url} />
+        <SEO
+          postTitle={title}
+          postDescription={excerpt}
+          postUrl={url}
+          postTags={tags}
+          postAuthor={author}
+        />
         <section className="post-header">
           <section className="avatar">
             <Image image={avatar} alt="Avatar" className="avatar" />
@@ -49,7 +55,7 @@ export const query = graphql`
   query ($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
-      excerpt
+      excerpt(pruneLength: 160) # SEO meta descriptions should be between 150-170 characters
       frontmatter {
         title
         tags

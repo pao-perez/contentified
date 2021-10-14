@@ -9,6 +9,7 @@ const useSiteMetadata = () => {
             siteTitle
             siteDescription
             siteUrl
+            siteTags
             siteAuthor {
               name
               bio

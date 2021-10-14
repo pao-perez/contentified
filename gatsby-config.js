@@ -5,6 +5,7 @@ module.exports = {
     siteTitle: `Contentified`,
     siteDescription: `Developer Tutorials`,
     siteUrl: `https://www.contentified.dev`,
+    siteTags: [`JavaScript`, `Software Development`],
     siteAuthor: {
       name: `Pao Perez`,
       bio: `Helping make the world a better place through crafting software while trying to make the most of this life. I spend most of my days learning and playing with these interests - Java, JavaScript, Linux, Google Cloud`,
@@ -26,7 +27,9 @@ module.exports = {
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: `standalone`,
-        icon: `src/images/icon.png`, // This path is relative to the root of the site.
+        // Automatic mode configuration. Generate a pre-configured set of icons from a single source icon.
+        // This path is relative to the root of the site.
+        icon: `src/images/icon.png`,
       },
     },
     // uses Workbox Build to create a service worker. should be listed after gatsby-plugin-manifest (if plugin is used too) so the manifest file can be included in the service worker
