@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     siteTitle: `Contentified`,
     siteDescription: `Developer Tutorials`,
-    siteUrl: `https://www.contentified.dev`,
+    siteUrl: process.env.GATSBY_API_URL || `https://contentified.dev`,
     siteTags: [`JavaScript`, `Software Development`],
     siteAuthor: {
       name: `Pao Perez`,
@@ -13,28 +13,12 @@ module.exports = {
       twitter: `pawieperez`,
       github: `pao-perez`,
     },
+    siteIcon: `src/images/icon.png`,
     siteLang: `en`,
+    siteCharSet: `utf-8`,
+    siteViewport: `width=device-width, initial-scale=1, shrink-to-fit=no`,
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Contentified`,
-        short_name: `Contentified`,
-        start_url: `/`,
-        background_color: `#FFAE42`,
-        theme_color: `#FF5349`,
-        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
-        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
-        display: `standalone`,
-        // Automatic mode configuration. Generate a pre-configured set of icons from a single source icon.
-        // This path is relative to the root of the site.
-        icon: `src/images/icon.png`,
-      },
-    },
-    // uses Workbox Build to create a service worker. should be listed after gatsby-plugin-manifest (if plugin is used too) so the manifest file can be included in the service worker
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-layout`, // plugin will try to use Layout component located in src/layouts/index.js by default
     {
@@ -157,5 +141,39 @@ module.exports = {
           })),
       },
     },
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Contentified`,
+        short_name: `Contentified`,
+        start_url: `/`,
+        background_color: `#333333`,
+        theme_color: `#F5F5F5`,
+        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+        display: `standalone`,
+        // Automatic mode configuration. Generate a pre-configured set of icons from a single source icon.
+        // This path is relative to the root of the site.
+        icon: `src/images/icon.png`,
+        icons: [
+          {
+            src: `src/images/icon.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+            purpose: `any`,
+          },
+          {
+            src: `src/images/maskable_icon.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+            purpose: `maskable`,
+          },
+        ],
+      },
+    },
+    // uses Workbox Build to create a service worker. should be listed after gatsby-plugin-manifest (if plugin is used too) so the manifest file can be included in the service worker
+    `gatsby-plugin-offline`,
   ],
 };

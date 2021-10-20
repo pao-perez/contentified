@@ -2,92 +2,71 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 
-import useSiteMetadata from '../hooks/use-site-metadata';
+import favicon from '../images/icon.png';
 
-const SEO = ({ postTitle, postDescription, postUrl, postTags, postAuthor }) => {
-  const {
-    siteTitle,
-    siteDescription,
-    siteUrl,
-    siteTags,
-    siteAuthor,
-    siteLang,
-  } = useSiteMetadata();
-  const title = postTitle || siteTitle;
-  const description = postDescription || siteDescription;
-  const url = postUrl || siteUrl;
-  const keywords = postTags || siteTags;
-  const author = postAuthor || siteAuthor.name;
+const SEO = ({
+  title,
+  description,
+  url,
+  tags,
+  author,
+  icon,
+  siteTitle,
+  siteLang,
+  siteCharSet,
+  siteViewport,
+}) => (
+  <>
+    <Helmet
+      defer={false} // workaround for when the title doesn’t appear in the tab bar until switching to that tab https://github.com/nfl/react-helmet/issues/315
+      defaultTitle={siteTitle}
+      titleTemplate={`${siteTitle} - %s`}
+    >
+      <html lang={siteLang} />
+      <title>{title}</title>
+      <link rel="canonical" href={url} />
+      <link rel="shortcut icon" type="image/png" href={favicon} />
 
-  return (
-    <>
-      <Helmet
-        defer={false} // workaround for when the title doesn’t appear in the tab bar until switching to that tab https://github.com/nfl/react-helmet/issues/315
-        htmlAttributes={{
-          siteLang,
-        }}
-        title={title}
-        titleTemplate={`${siteTitle} - %s`}
-        link={[
-          {
-            rel: 'canonical',
-            href: url,
-          },
-        ]}
-        meta={[
-          {
-            name: `description`,
-            content: description,
-          },
-          {
-            /* meta keywords is ignored by Google but declare it for other Search engines anyway */
-            name: `keywords`,
-            content: keywords.join(', '),
-          },
-          {
-            property: `og:title`,
-            content: title,
-          },
-          {
-            property: `og:description`,
-            content: description,
-          },
-          {
-            property: `og:url`,
-            content: url,
-          },
-          {
-            property: `og:type`,
-            content: `website`,
-          },
-          {
-            name: `twitter:card`,
-            content: `summary`,
-          },
-          {
-            name: `twitter:creator`,
-            content: author,
-          },
-          {
-            name: `twitter:title`,
-            content: title,
-          },
-          {
-            name: `twitter:description`,
-            content: description,
-          },
-        ]}
-      />
-    </>
-  );
+      <meta charSet={siteCharSet} />
+      <meta name="viewport" content={siteViewport} />
+      <meta name="description" content={description} />
+      {/* meta keywords is ignored by Google but declare it for other Search engines anyway */}
+      <meta name="keywords" content={tags.join(', ')} />
+
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={url} />
+      <meta property="og:type" content="website" />
+
+      <meta property="twitter:title" content={title} />
+      <meta property="twitter:creator" content={author} />
+      <meta property="twitter:description" content={description} />
+      <meta property="twitter:card" content="summary" />
+      {/* To add an image when sharing links on Twitter. */}
+      <meta property="og:image" content={icon} />
+    </Helmet>
+  </>
+);
+
+SEO.defaultProps = {
+  siteTitle: `Contentified`,
+  siteLang: `en`,
+  siteCharSet: `utf-8`,
+  siteViewport: `width=device-width, initial-scale=1, shrink-to-fit=no`,
+  title: ``,
 };
 
 SEO.propTypes = {
-  postTitle: PropTypes.string.isRequired,
-  postDescription: PropTypes.string.isRequired,
-  postUrl: PropTypes.string.isRequired,
-  postTags: PropTypes.arrayOf(PropTypes.string).isRequired,
-  postAuthor: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  description: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  author: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  siteTitle: PropTypes.string,
+  siteLang: PropTypes.string,
+  siteCharSet: PropTypes.string,
+  siteViewport: PropTypes.string,
 };
 
 export default SEO;

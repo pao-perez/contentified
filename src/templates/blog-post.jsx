@@ -4,30 +4,29 @@ import { graphql } from 'gatsby';
 import Image from '../components/image';
 import SEO from '../components/seo';
 import Share from '../components/share';
-import useSiteMetadata from '../hooks/use-site-metadata';
 import './blog-post.scss';
 
 const BlogPost = ({ data, location }) => {
-  const { title, tags, author, date, avatar } = data.markdownRemark.frontmatter;
+  const { title, tags, author, date, avatar, thumbnail } = data.markdownRemark.frontmatter;
   const { html, excerpt } = data.markdownRemark;
-  const { twitter } = useSiteMetadata();
   const url = location.href;
 
   return (
     <div className="blog">
       <aside aria-label="Share on Social Media" className="share">
         <section>
-          <Share title={title} url={url} twitterHandle={twitter} tags={tags} />
+          <Share title={title} url={url} twitterHandle={author} tags={tags} />
         </section>
       </aside>
 
       <article className="blog-post">
         <SEO
-          postTitle={title}
-          postDescription={excerpt}
-          postUrl={url}
-          postTags={tags}
-          postAuthor={author}
+          title={title}
+          description={excerpt}
+          url={url}
+          tags={tags}
+          author={author}
+          icon={thumbnail?.fluid?.src}
         />
         <section className="post-header">
           <section className="avatar">
@@ -69,6 +68,13 @@ export const query = graphql`
               blurredOptions: { width: 100 }
               height: 500
             )
+          }
+        }
+        thumbnail {
+          childImageSharp {
+            fluid {
+              src
+            }
           }
         }
       }

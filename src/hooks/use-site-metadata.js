@@ -17,7 +17,10 @@ const useSiteMetadata = () => {
               twitter
               github
             }
+            siteIcon
             siteLang
+            siteCharSet
+            siteViewport
           }
         }
       }
