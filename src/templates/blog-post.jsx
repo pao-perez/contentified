@@ -1,31 +1,33 @@
-import { graphql } from 'gatsby';
 import React from 'react';
+import { graphql } from 'gatsby';
+
 import Image from '../components/image';
 import SEO from '../components/seo';
 import Share from '../components/share';
-import useSiteMetadata from '../hooks/use-site-metadata';
 import './blog-post.scss';
 
 const BlogPost = ({ data, location }) => {
-  const { title, tags, author, avatar, date } = data.markdownRemark.frontmatter;
+  const { title, tags, author, date, avatar, thumbnail } = data.markdownRemark.frontmatter;
   const { html, excerpt } = data.markdownRemark;
-  const { twitter } = useSiteMetadata();
+  const url = location.href;
 
   return (
     <div className="blog">
       <aside aria-label="Share on Social Media" className="share">
         <section>
-          <Share
-            title={title}
-            url={location.href}
-            twitterHandle={twitter}
-            tags={tags}
-          />
+          <Share title={title} url={url} twitterHandle={author} tags={tags} />
         </section>
       </aside>
 
       <article className="blog-post">
-        <SEO siteTitle={title} siteDescription={excerpt} author={author} />
+        <SEO
+          title={title}
+          description={excerpt}
+          url={url}
+          tags={tags}
+          author={author}
+          icon={thumbnail?.fluid?.src}
+        />
         <section className="post-header">
           <section className="avatar">
             <Image image={avatar} alt="Avatar" className="avatar" />
@@ -52,21 +54,27 @@ export const query = graphql`
   query ($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
-      excerpt
+      excerpt(pruneLength: 160) # SEO meta descriptions should be between 150-170 characters
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
         tags
         author
+        date(formatString: "MMMM DD, YYYY")
         avatar {
           childImageSharp {
             gatsbyImageData(
               width: 500
               placeholder: BLURRED
               blurredOptions: { width: 100 }
-              aspectRatio: 0.7
               height: 500
             )
+          }
+        }
+        thumbnail {
+          childImageSharp {
+            fluid {
+              src
+            }
           }
         }
       }

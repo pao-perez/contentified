@@ -1,22 +1,25 @@
 import { Link } from 'gatsby';
 import React, { useContext } from 'react';
+import { useFlexSearch } from 'react-use-flexsearch';
+
 import { SearchContext } from '../providers/provider';
 import useBlogList from '../hooks/use-blog-list';
-import useSearchResult from '../hooks/use-search-result';
+import unflattenNodes from '../utils/unflatten-nodes';
 import Image from '../components/image';
 import './index.scss';
 
 const IndexPage = () => {
-  const defaultList = useBlogList();
   const { search } = useContext(SearchContext);
-  const searchResults = useSearchResult(search);
-  const blogList = search.trim() === '' ? defaultList : searchResults;
+  const { index, store, nodes } = useBlogList();
+  const searchResults = useFlexSearch(search, index, store);
+  const searchResultsNodes = unflattenNodes(searchResults);
+  const blogList = search.trim() === '' ? nodes : searchResultsNodes;
 
   return (
     <div className="home">
       <section className="blog-list">
         <ul>
-          {blogList.map(({ node }) => (
+          {blogList.map((node) => (
             <li key={node.id}>
               <Link to={node.fields.slug}>
                 <article className="blog-item">

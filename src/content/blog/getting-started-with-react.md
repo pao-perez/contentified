@@ -2,9 +2,9 @@
 title: "Tutorial: Getting Started with React in 2021"
 date: "2021-08-18"
 tags: ["tutorial"]
-avatar: ../../images/avatar/128x128.jpeg
+avatar: ../../images/avatar.png
 author: "Pao Pogi"
-thumbnail: ../../images/featured/1200x600.jpeg
+thumbnail: "../../images/featured/1200x600.jpeg"
 ---
 ![Featured Image](../../images/featured/1200x600.jpeg)
 
