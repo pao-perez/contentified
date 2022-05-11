@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     siteTitle: `Contentified`,
     siteDescription: `Developer Tutorials`,
-    siteUrl: process.env.GATSBY_API_URL || `https://contentified.dev`,
+    siteUrl: process.env.GATSBY_API_URL ?? `https://contentified.dev`,
     siteTags: [`JavaScript`, `Software Development`],
     siteAuthor: {
       name: `Pao Perez`,
