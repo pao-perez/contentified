@@ -20,6 +20,9 @@ footer.layout-footer {
 }
 
 header.layout-header {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
     grid-area: header;
     display: flex;
     flex-direction: row;
