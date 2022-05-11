@@ -2,16 +2,10 @@
 @use '../styles/base';
 
 .home {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr 4fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-    ". blog-list .";
+    width: 70%;
+    margin: auto;
 
     .blog-list {
-        grid-area: blog-list;
-
         li {
             border-bottom: 0.1rem solid lightgray;
         }
@@ -23,10 +17,10 @@
         .blog-item {
             display: grid;
             gap: 1rem;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: auto;
             grid-template-rows: auto;
             grid-template-areas:
-            "item-header item-main item-footer";
+                "item-header item-main item-footer";
 
             .item-header {
                 grid-area: item-header;
@@ -72,8 +66,48 @@
             .item-footer {
                 grid-area: item-footer;
 
-                > * {
-                    margin-right: 0px;
+                .image {
+                    max-width: 100%;
+                    height: auto;
+                }
+
+                >* {
+                    margin-right: 0rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .home {
+        .blog-list {
+            .blog-item {
+                margin: 2rem 0rem;
+                gap: 0rem;
+                grid-template-areas:
+                    "item-header"
+                    "item-main"
+                    "item-footer";
+
+                .item-header {
+
+                    .title,
+                    .meta {
+                        text-align: center;
+                        padding: 0rem;
+                        margin: 0rem;
+                    }
+                }
+
+                .item-main {
+                    text-align: center;
+                }
+
+                .item-footer {
+                    >* {
+                        margin: auto;
+                    }
                 }
             }
         }

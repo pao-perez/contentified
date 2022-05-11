@@ -62,7 +62,6 @@ footer.layout-footer {
     grid-area: footer;
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     padding: 3rem;
@@ -75,12 +74,11 @@ footer.layout-footer {
         flex-wrap: wrap;
 
         li {
-            margin: 1rem;
             padding: 1rem;
 
             a {
                 color: base.$whitesmoke;
-                padding: 1rem;
+                padding: 2rem;
             }
 
             a:hover {
@@ -97,7 +95,7 @@ footer.layout-footer {
 
 main.layout-main {
     grid-area: main;
-    margin: 5rem 0px;
+    margin-top: 7rem;
 }
 
 @media (max-width: 768px) {
@@ -107,5 +105,15 @@ main.layout-main {
         .search {
             padding-bottom: 1rem;
         }
+    }
+
+    footer.layout-footer {
+        nav>ul {
+            flex-direction: column;
+        }
+    }
+
+    main.layout-main {
+        margin-top: 10rem;
     }
 }

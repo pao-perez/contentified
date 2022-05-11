@@ -28,8 +28,7 @@ const useBlogList = () => {
                   gatsbyImageData(
                     width: 500
                     placeholder: BLURRED
-                    blurredOptions: { width: 100 }
-                    aspectRatio: 1.5
+                    aspectRatio: 1.1
                   )
                 }
               }

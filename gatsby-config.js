@@ -51,7 +51,6 @@ module.exports = {
               maxWidth: 1000,
               linkImagesToOriginal: false,
               withWebp: true,
-              quality: 50,
             },
           },
         ],
@@ -90,8 +89,7 @@ module.exports = {
                       gatsbyImageData(
                         width: 500
                         placeholder: BLURRED
-                        blurredOptions: { width: 100 }
-                        aspectRatio: 1.5
+                        aspectRatio: 1.1
                       )
                     }
                   }
