@@ -66,20 +66,20 @@
             .item-footer {
                 grid-area: item-footer;
 
-                .image {
-                    max-width: 100%;
-                    height: auto;
-                }
+                figure {
+                    margin-right: 0px;
 
-                >* {
-                    margin-right: 0rem;
+                    .image {
+                        max-width: 100%;
+                        height: auto;
+                    }
                 }
             }
         }
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .home {
         .blog-list {
             .blog-item {
@@ -105,7 +105,9 @@
                 }
 
                 .item-footer {
-                    >* {
+                    display: flex;
+
+                    figure {
                         margin: auto;
                     }
                 }
