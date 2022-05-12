@@ -26,9 +26,12 @@ const useBlogList = () => {
               thumbnail {
                 childImageSharp {
                   gatsbyImageData(
-                    width: 500
+                    
+                    aspectRatio: 1
                     placeholder: BLURRED
-                    aspectRatio: 1.1
+                    transformOptions: {
+                      fit: COVER
+                    }
                   )
                 }
               }

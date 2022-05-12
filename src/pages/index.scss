@@ -17,7 +17,7 @@
         .blog-item {
             display: grid;
             gap: 1rem;
-            grid-template-columns: auto;
+            grid-template-columns: 1fr 2fr 1fr;
             grid-template-rows: auto;
             grid-template-areas:
                 "item-header item-main item-footer";
@@ -26,10 +26,13 @@
                 grid-area: item-header;
                 overflow: hidden;
                 font-family: base.$primary-font-family;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
 
                 .title {
                     color: base.$dark-charcoal;
-                    font-size: x-large;
+                    font-size: larger;
                     margin-top: 0.5rem;
                 }
 
@@ -61,7 +64,7 @@
                 overflow: hidden;
                 color: base.$dark-charcoal;
                 font-family: base.$secondary-font-family;
-                font-size: larger;
+                font-size: large;
 
                 p {
                     margin-top: 0.5rem;
@@ -70,14 +73,15 @@
 
             .item-footer {
                 grid-area: item-footer;
+                display: flex;
 
                 figure {
                     margin-right: 0px;
                     margin-top: 0.5rem;
 
                     .image {
-                        max-width: 100%;
-                        height: auto;
+                        width: auto;
+                        min-height: 100%;
                     }
                 }
             }
@@ -90,7 +94,7 @@
         .blog-list {
             .blog-item {
                 margin: 2rem 0rem;
-                gap: 0rem;
+                grid-template-columns: auto;
                 grid-template-areas:
                     "item-header"
                     "item-footer";
