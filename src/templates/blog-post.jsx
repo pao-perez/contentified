@@ -1,10 +1,10 @@
-import React from 'react';
 import { graphql } from 'gatsby';
-
+import React from 'react';
 import Image from '../components/image';
 import SEO from '../components/seo';
 import Share from '../components/share';
 import './blog-post.scss';
+
 
 const BlogPost = ({ data, location }) => {
   const { title, tags, author, date, avatar, thumbnail } = data.markdownRemark.frontmatter;
@@ -63,10 +63,11 @@ export const query = graphql`
         avatar {
           childImageSharp {
             gatsbyImageData(
-              width: 500
+              aspectRatio: 1
               placeholder: BLURRED
-              blurredOptions: { width: 100 }
-              height: 500
+              transformOptions: {
+                fit: COVER
+              }
             )
           }
         }

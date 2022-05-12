@@ -4,9 +4,9 @@ date: "2021-08-18"
 tags: ["tutorial"]
 avatar: ../../images/avatar.png
 author: "Pao Pogi"
-thumbnail: "../../images/featured/1200x600.jpeg"
+thumbnail: "../../images/featured/900x450.jpeg"
 ---
-![Featured Image](../../images/featured/1200x600.jpeg)
+![Featured Image](../../images/featured/900x450.jpeg)
 
 Do Pandas eat bananas? Check out this short video that shows that yes! pandas do seem to really enjoy bananas!
 
