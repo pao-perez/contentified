@@ -5,11 +5,12 @@ import './image.scss';
 
 const Image = ({ image, alt, className }) => {
   const dynamicImage = getImage(image);
+  const classNames = ['image', className].join(' ');
 
   return (
     <>
       <figure>
-        <GatsbyImage image={dynamicImage} alt={alt} className={className} />
+        <GatsbyImage image={dynamicImage} alt={alt} className={classNames} />
       </figure>
     </>
   );
