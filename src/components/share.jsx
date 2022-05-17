@@ -1,23 +1,14 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-
+import React from 'react';
 import {
-  FacebookShareButton,
-  FacebookIcon,
-  LinkedinShareButton,
-  LinkedinIcon,
-  TwitterShareButton,
-  TwitterIcon,
-  RedditShareButton,
-  RedditIcon,
-  EmailShareButton,
-  EmailIcon,
+  EmailIcon, EmailShareButton, FacebookIcon, FacebookShareButton, LinkedinIcon, LinkedinShareButton, RedditIcon, RedditShareButton, TwitterIcon, TwitterShareButton
 } from 'react-share';
-
 import './share.scss';
 
+
+
 const Share = ({ title, url, twitterHandle, tags }) => (
-  <article className="share">
+  <section className="share">
     <FacebookShareButton url={url}>
       <FacebookIcon size={40} round />
     </FacebookShareButton>
@@ -42,7 +33,7 @@ const Share = ({ title, url, twitterHandle, tags }) => (
     <EmailShareButton url={url} subject={title}>
       <EmailIcon size={40} round />
     </EmailShareButton>
-  </article>
+  </section>
 );
 
 Share.defaultProps = {

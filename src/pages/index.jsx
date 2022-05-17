@@ -2,6 +2,7 @@ import { Link } from 'gatsby';
 import React, { useContext } from 'react';
 import { useFlexSearch } from 'react-use-flexsearch';
 import Image from '../components/image';
+import Tags from '../components/tags';
 import useBlogList from '../hooks/use-blog-list';
 import { SearchContext } from '../providers/provider';
 import unflattenNodes from '../utils/unflatten-nodes';
@@ -30,9 +31,7 @@ const IndexPage = () => {
                       <span className="date">
                         <time dateTime="true">{node.frontmatter.date}</time>
                       </span>
-                      <span className="tags">
-                        {node.frontmatter.tags.join(', ')}
-                      </span>
+                      <Tags tags={node.frontmatter.tags} />
                     </h2>
                   </header>
                   <main className="item-main">
@@ -42,7 +41,6 @@ const IndexPage = () => {
                     <Image
                       image={node.frontmatter.thumbnail}
                       alt="Featured Image Thumbnail"
-                      className="image"
                     />
                   </footer>
                 </article>

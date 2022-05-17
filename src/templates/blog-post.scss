@@ -7,15 +7,14 @@
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: auto;
     grid-template-areas:
-    "share blog-post .";
+        "share blog-post .";
 
     .share {
         grid-area: share;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: flex-end;
+        position: fixed;
+        left: 1rem;
+        z-index: -1;
+        margin-top: 10rem;
     }
 
     .blog-post {
@@ -24,10 +23,10 @@
         .post-header {
             display: grid;
             gap: 1rem;
-            grid-template-columns: 1fr 10fr;
+            grid-template-columns: 1fr 9fr;
             grid-template-rows: auto;
             grid-template-areas:
-            "avatar text";
+                "avatar text";
             font-family: base.$primary-font-family;
 
             * {
@@ -37,9 +36,13 @@
 
             .avatar {
                 grid-area: avatar;
+                display: flex;
+                align-items: center;
 
-                img {
-                    border-radius: 50%;
+                figure {
+                    img {
+                        border-radius: 50%;
+                    }
                 }
             }
 
@@ -49,12 +52,20 @@
 
                 .title {
                     font-size: x-large;
-                    padding-bottom: .5rem;
+                    padding-bottom: .2rem;
                 }
 
                 .meta {
                     font-weight: lighter;
-                    font-size: medium;
+                    font-size: small;
+
+                    .author {
+                        font-size: medium;
+                    }
+
+                    time {
+                        font-style: italic;
+                    }
                 }
             }
         }
@@ -62,6 +73,38 @@
         .post-body {
             font-size: large;
             font-family: base.$secondary-font-family;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .blog {
+        grid-template-columns: 1fr 9fr;
+
+        .blog-post {
+            .post-header {
+                grid-template-columns: auto;
+                grid-template-areas:
+                    "text";
+
+                .avatar {
+                    display: none;
+                }
+
+                .text {
+                    .title {
+                        font-size: large;
+                    }
+
+                    .meta {
+                        font-size: smaller;
+
+                        .author {
+                            font-size: small;
+                        }
+                    }
+                }
+            }
         }
     }
 }

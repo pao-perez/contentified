@@ -4,6 +4,7 @@
 .home {
     width: 70%;
     margin: auto;
+    margin-top: 2rem;
 
     .blog-list {
         li {
@@ -51,11 +52,6 @@
                         color: gray;
                         font-size: medium;
                     }
-
-                    .tags {
-                        color: gray;
-                        font-size: small;
-                    }
                 }
             }
 
@@ -73,16 +69,10 @@
 
             .item-footer {
                 grid-area: item-footer;
-                display: flex;
 
                 figure {
                     margin-right: 0px;
                     margin-top: 0.5rem;
-
-                    .image {
-                        width: auto;
-                        min-height: 100%;
-                    }
                 }
             }
         }
@@ -91,6 +81,8 @@
 
 @media (max-width: 1024px) {
     .home {
+        margin-top: 5rem;
+
         .blog-list {
             .blog-item {
                 margin: 2rem 0rem;

@@ -28,7 +28,6 @@ const useBlogList = () => {
                   gatsbyImageData(
                     width: 300
                     aspectRatio: 1
-                    placeholder: BLURRED
                     transformOptions: {
                       fit: COVER
                     }

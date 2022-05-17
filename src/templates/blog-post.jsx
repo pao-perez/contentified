@@ -3,8 +3,8 @@ import React from 'react';
 import Image from '../components/image';
 import SEO from '../components/seo';
 import Share from '../components/share';
+import Tags from '../components/tags';
 import './blog-post.scss';
-
 
 const BlogPost = ({ data, location }) => {
   const { title, tags, author, date, avatar, thumbnail } = data.markdownRemark.frontmatter;
@@ -13,10 +13,8 @@ const BlogPost = ({ data, location }) => {
 
   return (
     <div className="blog">
-      <aside aria-label="Share on Social Media" className="share">
-        <section>
-          <Share title={title} url={url} twitterHandle={author} tags={tags} />
-        </section>
+      <aside aria-label="Share on Social Media">
+        <Share title={title} url={url} twitterHandle={author} tags={tags} />
       </aside>
 
       <article className="blog-post">
@@ -36,8 +34,8 @@ const BlogPost = ({ data, location }) => {
             <h1 className="title">{title}</h1>
             <h2 className="meta">
               <span>
-                by {author} on <time dateTime="true">{date}</time> in{' '}
-                {tags.join(', ')}
+                by <span className="author">{author}</span> on <time dateTime="true">{date}</time> in{" "}
+                <Tags tags={tags} />
               </span>
             </h2>
           </section>
@@ -64,7 +62,6 @@ export const query = graphql`
           childImageSharp {
             gatsbyImageData(
               aspectRatio: 1
-              placeholder: BLURRED
               transformOptions: {
                 fit: COVER
               }

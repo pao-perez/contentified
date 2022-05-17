@@ -1,6 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import PropTypes from 'prop-types';
+import React from 'react';
+import './image.scss';
 
 const Image = ({ image, alt, className }) => {
   const dynamicImage = getImage(image);
