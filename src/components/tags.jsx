@@ -5,16 +5,16 @@ import './tags.scss';
 const Tags = ({ tags }) => (
     <span>
         {tags.map((tag) => (
-            <>
+            <span key={tag}>
                 <span className="tag">
                     {tag}
                 </span>
                 <span>
                     {" "}
                 </span>
-            </>
+            </span>
         ))}
-    </span>
+    </span >
 );
 
 Tags.propTypes = {
