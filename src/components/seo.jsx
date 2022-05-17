@@ -1,8 +1,8 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import PropTypes from 'prop-types';
-
 import favicon from '../images/icon.png';
+
 
 const SEO = ({
   title,
@@ -53,6 +53,7 @@ SEO.defaultProps = {
   siteLang: `en`,
   siteCharSet: `utf-8`,
   siteViewport: `width=device-width, initial-scale=1, shrink-to-fit=no`,
+  siteIcon: `src/images/icon.png`,
   title: ``,
 };
 
@@ -62,7 +63,7 @@ SEO.propTypes = {
   url: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   author: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.string,
   siteTitle: PropTypes.string,
   siteLang: PropTypes.string,
   siteCharSet: PropTypes.string,

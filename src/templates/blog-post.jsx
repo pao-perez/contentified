@@ -7,7 +7,7 @@ import Tags from '../components/tags';
 import './blog-post.scss';
 
 const BlogPost = ({ data, location }) => {
-  const { title, tags, author, date, avatar, thumbnail } = data.markdownRemark.frontmatter;
+  const { title, tags, author, date, avatar } = data.markdownRemark.frontmatter;
   const { html, excerpt } = data.markdownRemark;
   const url = location.href;
 
@@ -24,7 +24,6 @@ const BlogPost = ({ data, location }) => {
           url={url}
           tags={tags}
           author={author}
-          icon={thumbnail?.fluid?.src}
         />
         <section className="post-header">
           <section className="avatar">
@@ -66,13 +65,6 @@ export const query = graphql`
                 fit: COVER
               }
             )
-          }
-        }
-        thumbnail {
-          childImageSharp {
-            fluid {
-              src
-            }
           }
         }
       }
