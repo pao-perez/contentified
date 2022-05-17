@@ -68,26 +68,6 @@ footer.layout-footer {
     font-size: large;
     font-weight: normal;
 
-    nav>ul {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-
-        li {
-            padding: 1rem;
-
-            a {
-                color: base.$whitesmoke;
-                padding: 2rem;
-            }
-
-            a:hover {
-                border-radius: 0.5rem;
-                background: rgba(200, 200, 200, 0.5);
-            }
-        }
-    }
-
     p {
         color: base.$whitesmoke;
     }
@@ -104,12 +84,6 @@ main.layout-main {
 
         .search {
             padding-bottom: 1rem;
-        }
-    }
-
-    footer.layout-footer {
-        nav>ul {
-            flex-direction: column;
         }
     }
 }

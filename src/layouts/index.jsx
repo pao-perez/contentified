@@ -1,11 +1,11 @@
 import { Link } from 'gatsby';
 import React from 'react';
-
-import SEO from '../components/seo';
 import Font from '../components/font';
 import SearchBar from '../components/search-bar';
+import SEO from '../components/seo';
 import useSiteMetadata from '../hooks/use-site-metadata';
 import './index.scss';
+
 
 const Layout = ({ children, location }) => {
   const {
@@ -45,25 +45,6 @@ const Layout = ({ children, location }) => {
         <main className="layout-main">{children}</main>
 
         <footer className="layout-footer">
-          <nav aria-label="Other Site Information">
-            <ul>
-              <li>
-                <a href="https://www.google.com/">Footer link</a>
-              </li>
-              <li>
-                <a href="https://www.google.com/">Footer link</a>
-              </li>
-              <li>
-                <a href="https://www.google.com/">Footer link</a>
-              </li>
-              <li>
-                <a href="https://www.google.com/">Footer link</a>
-              </li>
-              <li>
-                <a href="https://www.google.com/">Footer link</a>
-              </li>
-            </ul>
-          </nav>
           <p className="center">© 2021 Contentified | All Rights Reserved</p>
         </footer>
       </div>
