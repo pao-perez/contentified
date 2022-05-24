@@ -7,34 +7,36 @@ import './share.scss';
 
 
 
-const Share = ({ title, url, twitterHandle, tags }) => (
-  <section className="share">
-    <FacebookShareButton url={url}>
-      <FacebookIcon size={40} round />
-    </FacebookShareButton>
+const Share = ({ title, url, twitterHandle, tags, className }) => {
+  const classNames = ['share', className].join(' ');
+  return (
+    <section className={classNames}>
+      <FacebookShareButton url={url}>
+        <FacebookIcon size={40} round />
+      </FacebookShareButton>
 
-    <TwitterShareButton
-      url={url}
-      title={title}
-      via={twitterHandle}
-      hashtags={tags}
-    >
-      <TwitterIcon size={40} round />
-    </TwitterShareButton>
+      <TwitterShareButton
+        url={url}
+        title={title}
+        via={twitterHandle}
+        hashtags={tags}
+      >
+        <TwitterIcon size={40} round />
+      </TwitterShareButton>
 
-    <LinkedinShareButton url={url}>
-      <LinkedinIcon size={40} round />
-    </LinkedinShareButton>
+      <LinkedinShareButton url={url}>
+        <LinkedinIcon size={40} round />
+      </LinkedinShareButton>
 
-    <RedditShareButton url={url} title={title}>
-      <RedditIcon size={40} round />
-    </RedditShareButton>
+      <RedditShareButton url={url} title={title}>
+        <RedditIcon size={40} round />
+      </RedditShareButton>
 
-    <EmailShareButton url={url} subject={title}>
-      <EmailIcon size={40} round />
-    </EmailShareButton>
-  </section>
-);
+      <EmailShareButton url={url} subject={title}>
+        <EmailIcon size={40} round />
+      </EmailShareButton>
+    </section>);
+};
 
 Share.defaultProps = {
   title: ``,

@@ -17,6 +17,7 @@ header.layout-header,
 footer.layout-footer {
     font-family: base.$primary-font-family;
     background-color: base.$dark-charcoal;
+    z-index: 1;
 }
 
 header.layout-header {

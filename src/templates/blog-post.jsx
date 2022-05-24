@@ -14,7 +14,7 @@ const BlogPost = ({ data, location }) => {
   return (
     <div className="blog">
       <aside aria-label="Share on Social Media">
-        <Share title={title} url={url} twitterHandle={author} tags={tags} />
+        <Share title={title} url={url} twitterHandle={author} tags={tags} className="social-media" />
       </aside>
 
       <article className="blog-post">

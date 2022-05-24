@@ -9,11 +9,10 @@
     grid-template-areas:
         "share blog-post .";
 
-    .share {
+    .social-media {
         grid-area: share;
         position: fixed;
         left: 0.5rem;
-        z-index: -1;
         margin-top: 5rem;
     }
 
