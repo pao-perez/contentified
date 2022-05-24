@@ -1,10 +1,10 @@
-import React from 'react';
 import { Link } from 'gatsby';
+import React from 'react';
 import './404.scss';
 
 const NotFoundPage = () => (
   <article className="not-found">
-    <h1 className="title">Page Not Found</h1>
+    <h1>Page Not Found</h1>
     <p>
       Blimey! The page you requested does not exist <span>&#128531;</span>
     </p>
