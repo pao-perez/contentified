@@ -19,6 +19,14 @@ module.exports = {
     siteViewport: `width=device-width, initial-scale=1, shrink-to-fit=no`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-ZVMZTYVCJR", // Google Analytics / GA
+        ],
+      },
+    },
     `gatsby-plugin-sass`,
     `gatsby-plugin-layout`, // plugin will try to use Layout component located in src/layouts/index.js by default
     {
