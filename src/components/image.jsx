@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import './image.scss';
 
-const Image = ({ image, alt, className }) => {
+const Image = ({ image, alt = '', className = '' }) => {
   const dynamicImage = getImage(image);
   const classNames = ['image', className].join(' ');
 
@@ -14,11 +14,6 @@ const Image = ({ image, alt, className }) => {
       </figure>
     </>
   );
-};
-
-Image.defaultProps = {
-  alt: ``,
-  className: ``,
 };
 
 Image.propTypes = {

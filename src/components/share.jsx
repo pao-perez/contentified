@@ -1,13 +1,20 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {
-  EmailIcon, EmailShareButton, FacebookIcon, FacebookShareButton, LinkedinIcon, LinkedinShareButton, RedditIcon, RedditShareButton, TwitterIcon, TwitterShareButton
+  EmailIcon,
+  EmailShareButton,
+  FacebookIcon,
+  FacebookShareButton,
+  LinkedinIcon,
+  LinkedinShareButton,
+  RedditIcon,
+  RedditShareButton,
+  TwitterIcon,
+  TwitterShareButton
 } from 'react-share';
 import './share.scss';
 
-
-
-const Share = ({ title, url, twitterHandle, tags, className }) => {
+const Share = ({ title = '', url, twitterHandle = '', tags = [], className = '' }) => {
   const classNames = ['share', className].join(' ');
   return (
     <section className={classNames}>
@@ -36,12 +43,6 @@ const Share = ({ title, url, twitterHandle, tags, className }) => {
         <EmailIcon size={40} round />
       </EmailShareButton>
     </section>);
-};
-
-Share.defaultProps = {
-  title: ``,
-  twitterHandle: ``,
-  tags: [],
 };
 
 Share.propTypes = {

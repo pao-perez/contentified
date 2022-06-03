@@ -7,7 +7,6 @@ import ThemeToggle from '../components/theme-toggle';
 import useSiteMetadata from '../hooks/use-site-metadata';
 import './index.scss';
 
-
 const Layout = ({ children, location }) => {
   const {
     siteDescription,
@@ -40,8 +39,10 @@ const Layout = ({ children, location }) => {
           <Link to="/" style={{ textDecoration: 'none' }} className="center">
             <h1 className="brand center">{siteTitle}</h1>
           </Link>
-          <ThemeToggle />
-          <SearchBar isHidden={location.pathname !== '/'} />
+          <section id='header-actions'>
+            <ThemeToggle />
+            <SearchBar isHidden={location.pathname !== '/'} />
+          </section>
         </header>
 
         <main className="layout-main">{children}</main>
