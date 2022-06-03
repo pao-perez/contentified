@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-
-import { SearchContext } from '../providers/provider';
+import React, { useContext } from 'react';
+import { SearchContext } from '../providers/search';
 
 const SearchBar = ({ isHidden }) => {
   const { search, setSearch } = useContext(SearchContext);

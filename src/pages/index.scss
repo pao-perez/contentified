@@ -26,7 +26,7 @@
             .item-header {
                 grid-area: item-header;
                 overflow: hidden;
-                font-family: base.$primary-font-family;
+                font-family: base.$font-family-primary;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -59,7 +59,7 @@
                 grid-area: item-main;
                 overflow: hidden;
                 color: base.$dark-charcoal;
-                font-family: base.$secondary-font-family;
+                font-family: base.$font-family-secondary;
                 font-size: large;
 
                 p {

@@ -2,31 +2,29 @@
 
 $dark-charcoal: #333333;
 $whitesmoke: #F5F5F5;
-
 $roboto: 'Roboto', sans-serif;
 $roboto-slab: 'Roboto Slab', serif;
+$quicksand: 'Quicksand', sans-serif;
+$line-height-base: 1.7;
 
-$primary-font-family: $roboto-slab;
-$secondary-font-family: $roboto;
+$font-brand-name: $quicksand;
+$font-family-primary: $roboto-slab;
+$font-family-secondary: $roboto;
 
-$brand-name-font: 'Quicksand', sans-serif;
+$dark-background-primary: #1b1b1b;
+$dark-text-primary: #fff;
+$dark-background-secondary: #343434;
+$dark-text-secondary: #cdcdcd;
 
-.debug * {
-    border: 1px solid blue;
-}
-
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
+$light-background-primary: #fff;
+$light-text-primary: #1b1b1b;
+$light-background-secondary: #f9f9fb;
+$light-text-secondary: #4e4e4e;
 
 body {
     margin: 0px;
     background-color: $whitesmoke;
-    font-family: $secondary-font-family;
+    font-family: $font-family-secondary;
     font-weight: normal;
     font-size: medium;
     color: $dark-charcoal;
@@ -42,4 +40,20 @@ body {
 
 body * {
     padding: 0px;
+}
+
+.debug * {
+    border: 1px solid red;
+}
+
+.box {
+    padding: 2rem 1rem;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }

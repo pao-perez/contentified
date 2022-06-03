@@ -4,7 +4,7 @@ import { useFlexSearch } from 'react-use-flexsearch';
 import Image from '../components/image';
 import Tags from '../components/tags';
 import useBlogList from '../hooks/use-blog-list';
-import { SearchContext } from '../providers/provider';
+import { SearchContext } from '../providers/search';
 import unflattenNodes from '../utils/unflatten-nodes';
 import './index.scss';
 

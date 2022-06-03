@@ -3,6 +3,7 @@ import React from 'react';
 import Font from '../components/font';
 import SearchBar from '../components/search-bar';
 import SEO from '../components/seo';
+import ThemeToggle from '../components/theme-toggle';
 import useSiteMetadata from '../hooks/use-site-metadata';
 import './index.scss';
 
@@ -39,6 +40,7 @@ const Layout = ({ children, location }) => {
           <Link to="/" style={{ textDecoration: 'none' }} className="center">
             <h1 className="brand center">{siteTitle}</h1>
           </Link>
+          <ThemeToggle />
           <SearchBar isHidden={location.pathname !== '/'} />
         </header>
 
