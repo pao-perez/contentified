@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from '../providers/theme';
-import { default as Moon, default as Sun } from './icons/sun';
+import Sun from './icons/sun';
+import Moon from './icons/moon';
 import './theme-toggle.scss';
 
 const ThemeToggle = () => {
@@ -8,7 +9,7 @@ const ThemeToggle = () => {
 
     return (
         <button id='theme-toggle' onClick={toggleTheme}>
-            {isDarkMode ? <Sun color={theme.primary.text} /> : <Moon color={theme.primary.text} />}
+            {isDarkMode ? <Moon color={theme.primary.text}/> : <Sun color={theme.primary.text}/> }
         </button>
     );
 };

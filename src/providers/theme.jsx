@@ -34,10 +34,10 @@ export const ThemeContextProvider = ({ children }) => {
         <ThemeContext.Provider
             value={{
                 theme,
-                toggleTheme: () => {
-                    setTheme(isDarkMode ? themes.dark : themes.light);
-                },
                 isDarkMode,
+                toggleTheme: () => {
+                    setTheme(isDarkMode ? themes.light : themes.dark);
+                },
             }}
         >
             {children}
