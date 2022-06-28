@@ -8,7 +8,6 @@ import { SearchContext } from '../providers/search';
 import unflattenNodes from '../utils/unflatten-nodes';
 import './index.scss';
 
-
 const IndexPage = () => {
   const { search } = useContext(SearchContext);
   const { index, store, nodes } = useBlogList();
