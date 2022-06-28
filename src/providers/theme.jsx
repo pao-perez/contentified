@@ -3,23 +3,33 @@ import '../styles/_base.scss';
 
 const themes = {
     light: {
+        brand: {
+            font: '"Quicksand", sans-serif',
+        },
         primary: {
-            background: '#fff',
-            text: '#1b1b1b',
+            background: '#f5f5f5',
+            text: '#343434',
+            font: '"Roboto Slab", serif',
         },
         secondary: {
             background: '#f9f9fb',
-            text: '#4e4e4e',
+            text: '#1b1b1b',
+            font: '"Roboto", sans-serif',
         },
     },
     dark: {
+        brand: {
+            font: '"Quicksand", sans-serif',
+        },
         primary: {
-            background: '#1b1b1b',
-            text: '#fff',
+            background: '#343434',
+            text: '#f5f5f5',
+            font: '"Roboto Slab", serif',
         },
         secondary: {
-            background: '#343434',
-            text: '#cdcdcd',
+            background: '#1b1b1b',
+            text: '#f9f9fb',
+            font: '"Roboto", sans-serif',
         },
     },
 };
