@@ -52,22 +52,6 @@ const StyledHeader = styled(Header)`
         flex: 1 1 auto;
         display: flex;
         justify-content: flex-end;
-
-        form.search {
-            margin-left: 1rem;
-
-            input {
-                outline: none;
-                padding: 1rem;
-                border: none;
-                border-radius: .3rem;
-                color: black;
-                background-color: rgba(255, 255, 255, 0.8);
-                font-family: ${props => props.theme.primary.font};
-                font-weight: bolder;
-                font-size: large;
-            }
-        }
     }
 
     @media (max-width: 1024px) {
@@ -103,7 +87,7 @@ const StyledFooter = styled(Footer)`
 `;
 
 const Layout = ({ children, location }) => {
-  const { theme, toggleTheme, isDarkMode } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const {
     siteDescription,
     siteUrl,
@@ -137,7 +121,7 @@ const Layout = ({ children, location }) => {
           </Link>
           <section id='header-actions'>
             <ThemeToggle />
-            <SearchBar isHidden={location.pathname !== '/'} />
+            <SearchBar theme={theme} isHidden={location.pathname !== '/'} />
           </section>
         </StyledHeader>
 
