@@ -9,7 +9,7 @@ const ThemeToggle = () => {
 
     return (
         <button id='theme-toggle' onClick={toggleTheme}>
-            {isDarkMode ? <Moon color={theme.primary.text}/> : <Sun color={theme.primary.text}/> }
+            {isDarkMode ? <Sun color={theme.primary.text} /> : <Moon color={theme.primary.text} /> }
         </button>
     );
 };
