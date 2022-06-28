@@ -6,14 +6,13 @@ import SEO from '../components/seo';
 import ThemeToggle from '../components/theme-toggle';
 import useSiteMetadata from '../hooks/use-site-metadata';
 import styled from 'styled-components';
-import Wrapper from '../components/core/wrapper';
+import Div from '../components/core/div';
 import Header from '../components/core/header';
 import Main from '../components/core/main';
 import Footer from '../components/core/footer';
 import { ThemeContext } from '../providers/theme';
-import '../styles/_base.scss';
 
-const StyledWrapper = styled(Wrapper)`
+const StyledDiv = styled(Div)`
     height: 100vh;
     display: grid;
     grid-template-rows: 1fr 10fr 1fr;
@@ -66,6 +65,8 @@ const StyledHeader = styled(Header)`
 const StyledMain = styled(Main)`
     grid-area: main;
     margin-top: 7rem;
+    font-family: ${props => props.theme.secondary.font};
+    background-color: ${props => props.theme.secondary.background};
 `;
 
 const StyledFooter = styled(Footer)`
@@ -114,7 +115,7 @@ const Layout = ({ children, location }) => {
         siteViewport={siteViewport}
       />
       <Font />
-      <StyledWrapper>
+      <StyledDiv>
         <StyledHeader theme={theme}>
           <Link to='/' style={{ textDecoration: 'none' }} className='center'>
             <h1 id='brand' className='center'>{siteTitle}</h1>
@@ -125,12 +126,12 @@ const Layout = ({ children, location }) => {
           </section>
         </StyledHeader>
 
-        <StyledMain>{children}</StyledMain>
+        <StyledMain theme={theme}>{children}</StyledMain>
 
         <StyledFooter theme={theme}>
           <p className='center'>© 2022 Contentified | All Rights Reserved</p>
         </StyledFooter>
-      </StyledWrapper>
+      </StyledDiv>
     </>
   );
 };

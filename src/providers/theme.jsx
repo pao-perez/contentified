@@ -22,12 +22,12 @@ const themes = {
             font: '"Quicksand", sans-serif',
         },
         primary: {
-            background: '#343434',
+            background: '#1b1b1b',
             text: '#f5f5f5',
             font: '"Roboto Slab", serif',
         },
         secondary: {
-            background: '#1b1b1b',
+            background: '#343434',
             text: '#f9f9fb',
             font: '"Roboto", sans-serif',
         },
