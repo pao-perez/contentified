@@ -25,8 +25,8 @@ const StyledDiv = styled(Div)`
 
 const StyledHeader = styled(Header)`
     font-family: ${props => props.theme.primary.font};
+    color: ${props => props.theme.primary.text};
     background-color: ${props => props.theme.primary.background};
-    z-index: 1;
     position: fixed;
     width: 100%;
     z-index: 1;
@@ -63,25 +63,23 @@ const StyledMain = styled(Main)`
     grid-area: main;
     padding-top: 7rem;
     font-family: ${props => props.theme.secondary.font};
+    color: ${props => props.theme.secondary.text};
     background-color: ${props => props.theme.secondary.background};
 `;
 
 const StyledFooter = styled(Footer)`
     font-family: ${props => props.theme.primary.font};
+    color: ${props => props.theme.primary.text};
     background-color: ${props => props.theme.primary.background};
     z-index: 1;
+    padding: 3rem;
     grid-area: footer;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 3rem;
     font-size: large;
     font-weight: normal;
-
-    p {
-        color: ${props => props.theme.primary.text};
-    }
 `;
 
 const Layout = ({ children, location }) => {

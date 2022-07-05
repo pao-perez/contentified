@@ -1,5 +1,5 @@
-import { Link } from 'gatsby';
 import React, { useContext } from 'react';
+import { Link } from 'gatsby';
 import { useFlexSearch } from 'react-use-flexsearch';
 import styled from 'styled-components';
 import { ThemeContext } from '../providers/theme';
@@ -55,7 +55,7 @@ const StyledArticle = styled(Article)`
 const StyledHeader = styled(Header)`
     grid-area: item-header;
     overflow: hidden;
-    font-family: ${props => props.theme.secondary.font};
+    font-family: ${props => props.theme.primary.font};
     display: flex;
     flex-direction: column;
     justify-content: space-between;
