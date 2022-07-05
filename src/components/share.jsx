@@ -12,12 +12,17 @@ import {
   TwitterIcon,
   TwitterShareButton
 } from 'react-share';
-import './share.scss';
+import Section from '../components/core/section';
+import styled from 'styled-components';
 
-const Share = ({ title = '', url, twitterHandle = '', tags = [], className = '' }) => {
-  const classNames = ['share', className].join(' ');
+const StyledSection = styled(Section)`
+    display: flex;
+    flex-direction: column;
+`;
+
+const Share = ({ title = '', url, twitterHandle = '', tags = [] }) => {
   return (
-    <section className={classNames}>
+    <StyledSection>
       <FacebookShareButton url={url}>
         <FacebookIcon size={40} round />
       </FacebookShareButton>
@@ -42,7 +47,7 @@ const Share = ({ title = '', url, twitterHandle = '', tags = [], className = '' 
       <EmailShareButton url={url} subject={title}>
         <EmailIcon size={40} round />
       </EmailShareButton>
-    </section>);
+    </StyledSection>);
 };
 
 Share.propTypes = {

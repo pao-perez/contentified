@@ -1,17 +1,25 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import './tags.scss';
+import PropTypes from 'prop-types';
+import Span from '../components/core/span';
+import styled from 'styled-components';
 
-const Tags = ({ tags, className = '' }) => {
-    const classNames = ['tag', className].join(' ');
+const StyledSpan = styled(Span)`
+    background-color: ${props => props.theme.primary.background};
+    border-radius: 0.2rem;
+    max-width: fit-content;
+    font-size: small;
+    color: ${props => props.theme.primary.text};
+`;
+
+const Tags = ({ tags, theme }) => {
 
     return (
         <span>
             {tags.map((tag) => (
                 <span key={tag}>
-                    <span className={classNames}>
+                    <StyledSpan theme={theme}>
                         {tag}
-                    </span>
+                    </StyledSpan>
                     <span>
                         {" "}
                     </span>
@@ -23,6 +31,7 @@ const Tags = ({ tags, className = '' }) => {
 
 Tags.propTypes = {
     tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    theme: PropTypes.shape({}).isRequired,
 };
 
 export default Tags;
