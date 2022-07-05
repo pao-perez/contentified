@@ -11,23 +11,20 @@ const StyledSpan = styled(Span)`
     color: ${props => props.theme.primary.text};
 `;
 
-const Tags = ({ tags, theme }) => {
-
-    return (
-        <span>
-            {tags.map((tag) => (
-                <span key={tag}>
-                    <StyledSpan theme={theme}>
-                        {tag}
-                    </StyledSpan>
-                    <span>
-                        {" "}
-                    </span>
+const Tags = ({ tags, theme }) => (
+    <span>
+        {tags.map((tag) => (
+            <span key={tag}>
+                <StyledSpan theme={theme}>
+                    {tag}
+                </StyledSpan>
+                <span>
+                    {" "}
                 </span>
-            ))}
-        </span >
-    );
-};
+            </span>
+        ))}
+    </span >
+);
 
 Tags.propTypes = {
     tags: PropTypes.arrayOf(PropTypes.string).isRequired,
