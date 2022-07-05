@@ -61,7 +61,7 @@ const StyledHeader = styled(Header)`
     justify-content: space-between;
 
     .title {
-      color: ${props => props.theme.secondary.text};
+      color: ${props => props.theme.primary.text};
       font-size: larger;
       margin-top: 0.5rem;
     }
@@ -73,12 +73,12 @@ const StyledHeader = styled(Header)`
       font-weight: normal;
 
       .author {
-        color: ${props => props.theme.secondary.text};
+        color: ${props => props.theme.primary.text};
         font-size: medium;
       }
 
       .date {
-        color: gray;
+        color: ${props => props.theme.secondary.text};
         font-size: medium;
       }
     }
@@ -134,7 +134,7 @@ const IndexPage = () => {
   const blogList = search.trim() === '' ? nodes : searchResultsNodes;
 
   return (
-    <StyledDiv className="home">
+    <StyledDiv>
       <StyledSection>
         <ul>
           {blogList.map((node) => (
@@ -148,7 +148,7 @@ const IndexPage = () => {
                       <span className="date">
                         <time dateTime="true">{node.frontmatter.date}</time>
                       </span>
-                      <Tags tags={node.frontmatter.tags} />
+                      <Tags tags={node.frontmatter.tags} theme={theme} />
                     </h2>
                   </StyledHeader>
                   <StyledMain theme={theme}>

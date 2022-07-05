@@ -22,13 +22,13 @@ const themes = {
             font: '"Quicksand", sans-serif',
         },
         primary: {
-            background: '#1b1b1b',
-            text: '#f5f5f5',
+            background: '#303134',
+            text: '#f9f9fb',
             font: '"Roboto Slab", serif',
         },
         secondary: {
-            background: '#343434',
-            text: '#f9f9fb',
+            background: '#202124',
+            text: '#969ba1',
             font: '"Roboto", sans-serif',
         },
     },
