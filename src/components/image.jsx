@@ -1,25 +1,27 @@
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import PropTypes from 'prop-types';
 import React from 'react';
-import './image.scss';
+import PropTypes from 'prop-types';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import Figure from '../components/core/figure';
+import styled from 'styled-components';
 
-const Image = ({ image, alt = '', className = '' }) => {
+const StyledFigure = styled(Figure)`
+  width: auto;
+  min-height: 100%;
+`;
+
+const Image = ({ image, alt = ''}) => {
   const dynamicImage = getImage(image);
-  const classNames = ['image', className].join(' ');
 
   return (
-    <>
-      <figure>
-        <GatsbyImage image={dynamicImage} alt={alt} className={classNames} />
-      </figure>
-    </>
+    <StyledFigure>
+      <GatsbyImage image={dynamicImage} alt={alt}/>
+    </StyledFigure>
   );
 };
 
 Image.propTypes = {
   image: PropTypes.shape({}).isRequired,
   alt: PropTypes.string,
-  className: PropTypes.string,
 };
 
 export default Image;
