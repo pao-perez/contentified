@@ -8,12 +8,12 @@ const themes = {
         },
         primary: {
             background: '#f5f5f5',
-            text: '#343434',
+            text: '#303134',
             font: '"Roboto Slab", serif',
         },
         secondary: {
             background: '#f9f9fb',
-            text: '#1b1b1b',
+            text: '#202124',
             font: '"Roboto", sans-serif',
         },
     },
@@ -23,7 +23,7 @@ const themes = {
         },
         primary: {
             background: '#303134',
-            text: '#f9f9fb',
+            text: '#f5f5f5',
             font: '"Roboto Slab", serif',
         },
         secondary: {
