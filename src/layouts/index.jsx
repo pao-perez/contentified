@@ -55,16 +55,13 @@ const StyledHeader = styled(Header)`
 
     @media (max-width: 1024px) {
         flex-direction: column;
-
-        .search {
-            padding-bottom: 1rem;
-        }
+        padding-bottom: 1rem;
     }
 `;
 
 const StyledMain = styled(Main)`
     grid-area: main;
-    margin-top: 7rem;
+    padding-top: 7rem;
     font-family: ${props => props.theme.secondary.font};
     background-color: ${props => props.theme.secondary.background};
 `;
