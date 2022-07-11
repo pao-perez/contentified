@@ -38,7 +38,7 @@ export const ThemeContext = React.createContext();
 
 export const ThemeContextProvider = ({ children }) => {
     const [theme, setTheme] = useState(themes.dark);
-    const isDarkMode = useMemo(() => theme === themes.dark);
+    const isDarkMode = useMemo(() => theme === themes.dark, [theme]);
 
     return (
         <ThemeContext.Provider
