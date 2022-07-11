@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'gatsby';
 import Font from '../components/font';
-import SearchBar from '../components/search-bar';
+import SearchAction from '../components/search-action';
 import SEO from '../components/seo';
 import ThemeToggle from '../components/theme-toggle';
 import useSiteMetadata from '../hooks/use-site-metadata';
@@ -117,7 +117,7 @@ const Layout = ({ children, location }) => {
           </Link>
           <section id='header-actions'>
             <ThemeToggle />
-            <SearchBar theme={theme} isHidden={location.pathname !== '/'} />
+            <SearchAction theme={theme} isHidden={location.pathname !== '/'} />
           </section>
         </StyledHeader>
 

@@ -9,6 +9,7 @@ const StyledButton = styled(Button)`
     background: none;
     border: none;
     cursor: pointer;
+    margin-right: 1rem;
 `;
 
 const ThemeToggle = () => {
