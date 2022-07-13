@@ -8,18 +8,20 @@ import Article from './core/article';
 import Image from './image';
 import Tags from './tags';
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
 const StyledArticle = styled(Article)`
     padding: 1rem;
     box-shadow: .1rem .1rem 1rem ${props => props.theme.secondary.text};
     height: fit-content;
     background-color: ${props => props.theme.primary.background};
     display: grid;
-    gap: 1rem;
     grid-template-areas:
       "item-header item-footer";
 
     @media (max-width: 1024px) {
-      margin: 2rem 0rem;
       grid-template-areas:
         "item-header"
         "item-footer";
@@ -70,7 +72,7 @@ const StyledFooter = styled(Footer)`
     grid-area: item-footer;
 
     figure {
-      margin-right: 0px;
+      margin-right: 0rem;
       margin-top: 0.5rem;
     }
 
@@ -84,31 +86,31 @@ const StyledFooter = styled(Footer)`
 `;
 
 const BlogItem = ({ theme, node }) => {
-    const { frontmatter, fields } = node;
-    const { title, author, date, tags, thumbnail} = frontmatter;
+  const { frontmatter, fields } = node;
+  const { title, author, date, tags, thumbnail } = frontmatter;
 
-    return (
-        <Link to={fields.slug}>
-            <StyledArticle theme={theme}>
-                <StyledHeader theme={theme}>
-                    <h1 className="title">{title}</h1>
-                    <h2 className="meta">
-                        <span className="author">{author}</span>
-                        <span className="date">
-                            <time dateTime="true">{date}</time>
-                        </span>
-                        <Tags tags={tags} theme={theme} />
-                    </h2>
-                </StyledHeader>
-                <StyledFooter>
-                    <Image
-                        image={thumbnail}
-                        alt="Featured Image Thumbnail"
-                    />
-                </StyledFooter>
-            </StyledArticle>
-        </Link>
-    );
+  return (
+    <StyledLink to={fields.slug}>
+      <StyledArticle theme={theme}>
+        <StyledHeader theme={theme}>
+          <h1 className="title">{title}</h1>
+          <h2 className="meta">
+            <span className="author">{author}</span>
+            <span className="date">
+              <time dateTime="true">{date}</time>
+            </span>
+            <Tags tags={tags} theme={theme} />
+          </h2>
+        </StyledHeader>
+        <StyledFooter>
+          <Image
+            image={thumbnail}
+            alt="Featured Image Thumbnail"
+          />
+        </StyledFooter>
+      </StyledArticle>
+    </StyledLink>
+  );
 };
 
 BlogItem.propTypes = {

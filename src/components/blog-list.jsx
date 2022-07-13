@@ -6,8 +6,12 @@ import BlogItem from './blog-item';
 
 const StyledUnorderedList = styled(UnorderedList)`
     display: grid;
-    grid-gap: 4rem;
+    grid-gap: 5rem;
     grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+
+    @media (max-width: 1024px) {
+        grid-template-columns: 1fr;
+    }
 `;
 
 const BlogList = ({ theme, nodes }) => (

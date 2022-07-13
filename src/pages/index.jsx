@@ -18,8 +18,8 @@ const StyledContainer = styled(Section)`
 `;
 
 const StyledHeroSection = styled(Section)`
-  height: 50vh;
   margin-top: 5rem;
+  margin-bottom: 5rem;
 `;
 
 const StyledDivWithNoResults = styled(Div)`
