@@ -103,6 +103,7 @@ module.exports = {
                       )
                     }
                   }
+                  featured
                 }
               }
             }
@@ -116,7 +117,7 @@ module.exports = {
         // List of keys to index. The values of the keys are taken from the
         // normalizer function below.
         // Default: all fields
-        index: ['title', 'tags', 'excerpt'],
+        index: ['title', 'tags',],
 
         // List of keys to store and make available in your UI. The values of
         // the keys are taken from the normalizer function below.
@@ -130,6 +131,7 @@ module.exports = {
           'author',
           'date',
           'thumbnail',
+          'featured',
         ],
 
         // Function used to map the result from the GraphQL query. This should
@@ -146,6 +148,7 @@ module.exports = {
             author: node.frontmatter.author,
             date: node.frontmatter.date,
             thumbnail: node.frontmatter.thumbnail,
+            featured: node.frontmatter.featured,
           })),
       },
     },

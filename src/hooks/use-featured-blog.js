@@ -1,17 +1,13 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-const useBlogList = () => {
-  const { localSearchPages, allMarkdownRemark } = useStaticQuery(
-    graphql`
+const useFeaturedBlog = () => {
+    const { allMarkdownRemark } = useStaticQuery(
+        graphql`
       query {
-        localSearchPages {
-          index
-          store
-        }
         allMarkdownRemark(
-          limit: 10
+          limit: 1
           sort: { fields: [frontmatter___date], order: DESC }
-          filter: {frontmatter: {featured: {ne: true}}}
+          filter: {frontmatter: {featured: {eq: true}}}
         ) {
           nodes {
             id
@@ -41,12 +37,10 @@ const useBlogList = () => {
         }
       }
     `
-  );
-  return {
-    index: localSearchPages.index,
-    store: localSearchPages.store,
-    nodes: allMarkdownRemark.nodes,
-  };
+    );
+    return {
+        featured: allMarkdownRemark.nodes[0] ?? undefined,
+    };
 };
 
-export default useBlogList;
+export default useFeaturedBlog;

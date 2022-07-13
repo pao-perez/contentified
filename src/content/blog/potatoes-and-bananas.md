@@ -5,6 +5,7 @@ tags: ["tutorial", "how to"]
 avatar: ../../images/avatar.png
 author: "Pao Pogi"
 thumbnail: "../../images/featured/900x450.jpeg"
+featured: false
 ---
 ![Featured Image](../../images/featured/900x450.jpeg)
 

@@ -5,8 +5,8 @@ import Figure from '../components/core/figure';
 import styled from 'styled-components';
 
 const StyledFigure = styled(Figure)`
-  width: auto;
-  min-height: 100%;
+  max-width: 100%;
+  height: auto;
 `;
 
 const Image = ({ image, alt = ''}) => {

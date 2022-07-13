@@ -1,19 +1,20 @@
 import React, { useContext, useMemo } from 'react';
-import { Link } from 'gatsby';
 import { useFlexSearch } from 'react-use-flexsearch';
 import styled from 'styled-components';
 import { ThemeContext } from '../providers/theme';
 import Div from '../components/core/div';
-import Header from '../components/core/header';
-import Main from '../components/core/main';
-import Footer from '../components/core/footer';
+import Section from '../components/core/section';
 import UnorderedList from '../components/core/unordered-list';
-import Article from '../components/core/article';
-import Image from '../components/image';
-import Tags from '../components/tags';
+import useFeaturedBlog from '../hooks/use-featured-blog';
 import useBlogList from '../hooks/use-blog-list';
 import { SearchContext } from '../providers/search';
 import unflattenNodes from '../utils/unflatten-nodes';
+import BlogItem from '../components/blog-item';
+
+const StyledHeroSection = styled(Section)`
+  height: 50vh;
+  margin-top: 5rem;
+`;
 
 const StyledDivWithNoResults = styled(Div)`
   p {
@@ -25,111 +26,13 @@ const StyledDivWithNoResults = styled(Div)`
 const StyledDivWithResults = styled(Div)`
     width: 70%;
     margin: auto;
-    margin-top: 2rem;
-
-    @media (max-width: 1024px) {
-        margin-top: 5rem;
-    }
+    margin-bottom: 5rem;
 `;
 
 const StyledUnorderedList = styled(UnorderedList)`
-    li {
-        border-bottom: 0.1rem solid lightgray;
-    }
-
-    li:last-child {
-        border-bottom: none;
-    }
-`;
-
-const StyledArticle = styled(Article)`
     display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-      "item-header item-main item-footer";
-    
-    @media (max-width: 1024px) {
-      margin: 2rem 0rem;
-      grid-template-columns: auto;
-      grid-template-areas:
-        "item-header"
-        "item-footer";
-    }
-`;
-
-const StyledHeader = styled(Header)`
-    grid-area: item-header;
-    overflow: hidden;
-    font-family: ${props => props.theme.primary.font};
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    .title {
-      color: ${props => props.theme.primary.text};
-      font-size: larger;
-      margin-top: 0.5rem;
-    }
-
-    .meta {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: nowrap;
-      font-weight: normal;
-
-      .author {
-        color: ${props => props.theme.primary.text};
-        font-size: medium;
-      }
-
-      .date {
-        color: ${props => props.theme.secondary.text};
-        font-size: medium;
-      }
-    }
-
-    @media (max-width: 1024px) {
-      .title,
-      .meta {
-        text-align: center;
-        margin: 0.2rem;
-      }
-    }
-`;
-
-const StyledMain = styled(Main)`
-    grid-area: item-main;
-    overflow: hidden;
-    color: ${props => props.theme.secondary.text};
-    font-family: ${props => props.theme.secondary.font};
-    font-size: large;
-
-    p {
-      margin-top: 0.5rem;
-    }
-
-    @media (max-width: 1024px) {
-        display: none;
-    }
-`;
-
-const StyledFooter = styled(Footer)`
-    grid-area: item-footer;
-
-    figure {
-      margin-right: 0px;
-      margin-top: 0.5rem;
-    }
-
-    @media (max-width: 1024px) {
-        display: flex;
-
-        figure {
-          margin: auto;
-        }
-    }
+    grid-gap: 4rem;
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
 `;
 
 const IndexPage = () => {
@@ -139,9 +42,10 @@ const IndexPage = () => {
   const searchResults = useFlexSearch(search, index, store);
   const searchResultsNodes = useMemo(() => unflattenNodes(searchResults), [searchResults]);
   const blogList = useMemo(() => hasNoSearchTerm ? nodes : searchResultsNodes, [hasNoSearchTerm, nodes, searchResultsNodes]);
-  const hasNoResults = useMemo(() => !hasNoSearchTerm && !searchResults.length, [hasNoSearchTerm, searchResults]);
+  const hasNoSearchResults = useMemo(() => !hasNoSearchTerm && !searchResults.length, [hasNoSearchTerm, searchResults]);
+  const { featured } = useFeaturedBlog();
 
-  if (hasNoResults) {
+  if (hasNoSearchResults) {
     return (
       <StyledDivWithNoResults theme={theme} className="center">
         <p>No Search Results Found!</p>
@@ -152,32 +56,13 @@ const IndexPage = () => {
   return (
     <StyledDivWithResults>
       <section>
+        <StyledHeroSection>
+          <BlogItem node={featured} theme={theme} />
+        </StyledHeroSection>
         <StyledUnorderedList>
           {blogList.map((node) => (
-            <li key={node.id}>
-              <Link to={node.fields.slug}>
-                <StyledArticle>
-                  <StyledHeader theme={theme}>
-                    <h1 className="title">{node.frontmatter.title}</h1>
-                    <h2 className="meta">
-                      <span className="author">{node.frontmatter.author}</span>
-                      <span className="date">
-                        <time dateTime="true">{node.frontmatter.date}</time>
-                      </span>
-                      <Tags tags={node.frontmatter.tags} theme={theme} />
-                    </h2>
-                  </StyledHeader>
-                  <StyledMain theme={theme}>
-                    <p>{node.excerpt}</p>
-                  </StyledMain>
-                  <StyledFooter>
-                    <Image
-                      image={node.frontmatter.thumbnail}
-                      alt="Featured Image Thumbnail"
-                    />
-                  </StyledFooter>
-                </StyledArticle>
-              </Link>
+            <li key={node.id} theme={theme}>
+              <BlogItem node={node} theme={theme} />
             </li>
           ))}
         </StyledUnorderedList>
