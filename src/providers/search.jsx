@@ -5,7 +5,7 @@ export const SearchContext = React.createContext();
 export const SearchContextProvider = ({ children }) => {
     const [search, setSearch] = useState('');
     const [isSearchModeOn, setSearchModeOn] = useState(false);
-    const hasNoSearchTerm = useMemo(() => search.trim() === '', [search]);
+    const hasSearchTerm = useMemo(() => search.trim() !== '', [search]);
 
     return (
         <SearchContext.Provider
@@ -16,7 +16,7 @@ export const SearchContextProvider = ({ children }) => {
                 toggleSearch: () => {
                     setSearchModeOn(isSearchModeOn ? false : true);
                 },
-                hasNoSearchTerm,
+                hasSearchTerm,
             }}
         >
             {children}

@@ -1,4 +1,5 @@
 import React, { useContext, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import Header from './core/header';
@@ -108,6 +109,11 @@ const BlogItem = ({ theme, node }) => {
             </StyledArticle>
         </Link>
     );
+};
+
+BlogItem.propTypes = {
+  theme: PropTypes.shape({}).isRequired,
+  node: PropTypes.shape({}).isRequired,
 };
 
 export default BlogItem;
