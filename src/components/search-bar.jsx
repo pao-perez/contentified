@@ -16,21 +16,23 @@ const StyledSearchBar = styled.form`
   }
 `;
 
-const SearchBar = ({ theme, search, setSearch }) => (
+const SearchBar = ({ theme, search, setSearch, toggleSearch }) => (
   <StyledSearchBar theme={theme} className="center" role="search" aria-label="Search Site">
     <input
       type="search"
       placeholder="Search Articles..."
       value={search}
       onChange={(event) => setSearch(event.target.value)}
+      onBlur={toggleSearch}
     />
-    </StyledSearchBar>
+  </StyledSearchBar>
 );
 
 SearchBar.propTypes = {
   theme: PropTypes.object.isRequired,
   search: PropTypes.string.isRequired,
   setSearch: PropTypes.func.isRequired,
+  toggleSearch: PropTypes.func.isRequired,
 };
 
 export default SearchBar;

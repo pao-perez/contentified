@@ -11,7 +11,7 @@ const SearchAction = ({ theme, isHidden }) => {
         return null;
     }
 
-    return isSearchModeOn ? <SearchBar theme={theme} search={search} setSearch={setSearch} /> : <SearchToggle theme={theme} toggleSearch={toggleSearch} />
+    return isSearchModeOn ? <SearchBar theme={theme} search={search} setSearch={setSearch} toggleSearch={toggleSearch} /> : <SearchToggle theme={theme} toggleSearch={toggleSearch} />
 };
 
 SearchAction.propTypes = {
