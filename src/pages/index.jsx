@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { Link } from 'gatsby';
 import { useFlexSearch } from 'react-use-flexsearch';
 import styled from 'styled-components';
@@ -7,7 +7,7 @@ import Div from '../components/core/div';
 import Header from '../components/core/header';
 import Main from '../components/core/main';
 import Footer from '../components/core/footer';
-import Section from '../components/core/section';
+import UnorderedList from '../components/core/unordered-list';
 import Article from '../components/core/article';
 import Image from '../components/image';
 import Tags from '../components/tags';
@@ -15,7 +15,14 @@ import useBlogList from '../hooks/use-blog-list';
 import { SearchContext } from '../providers/search';
 import unflattenNodes from '../utils/unflatten-nodes';
 
-const StyledDiv = styled(Div)`
+const StyledDivWithNoResults = styled(Div)`
+  p {
+    color: ${props => props.theme.primary.text};
+    font-size: larger;
+  }
+`;
+
+const StyledDivWithResults = styled(Div)`
     width: 70%;
     margin: auto;
     margin-top: 2rem;
@@ -25,7 +32,7 @@ const StyledDiv = styled(Div)`
     }
 `;
 
-const StyledSection = styled(Section)`
+const StyledUnorderedList = styled(UnorderedList)`
     li {
         border-bottom: 0.1rem solid lightgray;
     }
@@ -127,16 +134,25 @@ const StyledFooter = styled(Footer)`
 
 const IndexPage = () => {
   const { theme } = useContext(ThemeContext);
-  const { search } = useContext(SearchContext);
+  const { search, hasNoSearchTerm } = useContext(SearchContext);
   const { index, store, nodes } = useBlogList();
   const searchResults = useFlexSearch(search, index, store);
-  const searchResultsNodes = unflattenNodes(searchResults);
-  const blogList = search.trim() === '' ? nodes : searchResultsNodes;
+  const searchResultsNodes = useMemo(() => unflattenNodes(searchResults), [searchResults]);
+  const blogList = useMemo(() => hasNoSearchTerm ? nodes : searchResultsNodes, [hasNoSearchTerm, nodes, searchResultsNodes]);
+  const hasNoResults = useMemo(() => !hasNoSearchTerm && !searchResults.length, [hasNoSearchTerm, searchResults]);
+
+  if (hasNoResults) {
+    return (
+      <StyledDivWithNoResults theme={theme} className="center">
+        <p>No Search Results Found!</p>
+      </StyledDivWithNoResults>
+    )
+  }
 
   return (
-    <StyledDiv>
-      <StyledSection>
-        <ul>
+    <StyledDivWithResults>
+      <section>
+        <StyledUnorderedList>
           {blogList.map((node) => (
             <li key={node.id}>
               <Link to={node.fields.slug}>
@@ -164,9 +180,9 @@ const IndexPage = () => {
               </Link>
             </li>
           ))}
-        </ul>
-      </StyledSection>
-    </StyledDiv>
+        </StyledUnorderedList>
+      </section>
+    </StyledDivWithResults>
   );
 };
 
