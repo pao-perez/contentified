@@ -14,7 +14,7 @@ const StyledLink = styled(Link)`
 
 const StyledArticle = styled(Article)`
     padding: 1rem;
-    box-shadow: .1rem .1rem 1rem ${props => props.theme.secondary.text};
+    box-shadow: .1rem .1rem .5rem ${props => props.theme.secondary.text};
     height: fit-content;
     background-color: ${props => props.theme.primary.background};
     display: grid;
